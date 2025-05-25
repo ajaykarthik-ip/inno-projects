@@ -10,10 +10,12 @@ interface AdminProjectFormProps {
 
 const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) => {
   const [formData, setFormData] = useState({
-    title: '',
+    name: '',
     description: '',
     price: '',
+    youtubeUrl: '',
     category: '',
+    programmingLanguage: '',
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -26,27 +28,27 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
     'Artificial Intelligence',
     'Web Development',
     'Mobile Development',
-    'Java',
-    'Python',
     'Embedded',
     'Blockchain',
     'Mechanical'
   ];
 
-  // Default image URLs to use based on category
-  const categoryImages: Record<string, string> = {
-    'Machine Learning': '/images/ml-default.jpg',
-    'IoT': '/images/iot-default.jpg',
-    'Artificial Intelligence': '/images/ai-default.jpg',
-    'Web Development': '/images/web-default.jpg',
-    'Mobile Development': '/images/mobile-default.jpg',
-    'Java': '/images/java-default.jpg',
-    'Python': '/images/python-default.jpg',
-    'Embedded': '/images/embedded-default.jpg',
-    'Blockchain': '/images/blockchain-default.jpg',
-    'Mechanical': '/images/mechanical-default.jpg',
-    'default': '/images/project-default.jpg'
-  };
+  const programmingLanguages = [
+    'JavaScript',
+    'TypeScript',
+    'Python',
+    'Java',
+    'C++',
+    'C#',
+    'PHP',
+    'Go',
+    'Ruby',
+    'Swift',
+    'Kotlin',
+    'Rust',
+    'Dart',
+    'Other'
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -93,8 +95,8 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
     
-    if (!formData.title.trim()) {
-      newErrors.title = 'Title is required';
+    if (!formData.name.trim()) {
+      newErrors.name = 'Project name is required';
     }
     
     if (!formData.description.trim()) {
@@ -105,12 +107,26 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
       newErrors.price = 'Price is required';
     }
     
+    if (formData.youtubeUrl && !isValidYoutubeUrl(formData.youtubeUrl)) {
+      newErrors.youtubeUrl = 'Please enter a valid YouTube URL';
+    }
+    
     if (!formData.category) {
       newErrors.category = 'Category is required';
     }
     
+    if (!formData.programmingLanguage) {
+      newErrors.programmingLanguage = 'Programming language is required';
+    }
+    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+  };
+
+  // Helper to validate YouTube URL
+  const isValidYoutubeUrl = (url: string) => {
+    const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+/;
+    return youtubeRegex.test(url);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -121,13 +137,14 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
       setSubmitError(null);
       
       try {
-        // Determine which image to use based on the selected category
-        const imageUrl = categoryImages[formData.category] || categoryImages.default;
-        
-        // Prepare the data including the default image
+        // Prepare the data for submission
         const projectData = {
-          ...formData,
-          image: imageUrl
+          name: formData.name,
+          description: formData.description,
+          price: formData.price,
+          youtubeUrl: formData.youtubeUrl || null,
+          category: formData.category,
+          programmingLanguage: formData.programmingLanguage
         };
         
         const response = await fetch('/api/projects', {
@@ -145,10 +162,12 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
         
         // Reset form after successful submission
         setFormData({
-          title: '',
+          name: '',
           description: '',
           price: '',
+          youtubeUrl: '',
           category: '',
+          programmingLanguage: '',
         });
         
         // Notify parent that a project was added
@@ -182,18 +201,18 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
       
       <form className="admin-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="title">Project Title</label>
+          <label htmlFor="name">Project Name</label>
           <input
             type="text"
-            id="title"
-            name="title"
-            value={formData.title}
+            id="name"
+            name="name"
+            value={formData.name}
             onChange={handleChange}
-            placeholder="Enter project title"
-            className={errors.title ? 'error' : ''}
+            placeholder="Enter project name"
+            className={errors.name ? 'error' : ''}
             disabled={isSubmitting}
           />
-          {errors.title && <span className="error-message">{errors.title}</span>}
+          {errors.name && <span className="error-message">{errors.name}</span>}
         </div>
         
         <div className="form-group">
@@ -230,6 +249,24 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
         </div>
         
         <div className="form-group">
+          <label htmlFor="youtubeUrl">YouTube Demo URL</label>
+          <input
+            type="text"
+            id="youtubeUrl"
+            name="youtubeUrl"
+            value={formData.youtubeUrl}
+            onChange={handleChange}
+            placeholder="https://www.youtube.com/watch?v=..."
+            className={errors.youtubeUrl ? 'error' : ''}
+            disabled={isSubmitting}
+          />
+          <p className="form-help-text">
+            Paste a YouTube link to your project demo (optional)
+          </p>
+          {errors.youtubeUrl && <span className="error-message">{errors.youtubeUrl}</span>}
+        </div>
+        
+        <div className="form-group">
           <label htmlFor="category">Category</label>
           <select
             id="category"
@@ -247,6 +284,26 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
             ))}
           </select>
           {errors.category && <span className="error-message">{errors.category}</span>}
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="programmingLanguage">Programming Language</label>
+          <select
+            id="programmingLanguage"
+            name="programmingLanguage"
+            value={formData.programmingLanguage}
+            onChange={handleChange}
+            className={errors.programmingLanguage ? 'error' : ''}
+            disabled={isSubmitting}
+          >
+            <option value="">Select a programming language</option>
+            {programmingLanguages.map((language) => (
+              <option key={language} value={language}>
+                {language}
+              </option>
+            ))}
+          </select>
+          {errors.programmingLanguage && <span className="error-message">{errors.programmingLanguage}</span>}
         </div>
         
         <div className="form-actions">
@@ -280,10 +337,12 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
             className="admin-form-reset"
             onClick={() => {
               setFormData({
-                title: '',
+                name: '',
                 description: '',
                 price: '',
+                youtubeUrl: '',
                 category: '',
+                programmingLanguage: '',
               });
               setErrors({});
               setSubmitError(null);

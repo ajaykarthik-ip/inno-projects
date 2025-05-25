@@ -5,25 +5,34 @@ import { query } from '@/lib/db';
 // GET /api/projects - Get all projects
 export async function GET(request: NextRequest) {
   try {
-    // Check for category filter
+    // Check for filters
     const url = new URL(request.url);
     const category = url.searchParams.get('category');
+    const programmingLanguage = url.searchParams.get('programmingLanguage');
     const search = url.searchParams.get('search');
     
     let sql = 'SELECT * FROM projects';
     const params: any[] = [];
+    let paramIndex = 1;
+    let whereAdded = false;
     
     // Add WHERE clauses if filters exist
     if (category && category !== 'all') {
-      sql += ' WHERE category = $1';
+      sql += ' WHERE category = $' + paramIndex++;
       params.push(category);
-      
-      if (search) {
-        sql += ' AND (title ILIKE $2 OR description ILIKE $2)';
-        params.push(`%${search}%`);
-      }
-    } else if (search) {
-      sql += ' WHERE title ILIKE $1 OR description ILIKE $1';
+      whereAdded = true;
+    }
+    
+    if (programmingLanguage && programmingLanguage !== 'all') {
+      sql += whereAdded ? ' AND' : ' WHERE';
+      sql += ' programming_language = $' + paramIndex++;
+      params.push(programmingLanguage);
+      whereAdded = true;
+    }
+    
+    if (search) {
+      sql += whereAdded ? ' AND' : ' WHERE';
+      sql += ' (name ILIKE $' + paramIndex + ' OR description ILIKE $' + paramIndex + ')';
       params.push(`%${search}%`);
     }
     
@@ -49,7 +58,7 @@ export async function POST(request: NextRequest) {
     console.log('Received project data:', body);
     
     // Validate required fields
-    const requiredFields = ['title', 'description', 'price', 'category', 'image'];
+    const requiredFields = ['name', 'description', 'price', 'category', 'programmingLanguage'];
     for (const field of requiredFields) {
       if (!body[field]) {
         console.error(`Missing required field: ${field}`);
@@ -60,23 +69,29 @@ export async function POST(request: NextRequest) {
       }
     }
     
-    // Use default image if not provided (additional safety)
-    if (!body.image) {
-      body.image = '/images/project-default.jpg';
-    }
-    
     console.log('Inserting project with data:', {
-      title: body.title,
+      name: body.name,
       description: body.description,
       price: body.price,
+      youtubeUrl: body.youtubeUrl || null, // Optional field
       category: body.category,
-      image: body.image
+      programmingLanguage: body.programmingLanguage
     });
     
-    // Insert new project
+    // Insert new project with updated schema (no image field)
     const result = await query(
-      'INSERT INTO projects (title, description, price, category, image) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-      [body.title, body.description, body.price, body.category, body.image]
+      `INSERT INTO projects 
+      (name, description, price, youtube_url, category, programming_language) 
+      VALUES ($1, $2, $3, $4, $5, $6) 
+      RETURNING *`,
+      [
+        body.name, 
+        body.description, 
+        body.price, 
+        body.youtubeUrl || null, 
+        body.category, 
+        body.programmingLanguage
+      ]
     );
     
     console.log('Project created successfully:', result.rows[0]);
