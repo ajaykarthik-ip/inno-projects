@@ -28,16 +28,35 @@
     background-color: var(--bg-tertiary);
   }
   
-  .project-card-image {
+  /* YouTube video styling */
+  .project-card-video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   
-  .project-card:hover .project-card-image,
-  .project-card:active .project-card-image {
-    transform: scale(1.05);
+  /* Placeholder for when no video is available */
+  .project-card-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+  }
+  
+  .project-card-placeholder svg {
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
+  }
+  
+  .project-card-placeholder p {
+    font-size: 0.9rem;
   }
   
   .project-card-content {
