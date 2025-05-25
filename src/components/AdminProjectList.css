@@ -1,0 +1,290 @@
+/* src/components/AdminProjectList.css */
+.admin-projects-container {
+    width: 100%;
+  }
+  
+  .admin-projects-title {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .admin-projects-filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .search-filter,
+  .category-filter {
+    flex-grow: 1;
+  }
+  
+  .search-filter input,
+  .category-filter select {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+  
+  .search-filter input:focus,
+  .category-filter select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.2);
+  }
+  
+  .admin-projects-list {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+  }
+  
+  .admin-projects-header {
+    display: flex;
+    background-color: var(--bg-tertiary);
+    padding: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .admin-project-item {
+    display: flex;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+    align-items: center;
+  }
+  
+  .admin-project-item:last-child {
+    border-bottom: none;
+  }
+  
+  .admin-project-item:hover {
+    background-color: var(--bg-tertiary);
+  }
+  
+  .project-col {
+    padding: 0 0.5rem;
+  }
+  
+  .project-col-image {
+    width: 80px;
+    flex-shrink: 0;
+  }
+  
+  .project-col-image img {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+  }
+  
+  .project-col-title {
+    flex-grow: 1;
+    min-width: 200px;
+  }
+  
+  .project-col-title h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+  }
+  
+  .project-description-preview {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+  
+  .project-col-category {
+    width: 150px;
+    flex-shrink: 0;
+  }
+  
+  .category-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: rgba(126, 87, 194, 0.1);
+    color: var(--accent-primary);
+    border-radius: 20px;
+    font-size: 0.85rem;
+  }
+  
+  .project-col-price {
+    width: 100px;
+    flex-shrink: 0;
+    font-weight: 600;
+    color: var(--accent-secondary);
+  }
+  
+  .project-col-actions {
+    width: 60px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .delete-button {
+    background-color: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: var(--transition);
+  }
+  
+  .delete-button:hover {
+    color: #e53935;
+    background-color: rgba(229, 57, 53, 0.1);
+  }
+  
+  .no-projects {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+    background-color: var(--bg-tertiary);
+    border-radius: 8px;
+    border: 1px dashed var(--border-color);
+  }
+  
+  .no-projects svg {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+  }
+  
+  .no-projects h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+  
+  .no-projects p {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .projects-count {
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  /* src/components/AdminProjectList.css */
+/* Add these new styles to your existing CSS file */
+
+.loading-state,
+.error-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary);
+  background-color: var(--bg-tertiary);
+  border-radius: 8px;
+  border: 1px dashed var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-state .spinner,
+.error-state svg {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.loading-state p {
+  font-size: 1rem;
+}
+
+.error-state h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.error-state p {
+  max-width: 400px;
+  margin: 0 auto 1rem;
+}
+
+.retry-button {
+  background-color: var(--accent-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.retry-button:hover {
+  background-color: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+.spinner {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.delete-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .admin-projects-header {
+      display: none; /* Hide header on smaller screens */
+    }
+    
+    .admin-project-item {
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    
+    .project-col-image {
+      width: 60px;
+    }
+    
+    .project-col-title {
+      width: calc(100% - 140px);
+    }
+    
+    .project-col-category {
+      width: 100%;
+      order: 3;
+    }
+    
+    .project-col-price {
+      width: auto;
+      margin-left: auto;
+    }
+    
+    .project-col-actions {
+      width: auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .admin-projects-filters {
+      flex-direction: column;
+    }
+  }

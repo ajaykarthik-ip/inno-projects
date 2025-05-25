@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Final Year Projects',
+  title: 'Inno Projects',
   description: 'Platform for final year project ideas and resources',
 }
 
