@@ -1,6 +1,10 @@
 .main-navbar {
     background-color: var(--bg-secondary);
     box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 99; /* Higher than sidebar */
+    width: 100%;
   }
   
   .main-navbar-container {
@@ -141,6 +145,22 @@
     color: var(--accent-primary);
   }
   
+  /* Mobile sidebar toggle button */
+  .mobile-sidebar-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    transition: var(--transition);
+  }
+  
+  .mobile-sidebar-toggle:hover {
+    color: var(--accent-primary);
+  }
+  
   @media (max-width: 1024px) {
     .main-navbar-container {
       flex-direction: column;
@@ -154,5 +174,21 @@
     .main-navbar-links {
       flex-wrap: wrap;
       gap: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-sidebar-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+    }
+    
+    .main-navbar-container {
+      position: relative;
+      padding-left: 3rem;
     }
   }
