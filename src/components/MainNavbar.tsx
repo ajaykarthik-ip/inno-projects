@@ -1,12 +1,23 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import './MainNavbar.css';
 
 const MainNavbar: React.FC = () => {
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
   const toggleMobileSidebar = () => {
     document.querySelector('.sidebar')?.classList.toggle('mobile-open');
     document.querySelector('.sidebar-overlay')?.classList.toggle('active');
+    document.body.classList.toggle('sidebar-mobile-open');
+  };
+
+  const handleDropdownToggle = (dropdownName: string) => {
+    if (activeDropdown === dropdownName) {
+      setActiveDropdown(null);
+    } else {
+      setActiveDropdown(dropdownName);
+    }
   };
 
   return (
@@ -57,16 +68,30 @@ const MainNavbar: React.FC = () => {
       {/* Navigation Links */}
       <div className="main-navbar-links">
         <a href="#" className="nav-link">Home</a>
-        <div className="dropdown">
+        <div className="dropdown" 
+             onMouseEnter={() => handleDropdownToggle('projects')}
+             onMouseLeave={() => handleDropdownToggle('projects')}>
           <a href="#" className="nav-link">Project Titles</a>
-          <div className="dropdown-content">
+          <div className="dropdown-content" style={{ display: activeDropdown === 'projects' ? 'block' : '' }}>
             <a href="#">Java Projects</a>
             <a href="#">Python Projects</a>
             <a href="#">Machine Learning</a>
+            <a href="#">IoT Projects</a>
+            <a href="#">Web Development</a>
           </div>
         </div>
         <a href="#" className="nav-link">Journal Paper</a>
-        <a href="#" className="nav-link">Domain</a>
+        <div className="dropdown"
+             onMouseEnter={() => handleDropdownToggle('domain')}
+             onMouseLeave={() => handleDropdownToggle('domain')}>
+          <a href="#" className="nav-link">Domain</a>
+          <div className="dropdown-content" style={{ display: activeDropdown === 'domain' ? 'block' : '' }}>
+            <a href="#">Artificial Intelligence</a>
+            <a href="#">Data Science</a>
+            <a href="#">Cyber Security</a>
+            <a href="#">Cloud Computing</a>
+          </div>
+        </div>
       </div>
     </div>
   );

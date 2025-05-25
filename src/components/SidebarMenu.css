@@ -10,7 +10,7 @@
     z-index: 100;
     transition: var(--transition);
     overflow-y: auto;
-    padding-top: 140px; /* Space for navbar */
+    padding-top: 20px; /* Reduced from 140px to move content to the top */
     box-shadow: var(--shadow);
   }
   
@@ -128,7 +128,7 @@
     .sidebar {
       transform: translateX(-100%);
       width: 270px;
-      padding-top: 80px;
+      padding-top: 20px; /* Also reduced for mobile */
       box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
     }
     

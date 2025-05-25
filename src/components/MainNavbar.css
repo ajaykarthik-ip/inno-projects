@@ -30,6 +30,9 @@
     border-radius: 8px;
     overflow: hidden;
     background-color: var(--bg-tertiary);
+    flex-grow: 1;
+    max-width: 600px;
+    margin: 0 2rem;
   }
   
   .category-dropdown {
@@ -45,7 +48,7 @@
     padding: 0.5rem 0.75rem;
     border: none;
     flex-grow: 1;
-    min-width: 300px;
+    min-width: 200px;
     background-color: var(--bg-tertiary);
     color: var(--text-primary);
     outline: none;
@@ -72,14 +75,18 @@
     gap: 1rem;
   }
   
+  /* ---- NAVIGATION LINKS SECTION ---- */
   .main-navbar-links {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
-    background-color: var(--bg-tertiary);
+    gap: 2.5rem; /* Increased gap for better spacing */
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-primary); /* Match the primary background color */
+    position: relative; /* Added for dropdown positioning */
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
   }
   
   .nav-link {
@@ -89,6 +96,7 @@
     position: relative;
     transition: var(--transition);
     padding: 0.5rem 0;
+    font-size: 1rem;
   }
   
   .nav-link:hover {
@@ -98,7 +106,7 @@
   .nav-link::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -3px; /* Slightly lower for better visibility */
     left: 0;
     width: 0;
     height: 2px;
@@ -110,22 +118,27 @@
     width: 100%;
   }
   
+  /* ---- DROPDOWN STYLES ---- */
   .dropdown {
     position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
   
   .dropdown-content {
     display: none;
     position: absolute;
     background-color: var(--bg-secondary);
-    min-width: 200px;
+    min-width: 220px;
     box-shadow: var(--shadow);
-    z-index: 1;
-    top: 100%;
-    left: 0;
+    z-index: 1000; /* Higher z-index to ensure visibility */
+    top: calc(100% + 0.5rem); /* Position below with slight gap */
+    left: 50%;
+    transform: translateX(-50%); /* Center the dropdown */
     border-radius: 8px;
     padding: 0.5rem 0;
-    margin-top: 0.5rem;
+    border: 1px solid var(--border-color);
   }
   
   .dropdown:hover .dropdown-content {
@@ -138,11 +151,32 @@
     text-decoration: none;
     display: block;
     transition: var(--transition);
+    text-align: left;
   }
   
   .dropdown-content a:hover {
     background-color: var(--bg-tertiary);
     color: var(--accent-primary);
+  }
+  
+  /* Add a small indicator for dropdown items */
+  .dropdown .nav-link:after {
+    content: '';
+    display: inline-block;
+    margin-left: 0.5rem;
+    border-top: 0.3rem solid var(--text-secondary);
+    border-right: 0.3rem solid transparent;
+    border-bottom: 0;
+    border-left: 0.3rem solid transparent;
+    vertical-align: middle;
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+  }
+  
+  .dropdown .nav-link:hover:after {
+    border-top-color: var(--accent-primary);
   }
   
   /* Mobile sidebar toggle button */
@@ -163,17 +197,34 @@
   
   @media (max-width: 1024px) {
     .main-navbar-container {
-      flex-direction: column;
-      gap: 1rem;
-    }
-  
-    .search-bar input {
-      min-width: 200px;
-    }
-  
-    .main-navbar-links {
       flex-wrap: wrap;
       gap: 1rem;
+    }
+  
+    .search-bar {
+      order: 3;
+      width: 100%;
+      max-width: 100%;
+      margin: 0.5rem 0;
+    }
+  
+    .main-navbar-logo {
+      flex-grow: 1;
+    }
+  
+    .main-navbar-actions {
+      order: 2;
+    }
+    
+    .main-navbar-links {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 0.75rem 1rem;
+    }
+    
+    .dropdown-content {
+      left: 0;
+      transform: none;
     }
   }
   
@@ -182,13 +233,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      position: absolute;
-      left: 1rem;
-      top: 1rem;
+      order: 1;
     }
     
     .main-navbar-container {
-      position: relative;
-      padding-left: 3rem;
+      padding: 1rem;
+    }
+    
+    .nav-link {
+      font-size: 0.9rem;
+    }
+    
+    .main-navbar-links {
+      gap: 1rem;
     }
   }

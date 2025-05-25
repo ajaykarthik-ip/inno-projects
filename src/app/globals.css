@@ -34,20 +34,6 @@ body {
   padding: 1rem;
 }
 
-body:not(.sidebar-collapsed):not(.sidebar-mobile-open) .main-content-wrapper {
-  margin-left: 250px; /* Match sidebar width */
-}
-
-body.sidebar-collapsed .main-content-wrapper {
-  margin-left: 70px; /* Match collapsed sidebar width */
-}
-
-.main-navbar-container,
-.main-navbar-links,
-.top-navbar .top-navbar-container {
-  padding-left: calc(1rem + 20px); /* Add extra padding for mobile toggle button */
-}
-
 .main-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -73,9 +59,30 @@ button {
   transition: var(--transition);
 }
 
+/* Create a wrapper for everything that should shift with the sidebar */
+.page-content {
+  transition: var(--transition);
+  width: 100%;
+}
+
+body:not(.sidebar-collapsed):not(.sidebar-mobile-open) .page-content {
+  margin-left: 250px; /* Match sidebar width */
+  width: calc(100% - 250px);
+}
+
+body.sidebar-collapsed .page-content {
+  margin-left: 70px; /* Match collapsed sidebar width */
+  width: calc(100% - 70px);
+}
+
+/* Adjust for mobile */
 @media (max-width: 768px) {
-  .main-content-wrapper {
+  .page-content {
     margin-left: 0 !important;
+    width: 100% !important;
+  }
+  
+  .main-content-wrapper {
     width: 100%;
     padding: 0.5rem;
   }

@@ -26,7 +26,23 @@ const SidebarMenu: React.FC = () => {
   // Toggle mobile sidebar
   const toggleMobileSidebar = () => {
     setMobileOpen(!mobileOpen);
+    document.body.classList.toggle('sidebar-mobile-open');
   };
+
+  // Update classes when state changes
+  useEffect(() => {
+    if (collapsed) {
+      document.body.classList.add('sidebar-collapsed');
+    } else {
+      document.body.classList.remove('sidebar-collapsed');
+    }
+    
+    if (mobileOpen) {
+      document.body.classList.add('sidebar-mobile-open');
+    } else {
+      document.body.classList.remove('sidebar-mobile-open');
+    }
+  }, [collapsed, mobileOpen]);
 
   // Close sidebar when clicking outside on mobile
   useEffect(() => {
@@ -126,7 +142,10 @@ const SidebarMenu: React.FC = () => {
       {/* Overlay for mobile */}
       <div 
         className={`sidebar-overlay ${mobileOpen ? 'active' : ''}`} 
-        onClick={() => setMobileOpen(false)}
+        onClick={() => {
+          setMobileOpen(false);
+          document.body.classList.remove('sidebar-mobile-open');
+        }}
       ></div>
       
       {/* Sidebar */}
