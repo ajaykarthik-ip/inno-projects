@@ -2,6 +2,7 @@
 
 import React from 'react';
 import './HeroSection.css';
+import MinimalYouTubePlayer from './MinimalYouTubePlayer';
 
 const HeroSection: React.FC = () => {
   // YouTube video ID extracted from the URL
@@ -33,13 +34,7 @@ const HeroSection: React.FC = () => {
         </div>
         
         <div className="hero-video">
-          <iframe
-            src={`https://www.youtube.com/embed/${youtubeVideoId}?rel=0&showinfo=0&autoplay=0`}
-            title="Diabetes Detection Project Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
+          <MinimalYouTubePlayer videoId={youtubeVideoId} title="Diabetes Detection Project Video" />
         </div>
       </div>
     </div>

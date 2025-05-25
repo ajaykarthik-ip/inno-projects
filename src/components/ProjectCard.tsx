@@ -1,5 +1,6 @@
 import React from 'react';
 import './ProjectCard.css';
+import MinimalYouTubePlayer from './MinimalYouTubePlayer';
 
 interface ProjectCardProps {
   title: string;
@@ -39,14 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <div className="project-card">
       <div className="project-card-image-container">
         {youtubeVideoId ? (
-          <iframe
-            className="project-card-video"
-            src={`https://www.youtube.com/embed/${youtubeVideoId}?rel=0&showinfo=0`}
-            title={title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
+          <MinimalYouTubePlayer videoId={youtubeVideoId} title={title} />
         ) : (
           <div className="project-card-placeholder">
             <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
