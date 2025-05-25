@@ -1,53 +1,26 @@
 "use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React from 'react';
 import './HeroSection.css';
-// Import images directly
-import image1 from '../assets/1.jpg';
-import image2 from '../assets/2.jpg';
-import image3 from '../assets/3.jpg';
 
 const HeroSection: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const slides = [
-    {
-      title: 'Diabetes Detection',
-      description: 'Advanced machine learning project for diabetes detection using AI algorithms and Python. Utilizes deep learning to analyze patient data and predict diabetes risk.',
-      price: '₹5,500.00',
-      image: image1
-    },
-    {
-      title: 'Diabetes Detection System',
-      description: 'Modern AI-powered solution for early diabetes detection. Implements machine learning models to process medical data and provide accurate predictions.',
-      price: '₹6,200.00',
-      image: image2
-    },
-    {
-      title: 'ML-based Diabetes Analysis',
-      description: 'Innovative project using Python and artificial intelligence to analyze glucose readings and detect diabetes patterns with high accuracy.',
-      price: '₹5,800.00',
-      image: image3
-    }
-  ];
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  // YouTube video ID extracted from the URL
+  const youtubeVideoId = "0uWWzaYQTYw";
+  
+  const projectDetails = {
+    title: 'Diabetes Detection',
+    description: 'Advanced machine learning project for diabetes detection using AI algorithms and Python. Utilizes deep learning to analyze patient data and predict diabetes risk with high accuracy.',
+    price: '₹5,500.00'
   };
 
   return (
     <div className="hero-section">
       <div className="hero-content">
         <div className="hero-text">
-          <h1>{slides[currentSlide].title}</h1>
-          <p>{slides[currentSlide].description}</p>
+          <h1>{projectDetails.title}</h1>
+          <p>{projectDetails.description}</p>
           <div className="hero-price">
-            {slides[currentSlide].price}
+            {projectDetails.price}
           </div>
           <button className="hero-cta">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -59,38 +32,14 @@ const HeroSection: React.FC = () => {
           </button>
         </div>
         
-        <div className="hero-image">
-          <Image 
-            src={typeof slides[currentSlide].image === 'string' ? slides[currentSlide].image : slides[currentSlide].image.src} 
-            alt={slides[currentSlide].title}
-            width={600}
-            height={400}
-            style={{ objectFit: 'cover' }}
-            priority
-          />
-        </div>
-
-        {/* Carousel Controls */}
-        <div className="carousel-controls">
-          <button onClick={prevSlide} className="carousel-btn prev-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M15 18l-6-6 6-6"></path>
-            </svg>
-          </button>
-          <div className="slide-dots">
-            {slides.map((_, index) => (
-              <span 
-                key={index} 
-                className={`dot ${index === currentSlide ? 'active' : ''}`}
-                onClick={() => setCurrentSlide(index)}
-              />
-            ))}
-          </div>
-          <button onClick={nextSlide} className="carousel-btn next-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </button>
+        <div className="hero-video">
+          <iframe
+            src={`https://www.youtube.com/embed/${youtubeVideoId}?rel=0&showinfo=0&autoplay=0`}
+            title="Diabetes Detection Project Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
     </div>

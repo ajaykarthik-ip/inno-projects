@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import ProjectCard from './ProjectCard';
 import './FeaturedProjects.css';
 
@@ -8,6 +10,9 @@ import image2 from '../assets/2.jpg';
 import image3 from '../assets/3.jpg';
 
 const FeaturedProjects: React.FC = () => {
+  const [activeFilter, setActiveFilter] = useState('all');
+  
+  // Extended project list for better mobile experience
   const projects = [
     {
       title: 'Diabetes Detection',
@@ -29,8 +34,42 @@ const FeaturedProjects: React.FC = () => {
       price: '₹6,200.00',
       category: 'Artificial Intelligence',
       image: image3
+    },
+    {
+      title: 'Health Data Visualization',
+      description: 'Interactive dashboard for visualizing health metrics and diabetes indicators using modern web technologies.',
+      price: '₹4,900.00',
+      category: 'Web Development',
+      image: image1
+    },
+    {
+      title: 'AI Health Assistant',
+      description: 'Voice-enabled AI assistant that helps monitor health parameters and provides early warnings for diabetes risk factors.',
+      price: '₹7,100.00',
+      category: 'Artificial Intelligence',
+      image: image3
+    },
+    {
+      title: 'Mobile Health Tracker',
+      description: 'Android and iOS application for tracking health metrics and diabetes risk factors with cloud sync capabilities.',
+      price: '₹5,300.00',
+      category: 'Mobile Development',
+      image: image2
     }
   ];
+
+  // List of available categories for filters
+  const categories = ['all', 'Machine Learning', 'IoT', 'Artificial Intelligence', 'Web Development', 'Mobile Development'];
+  
+  // Filter projects based on selected category
+  const filteredProjects = activeFilter === 'all' 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter);
+
+  // Handle filter change
+  const handleFilterChange = (category: string) => {
+    setActiveFilter(category);
+  };
 
   return (
     <div className="featured-projects">
@@ -41,8 +80,21 @@ const FeaturedProjects: React.FC = () => {
         </p>
       </div>
       
+      {/* Category filters - touch-friendly for mobile */}
+      <div className="project-filters">
+        {categories.map((category, index) => (
+          <button 
+            key={index}
+            className={`filter-button ${activeFilter === category ? 'active' : ''}`}
+            onClick={() => handleFilterChange(category)}
+          >
+            {category === 'all' ? 'All Projects' : category}
+          </button>
+        ))}
+      </div>
+      
       <div className="project-grid">
-        {projects.map((project, index) => (
+        {filteredProjects.map((project, index) => (
           <ProjectCard 
             key={index}
             title={project.title}
