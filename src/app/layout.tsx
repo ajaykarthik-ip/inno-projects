@@ -1,5 +1,10 @@
+import type { Metadata } from 'next'
 import './globals.css'
-import Navbar from '@/components/Navbar'
+
+export const metadata: Metadata = {
+  title: 'Final Year Projects',
+  description: 'Platform for final year project ideas and resources',
+}
 
 export default function RootLayout({
   children,
@@ -9,10 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <Navbar />
-        <main>
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   )
