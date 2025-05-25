@@ -1,7 +1,7 @@
 .top-navbar {
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #e9ecef;
-    padding: 0.5rem 0;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 0;
   }
   
   .top-navbar-container {
@@ -15,7 +15,8 @@
   
   .welcome-message {
     font-size: 0.9rem;
-    color: #6c757d;
+    color: var(--text-secondary);
+    font-weight: 500;
   }
   
   .top-navbar-right {
@@ -30,14 +31,16 @@
   }
   
   .social-icon {
-    color: #6c757d;
+    color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.8rem;
-    transition: color 0.3s ease;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
   }
   
   .social-icon:hover {
-    color: #007bff;
+    color: var(--accent-primary);
   }
   
   .top-navbar-links {
@@ -46,14 +49,17 @@
   }
   
   .top-navbar-link {
-    color: #6c757d;
+    color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.8rem;
-    transition: color 0.3s ease;
+    transition: var(--transition);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
   }
   
   .top-navbar-link:hover {
-    color: #007bff;
+    color: var(--accent-primary);
   }
   
   @media (max-width: 768px) {
@@ -65,6 +71,6 @@
   
     .top-navbar-right {
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.5rem;
     }
   }
