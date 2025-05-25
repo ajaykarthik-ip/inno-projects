@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import './HeroSection.css';
 // Import images directly
 import image1 from '../assets/1.jpg';
@@ -59,10 +60,13 @@ const HeroSection: React.FC = () => {
         </div>
         
         <div className="hero-image">
-          <img 
+          <Image 
             src={typeof slides[currentSlide].image === 'string' ? slides[currentSlide].image : slides[currentSlide].image.src} 
             alt={slides[currentSlide].title}
-            loading="eager" 
+            width={600}
+            height={400}
+            style={{ objectFit: 'cover' }}
+            priority
           />
         </div>
 

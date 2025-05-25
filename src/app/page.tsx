@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from 'react';
-import TopNavbar from '@/components/TopNavbar';
 import MainNavbar from '@/components/MainNavbar';
 import SidebarMenu from '@/components/SidebarMenu';
 import HeroSection from '@/components/HeroSection';

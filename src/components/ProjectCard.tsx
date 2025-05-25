@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import './ProjectCard.css';
 
 interface ProjectCardProps {
@@ -6,13 +7,20 @@ interface ProjectCardProps {
   description: string;
   price: string;
   category: string;
-  image: any; // Updated to accept any type for imported images
+  image: string | { src: string };
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, price, category, image }) => {
   return (
     <div className="project-card">
-      <img src={typeof image === 'string' ? image : image.src} alt={title} className="project-card-image" />
+      <Image 
+        src={typeof image === 'string' ? image : image.src} 
+        alt={title} 
+        className="project-card-image"
+        width={300}
+        height={200}
+        style={{ objectFit: 'cover' }}
+      />
       <div className="project-card-content">
         <div className="project-card-category">{category}</div>
         <h3 className="project-card-title">{title}</h3>

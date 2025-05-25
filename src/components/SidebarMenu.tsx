@@ -23,12 +23,6 @@ const SidebarMenu: React.FC = () => {
     document.body.classList.toggle('sidebar-collapsed');
   };
 
-  // Toggle mobile sidebar
-  const toggleMobileSidebar = () => {
-    setMobileOpen(!mobileOpen);
-    document.body.classList.toggle('sidebar-mobile-open');
-  };
-
   // Update classes when state changes
   useEffect(() => {
     if (collapsed) {

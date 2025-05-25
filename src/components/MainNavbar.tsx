@@ -1,23 +1,13 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import './MainNavbar.css';
 
 const MainNavbar: React.FC = () => {
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
   const toggleMobileSidebar = () => {
     document.querySelector('.sidebar')?.classList.toggle('mobile-open');
     document.querySelector('.sidebar-overlay')?.classList.toggle('active');
     document.body.classList.toggle('sidebar-mobile-open');
-  };
-
-  const handleDropdownToggle = (dropdownName: string) => {
-    if (activeDropdown === dropdownName) {
-      setActiveDropdown(null);
-    } else {
-      setActiveDropdown(dropdownName);
-    }
   };
 
   return (
