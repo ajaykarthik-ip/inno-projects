@@ -16,8 +16,7 @@ export default function Home() {
           <HeroSection />
           
           <div className="hello-world-section">
-            <h2>Hello World!</h2>
-            <p>Welcome to our Final Year Projects platform. Stay tuned for more exciting content.</p>
+           
           </div>
         </main>
       </div>

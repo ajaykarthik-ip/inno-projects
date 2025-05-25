@@ -5,13 +5,11 @@ const SidebarMenu: React.FC = () => {
   const categories = [
     'Java', 
     'Python', 
-    'Embedded', 
     'Machine Learning', 
     'Mechanical', 
-    'Matlab', 
-    'VLSI', 
     'Raspberry Pi', 
-    'Artificial Intelligence'
+    'Artificial Intelligence',
+    'Blockchain'
   ];
 
   return (

@@ -24,11 +24,6 @@ const MainNavbar: React.FC = () => {
 
         {/* User Actions */}
         <div className="main-navbar-actions">
-          <button className="login-button">Login / Register</button>
-          <div className="navbar-icons">
-            <button className="wishlist-icon">❤️</button>
-            <button className="cart-icon">🛒</button>
-          </div>
         </div>
       </div>
 
@@ -36,7 +31,7 @@ const MainNavbar: React.FC = () => {
       <div className="main-navbar-links">
         <a href="#" className="nav-link">Home</a>
         <div className="dropdown">
-          <a href="#" className="nav-link">Shop</a>
+          <a href="#" className="nav-link">Project Titles</a>
           <div className="dropdown-content">
             <a href="#">Java Projects</a>
             <a href="#">Python Projects</a>
@@ -44,9 +39,7 @@ const MainNavbar: React.FC = () => {
           </div>
         </div>
         <a href="#" className="nav-link">Journal Paper</a>
-        <a href="#" className="nav-link">Blog</a>
-        <a href="#" className="nav-link">About Us</a>
-        <a href="#" className="nav-link">Contact Us</a>
+        <a href="#" className="nav-link">Domain</a>
       </div>
     </div>
   );
