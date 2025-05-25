@@ -44,6 +44,8 @@ const MainNavbar: React.FC = () => {
             <option>Java</option>
             <option>Python</option>
             <option>Embedded</option>
+            <option>Machine Learning</option>
+            <option>Web Development</option>
           </select>
           <input type="text" placeholder="Search projects..." />
           <button className="search-button">
@@ -65,7 +67,7 @@ const MainNavbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Navigation Links */}
+      {/* Navigation Links
       <div className="main-navbar-links">
         <a href="#" className="nav-link">Home</a>
         <div className="dropdown" 
@@ -92,7 +94,7 @@ const MainNavbar: React.FC = () => {
             <a href="#">Cloud Computing</a>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

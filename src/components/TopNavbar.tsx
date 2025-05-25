@@ -5,9 +5,9 @@ const TopNavbar: React.FC = () => {
   return (
     <div className="top-navbar">
       <div className="top-navbar-container">
-        <div className="welcome-message">
+        {/* <div className="welcome-message">
           Welcome to Final Year Projects!
-        </div>
+        </div> */}
         <div className="top-navbar-right">
           <div className="social-icons">
             <a href="#" className="social-icon">

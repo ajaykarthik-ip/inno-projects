@@ -26,7 +26,6 @@ export default function Home() {
       <SidebarMenu />
       
       <div className="page-content">
-        <TopNavbar />
         <MainNavbar />
         
         <div className="main-content-wrapper">
