@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
     const search = url.searchParams.get('search');
     
     let sql = 'SELECT * FROM projects';
-    const params: any[] = [];
+    const params: (string | number)[] = [];
     let paramIndex = 1;
     let whereAdded = false;
     

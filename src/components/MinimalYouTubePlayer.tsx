@@ -1,6 +1,7 @@
 // src/components/MinimalYouTubePlayer.tsx
 import React, { useState } from 'react';
 import './MinimalYouTubePlayer.css';
+import Image from 'next/image';
 
 interface MinimalYouTubePlayerProps {
   videoId: string;
@@ -26,11 +27,15 @@ const MinimalYouTubePlayer: React.FC<MinimalYouTubePlayerProps> = ({ videoId, ti
           onClick={playVideo}
         >
           {/* High-quality thumbnail (from YouTube) */}
-          <img 
-            src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
-            alt="Video thumbnail"
-            className="video-thumbnail"
-          />
+          <div className="youtube-thumbnail">
+            <Image
+              src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+              alt={`Thumbnail for ${title}`}
+              width={480}
+              height={360}
+              className="thumbnail-image"
+            />
+          </div>
           
           {/* Dark overlay */}
           <div className="dark-overlay"></div>

@@ -50,7 +50,7 @@ const pool = new Pool({
 })();
 
 // Export query method
-export async function query(text: string, params?: any[]) {
+export async function query(text: string, params?: (string | number)[]) {
   const start = Date.now();
   
   try {
@@ -70,7 +70,9 @@ process.on('exit', () => {
   pool.end();
 });
 
-export default {
+const db = {
   query,
   pool
 };
+
+export default db;

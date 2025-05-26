@@ -124,7 +124,7 @@ const AdminProjectList: React.FC<AdminProjectListProps> = ({ refreshTrigger }) =
         return 'YouTube Demo';
       }
       return 'Video Demo';
-    } catch (e) {
+    } catch {
       return url;
     }
   };
@@ -208,7 +208,7 @@ const AdminProjectList: React.FC<AdminProjectListProps> = ({ refreshTrigger }) =
             <polyline points="13 2 13 9 20 9"></polyline>
           </svg>
           <h3>No projects found</h3>
-          <p>You haven't created any projects yet. Go to the "Create Project" tab to add your first project.</p>
+          <p>You haven&apos;t created any projects yet. Go to the &quot;Create Project&quot; tab to add your first project.</p>
         </div>
       ) : filteredProjects.length === 0 ? (
         <div className="no-projects">

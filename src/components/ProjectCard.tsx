@@ -24,13 +24,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     try {
       const urlObj = new URL(url);
       if (urlObj.hostname === 'youtu.be') {
-        return urlObj.pathname.substring(1);
+        return 'YouTube Demo';
       } else if (urlObj.hostname.includes('youtube.com')) {
-        return urlObj.searchParams.get('v');
+        return 'YouTube Demo';
       }
-      return null;
-    } catch (e) {
-      return null;
+      return 'Video Demo';
+    } catch {
+      return url;
     }
   };
 
