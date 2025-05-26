@@ -3,12 +3,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/db';
 
 // DELETE /api/projects/[id] - Delete a project
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function DELETE(request: NextRequest) {
   try {
-    const id = params.id;
+    // Extract id from the URL
+    const id = request.nextUrl.pathname.split('/').pop();
     
     // Validate ID
     if (!id || isNaN(Number(id))) {
