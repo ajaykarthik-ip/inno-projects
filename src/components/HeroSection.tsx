@@ -1,10 +1,11 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import './HeroSection.css';
-import MinimalYouTubePlayer from './MinimalYouTubePlayer';
 
 const HeroSection: React.FC = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  
   // YouTube video ID extracted from the URL
   const youtubeVideoId = "0uWWzaYQTYw";
   
@@ -12,6 +13,11 @@ const HeroSection: React.FC = () => {
     title: 'Diabetes Detection',
     description: 'Advanced machine learning project for diabetes detection using AI algorithms and Python. Utilizes deep learning to analyze patient data and predict diabetes risk with high accuracy.',
     price: '₹5,500.00'
+  };
+
+  // Function to handle video play
+  const handleVideoPlay = () => {
+    setIsPlaying(true);
   };
 
   return (
@@ -34,7 +40,40 @@ const HeroSection: React.FC = () => {
         </div>
         
         <div className="hero-video">
-          <MinimalYouTubePlayer videoId={youtubeVideoId} title="Diabetes Detection Project Video" />
+          {isPlaying ? (
+            <iframe 
+              src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1`}
+              title="Diabetes Detection Project Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          ) : (
+            <div className="video-thumbnail" onClick={handleVideoPlay}>
+              <img
+                src={`https://img.youtube.com/vi/${youtubeVideoId}/maxresdefault.jpg`}
+                alt="Video thumbnail"
+                onError={(e) => {
+                  // Fallback to medium quality if maxres is not available
+                  e.currentTarget.src = `https://img.youtube.com/vi/${youtubeVideoId}/mqdefault.jpg`;
+                }}
+              />
+              <div className="play-button">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="32" 
+                  height="32" 
+                  viewBox="0 0 24 24" 
+                  fill="white" 
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

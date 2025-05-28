@@ -1,149 +1,200 @@
 .hero-section {
-    max-width: 95%;
-    margin: 0 auto;
-    padding: 1.5rem 0.5rem;
-  }
-  
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 1.5rem 0.5rem;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column-reverse; /* Video on top for mobile first */
+  gap: 1.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  position: relative;
+  padding: 1rem;
+}
+
+.hero-text {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center; /* Center text for mobile */
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-text p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.hero-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-secondary);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: rgba(126, 87, 194, 0.1);
+  border-radius: 8px;
+}
+
+.hero-cta {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto; /* Center button on mobile */
+}
+
+.hero-cta:hover {
+  background-color: var(--accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(126, 87, 194, 0.3);
+}
+
+.hero-video {
+  width: 100%;
+  padding: 0;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+
+.hero-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* New styles for video thumbnail */
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.video-thumbnail:hover img {
+  transform: scale(1.05);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.play-button svg {
+  margin-left: 4px; /* Center the triangle icon */
+}
+
+.video-thumbnail:hover .play-button {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Media queries for responsive design */
+@media (min-width: 768px) {
   .hero-content {
-    display: flex;
-    flex-direction: column-reverse; /* Video on top for mobile first */
-    gap: 1.5rem;
-    background-color: var(--bg-secondary);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    position: relative;
-    padding: 1rem;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 2.5rem;
   }
   
   .hero-text {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center; /* Center text for mobile */
+    flex: 0.8;
+    padding: 1.5rem;
+    text-align: left;
   }
   
   .hero-text h1 {
-    font-size: 2rem;
-    color: var(--accent-primary);
-    margin-bottom: 1rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
   }
   
   .hero-text p {
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-    line-height: 1.6;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
   }
   
   .hero-price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--accent-secondary);
-    margin-bottom: 1.5rem;
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: rgba(126, 87, 194, 0.1);
-    border-radius: 8px;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
   }
   
   .hero-cta {
-    padding: 0.75rem 1.5rem;
-    background-color: var(--accent-primary);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: var(--transition);
-    font-weight: 600;
-    font-size: 1rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0 auto; /* Center button on mobile */
-  }
-  
-  .hero-cta:hover {
-    background-color: var(--accent-secondary);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(126, 87, 194, 0.3);
+    margin: 0; /* Reset to left align on desktop */
   }
   
   .hero-video {
-    width: 100%;
-    padding: 0;
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    aspect-ratio: 16/9;
+    flex: 1.2;
+  }
+
+  .play-button {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-section {
+    padding: 2rem 0.5rem;
   }
   
-  .hero-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  .hero-content {
+    padding: 2rem;
   }
-  
-  /* Media queries for responsive design */
-  @media (min-width: 768px) {
-    .hero-content {
-      flex-direction: row;
-      text-align: left;
-      align-items: center;
-      padding: 1.5rem;
-      gap: 2.5rem;
-    }
-    
-    .hero-text {
-      flex: 0.8;
-      padding: 1.5rem;
-      text-align: left;
-    }
-    
-    .hero-text h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .hero-text p {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
-    }
-    
-    .hero-price {
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-    }
-    
-    .hero-cta {
-      margin: 0; /* Reset to left align on desktop */
-    }
-    
-    .hero-video {
-      flex: 1.2;
-    }
+}
+
+@media (min-width: 1600px) {
+  .hero-section {
+    max-width: 90%;
   }
-  
-  @media (min-width: 1200px) {
-    .hero-section {
-      padding: 2rem 0.5rem;
-    }
-    
-    .hero-content {
-      padding: 2rem;
-    }
-  }
-  
-  @media (min-width: 1600px) {
-    .hero-section {
-      max-width: 90%;
-    }
-  }
+}
