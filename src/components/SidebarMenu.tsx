@@ -8,13 +8,14 @@ const SidebarMenu: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const categories = [
-    { name: 'Java', icon: 'code' },
-    { name: 'Python', icon: 'code' },
-    { name: 'Machine Learning', icon: 'bar-chart-2' },
-    { name: 'Mechanical', icon: 'tool' },
-    { name: 'Raspberry Pi', icon: 'cpu' },
-    { name: 'Artificial Intelligence', icon: 'brain' },
-    { name: 'Blockchain', icon: 'link' }
+    { name: 'View My Project', icon: 'code' },
+    { name: 'Project list', icon: 'code' },
+    { name: 'Request new Project', icon: 'bar-chart-2' },
+    { name: 'IEEE Journal Paper', icon: 'tool' },
+    { name: 'Dashboard', icon: 'cpu' },
+    { name: 'Contact Us', icon: 'brain' },
+    { name: 'Book Meeting', icon: 'brain' },
+    { name: 'Mini Project', icon: 'link' }
   ];
 
   // Toggle sidebar collapse state
@@ -145,7 +146,7 @@ const SidebarMenu: React.FC = () => {
       {/* Sidebar */}
       <div className={`sidebar ${collapsed ? 'collapsed' : ''} ${mobileOpen ? 'mobile-open' : ''}`}>
         <div className="sidebar-header">
-          {!collapsed && <h3>Browse Categories</h3>}
+          {!collapsed && <h3>Browse</h3>}
           <button className="collapse-btn" onClick={toggleSidebar} aria-label="Toggle sidebar">
             {collapsed ? 
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

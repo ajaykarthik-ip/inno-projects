@@ -1,8 +1,10 @@
 import React from 'react';
 import './ProjectCard.css';
 import MinimalYouTubePlayer from './MinimalYouTubePlayer';
+import { useRouter } from 'next/navigation';
 
 interface ProjectCardProps {
+  id: string; 
   title: string;
   description: string;
   price: string;
@@ -11,12 +13,15 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ 
+  id, // Receive id
   title, 
   description, 
   price, 
   category, 
   youtubeUrl 
 }) => {
+  const router = useRouter();
+
   // Extract YouTube video ID from URL
   const getYoutubeVideoId = (url: string | null): string | null => {
     if (!url) return null;
@@ -36,6 +41,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   };
 
   const youtubeVideoId = getYoutubeVideoId(youtubeUrl);
+
+  // Navigate to project details page
+  const handleViewDetails = () => {
+    router.push(`/projects/${id}`);
+  };
 
   return (
     <div className="project-card">
@@ -68,7 +78,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </p>
         <div className="project-card-footer">
           <div className="project-card-price">{price}</div>
-          <button className="project-card-button">
+          <button className="project-card-button" onClick={handleViewDetails}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14"></path>
               <path d="M12 5l7 7-7 7"></path>

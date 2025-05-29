@@ -1,9 +1,8 @@
-// src/app/api/projects/[id]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/db';
 
-// DELETE /api/projects/[id] - Delete a project
-export async function DELETE(request: NextRequest) {
+// GET /api/projects/get/[id] - Get a single project
+export async function GET(request: NextRequest) {
   try {
     // Extract id from the URL
     const id = request.nextUrl.pathname.split('/').pop();
@@ -16,13 +15,13 @@ export async function DELETE(request: NextRequest) {
       );
     }
     
-    // Delete the project
+    // Fetch the project
     const result = await query(
-      'DELETE FROM projects WHERE id = $1 RETURNING *',
+      'SELECT * FROM projects WHERE id = $1',
       [id]
     );
     
-    // Check if any row was deleted
+    // Check if any row was found
     if (result.rowCount === 0) {
       return NextResponse.json(
         { error: 'Project not found' },
@@ -30,15 +29,12 @@ export async function DELETE(request: NextRequest) {
       );
     }
     
-    return NextResponse.json(
-      { message: 'Project deleted successfully' },
-      { status: 200 }
-    );
+    return NextResponse.json(result.rows[0]);
   } catch (error) {
     console.error('Database error:', error);
     return NextResponse.json(
-      { error: 'Failed to delete project' },
+      { error: 'Failed to fetch project' },
       { status: 500 }
     );
   }
-}
+} 
