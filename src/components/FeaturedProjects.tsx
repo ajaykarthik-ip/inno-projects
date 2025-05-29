@@ -155,6 +155,7 @@ const FeaturedProjects: React.FC = () => {
         {filteredProjects.map((project) => (
           <ProjectCard 
             key={project.id}
+            id={project.id}
             title={project.name}
             description={project.description}
             price={project.price}
