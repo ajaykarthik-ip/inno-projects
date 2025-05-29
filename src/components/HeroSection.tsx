@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import './HeroSection.css';
 
 const HeroSection: React.FC = () => {
@@ -49,13 +50,16 @@ const HeroSection: React.FC = () => {
             />
           ) : (
             <div className="video-thumbnail" onClick={handleVideoPlay}>
-              <img
+              <Image
                 src={`https://img.youtube.com/vi/${youtubeVideoId}/maxresdefault.jpg`}
                 alt="Video thumbnail"
+                width={1280}
+                height={720}
                 onError={(e) => {
                   // Fallback to medium quality if maxres is not available
                   e.currentTarget.src = `https://img.youtube.com/vi/${youtubeVideoId}/mqdefault.jpg`;
                 }}
+                style={{ width: '100%', height: 'auto' }}
               />
               <div className="play-button">
                 <svg 

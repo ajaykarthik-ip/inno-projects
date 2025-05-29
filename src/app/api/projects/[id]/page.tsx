@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import MainNavbar from '@/components/MainNavbar';
 import SidebarMenu from '@/components/SidebarMenu';
 import './page.css';
@@ -207,9 +208,9 @@ export default function ProjectDetailsPage() {
                   </svg>
                   <h3>Project Not Found</h3>
                   <p>The project you are looking for does not exist or has been removed.</p>
-                  <a href="/" className="back-home-link">
+                  <Link href="/" className="back-home-link">
                     Back to Home
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
