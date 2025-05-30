@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import './MainNavbar.css';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 const MainNavbar: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
