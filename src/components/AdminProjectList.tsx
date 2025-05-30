@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import './AdminProjectList.css';
-import { fetchProjects, removeProject } from '@/actions/projectsActions';
+import { fetchProjects, removeProject } from '@/api/projectsCrud';
 
 interface Project {
   id: string;

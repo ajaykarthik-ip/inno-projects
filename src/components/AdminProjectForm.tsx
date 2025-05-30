@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import './AdminProjectForm.css';
-import { addProject } from '@/actions/projectsActions';
+import { addProject } from '@/api/projectsCrud';
 
 interface AdminProjectFormProps {
   onProjectAdded: () => void;
