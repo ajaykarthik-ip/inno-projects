@@ -1,159 +1,204 @@
 /* Sidebar Styles */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 250px;
-    background-color: var(--bg-secondary);
-    border-right: 1px solid var(--border-color);
-    z-index: 100;
-    transition: var(--transition);
-    overflow-y: auto;
-    padding-top: 20px; /* Reduced from 140px to move content to the top */
-    box-shadow: var(--shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  z-index: 1000;
+  transition: transform 0.3s ease, width 0.3s ease;
+  overflow-y: auto;
+  padding-top: 20px;
+  box-shadow: var(--shadow);
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.collapse-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.collapsed .collapse-btn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.collapse-btn:hover {
+  color: var(--accent-primary);
+  background-color: rgba(126, 87, 194, 0.1);
+}
+
+.sidebar-categories {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-category-item {
+  margin: 0.5rem 0;
+}
+
+.sidebar-category-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 0 20px 20px 0;
+  gap: 1rem;
+}
+
+.collapsed .sidebar-category-link {
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+.sidebar-category-link:hover {
+  background-color: rgba(126, 87, 194, 0.1);
+  color: var(--accent-primary);
+}
+
+.sidebar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+}
+
+.sidebar-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.collapsed .sidebar-text {
+  display: none;
+}
+
+/* Mobile Styles */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  /* Hide by default */
+  display: none;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@media (max-width: 768px) {
+  /* Always hide sidebar completely off-screen on mobile by default */
+  .sidebar {
+    transform: translateX(-100%);
+    width: 270px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
   }
   
+  /* Only show sidebar when mobile-open class is present */
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  
+  /* Handle collapsed state on mobile - still keep full width */
   .sidebar.collapsed {
-    width: 70px;
+    width: 270px;
+    transform: translateX(-100%);
   }
   
-  .sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1.5rem;
-    margin-bottom: 1.5rem;
+  /* Even if collapsed, show it if mobile-open is present */
+  .sidebar.collapsed.mobile-open {
+    transform: translateX(0);
   }
   
-  .sidebar-header h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0;
+  /* Always show text on mobile, even when collapsed */
+  .sidebar.collapsed .sidebar-text {
+    display: block;
   }
   
-  .collapse-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-    border-radius: 8px;
-    transition: var(--transition);
-  }
-  
-  .collapsed .collapse-btn {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .collapse-btn:hover {
-    color: var(--accent-primary);
-    background-color: rgba(126, 87, 194, 0.1);
-  }
-  
-  .sidebar-categories {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar-category-item {
-    margin: 0.5rem 0;
-  }
-  
-  .sidebar-category-link {
-    display: flex;
-    align-items: center;
+  /* Keep sidebar links with full padding on mobile */
+  .sidebar.collapsed .sidebar-category-link {
+    justify-content: flex-start;
     padding: 0.75rem 1.5rem;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: var(--transition);
-    border-radius: 0 20px 20px 0;
-    gap: 1rem;
   }
   
-  .collapsed .sidebar-category-link {
-    justify-content: center;
-    padding: 0.75rem;
+  /* Force sidebar header to always show on mobile */
+  .sidebar-header h3 {
+    display: block !important;
   }
   
-  .sidebar-category-link:hover {
-    background-color: rgba(126, 87, 194, 0.1);
-    color: var(--accent-primary);
-  }
-  
-  .sidebar-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 24px;
-  }
-  
-  .sidebar-text {
-    white-space: nowrap;
+  /* Prevent scrolling when sidebar is open */
+  body.sidebar-mobile-open {
     overflow: hidden;
-    text-overflow: ellipsis;
   }
   
-  .collapsed .sidebar-text {
-    display: none;
+  /* Add subtle visual effect to content when sidebar is open */
+  body.sidebar-mobile-open .page-content {
+    opacity: 0.8;
+    pointer-events: none; /* Prevent interaction with content while sidebar is open */
+    transition: opacity 0.3s ease; /* Smooth transition */
   }
-  
-  /* Mobile Styles */
+
+  /* When sidebar is open, ensure the overlay is displayed */
   .sidebar-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 90;
-    transition: var(--transition);
+    display: block;
+  }
+
+  /* When close animation finishes, ensure overlay is fully hidden */
+  body:not(.sidebar-mobile-open) .sidebar-overlay {
     opacity: 0;
-    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+    visibility: hidden;
+  }
+
+  /* Use different styling for collapse button on mobile */
+  .sidebar-header .collapse-btn {
+    background-color: var(--accent-primary);
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
   }
   
-  .sidebar-overlay.active {
-    opacity: 1;
-    pointer-events: all;
+  .sidebar-header .collapse-btn:hover {
+    background-color: var(--accent-secondary);
   }
-  
-  @media (max-width: 768px) {
-    .sidebar {
-      transform: translateX(-100%);
-      width: 270px;
-      padding-top: 20px; /* Also reduced for mobile */
-      box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
-    }
-    
-    .sidebar.mobile-open {
-      transform: translateX(0);
-    }
-    
-    .sidebar.collapsed {
-      width: 270px; /* On mobile, we don't use collapsed state */
-    }
-    
-    .collapsed .sidebar-text {
-      display: block; /* Show text even in collapsed state on mobile */
-    }
-    
-    .collapsed .sidebar-category-link {
-      justify-content: flex-start;
-      padding: 0.75rem 1.5rem;
-    }
-    
-    .sidebar-overlay {
-      display: block;
-    }
-    
-    .sidebar-header h3 {
-      display: block !important; /* Override collapsed state on mobile */
-    }
-  }
+}

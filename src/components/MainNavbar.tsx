@@ -1,13 +1,43 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './MainNavbar.css';
 
 const MainNavbar: React.FC = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Check if component is mounted
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const toggleMobileSidebar = () => {
-    document.querySelector('.sidebar')?.classList.toggle('mobile-open');
-    document.querySelector('.sidebar-overlay')?.classList.toggle('active');
-    document.body.classList.toggle('sidebar-mobile-open');
+    // Only run on the client side
+    if (!isMounted) return;
+    
+    // Call the global function defined in SidebarMenu
+    if (typeof window !== 'undefined' && window.toggleMobileSidebar) {
+      window.toggleMobileSidebar();
+    } else {
+      // Fallback in case the global function isn't available yet
+      const sidebar = document.querySelector('.sidebar');
+      const overlay = document.querySelector('.sidebar-overlay');
+      
+      if (sidebar) {
+        sidebar.classList.toggle('mobile-open');
+      }
+      
+      if (overlay) {
+        overlay.classList.toggle('active');
+      }
+      
+      // Toggle body class for dimming effect
+      if (document.body.classList.contains('sidebar-mobile-open')) {
+        document.body.classList.remove('sidebar-mobile-open');
+      } else {
+        document.body.classList.add('sidebar-mobile-open');
+      }
+    }
   };
 
   return (
@@ -56,37 +86,8 @@ const MainNavbar: React.FC = () => {
           </a>
         </div>
       </div>
-
-      {/* Navigation Links
-      <div className="main-navbar-links">
-        <a href="#" className="nav-link">Home</a>
-        <div className="dropdown" 
-             onMouseEnter={() => handleDropdownToggle('projects')}
-             onMouseLeave={() => handleDropdownToggle('projects')}>
-          <a href="#" className="nav-link">Project Titles</a>
-          <div className="dropdown-content" style={{ display: activeDropdown === 'projects' ? 'block' : '' }}>
-            <a href="#">Java Projects</a>
-            <a href="#">Python Projects</a>
-            <a href="#">Machine Learning</a>
-            <a href="#">IoT Projects</a>
-            <a href="#">Web Development</a>
-          </div>
-        </div>
-        <a href="#" className="nav-link">Journal Paper</a>
-        <div className="dropdown"
-             onMouseEnter={() => handleDropdownToggle('domain')}
-             onMouseLeave={() => handleDropdownToggle('domain')}>
-          <a href="#" className="nav-link">Domain</a>
-          <div className="dropdown-content" style={{ display: activeDropdown === 'domain' ? 'block' : '' }}>
-            <a href="#">Artificial Intelligence</a>
-            <a href="#">Data Science</a>
-            <a href="#">Cyber Security</a>
-            <a href="#">Cloud Computing</a>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };
 
-export default MainNavbar;
+export default MainNavbar;  

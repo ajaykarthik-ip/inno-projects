@@ -6,6 +6,8 @@ import './SidebarMenu.css';
 const SidebarMenu: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const categories = [
     { name: 'View My Project', icon: 'code' },
@@ -18,34 +20,83 @@ const SidebarMenu: React.FC = () => {
     { name: 'Mini Project', icon: 'link' }
   ];
 
-  // Toggle sidebar collapse state
+  // Set isMounted to true after component mounts
+  useEffect(() => {
+    setIsMounted(true);
+    
+    // Check if we're on mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Listen for resize events
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
+  // Toggle sidebar collapse state (for desktop)
   const toggleSidebar = () => {
     setCollapsed(!collapsed);
-    document.body.classList.toggle('sidebar-collapsed');
   };
 
-  // Update classes when state changes
+  // Define global toggle function for mobile use
   useEffect(() => {
+    if (isMounted) {
+      // Only run on client-side
+      window.toggleMobileSidebar = () => {
+        setMobileOpen(prev => !prev);
+      };
+
+      return () => {
+        // Clean up
+        delete window.toggleMobileSidebar;
+      };
+    }
+  }, [isMounted]);
+
+  // Update body classes when mobile state changes
+  useEffect(() => {
+    if (!isMounted) return;
+    
+    // Get overlay element
+    const overlay = document.querySelector('.sidebar-overlay');
+    
+    if (mobileOpen) {
+      // Show the overlay
+      document.body.classList.add('sidebar-mobile-open');
+      overlay?.classList.add('active');
+    } else {
+      // Hide the overlay
+      document.body.classList.remove('sidebar-mobile-open');
+      overlay?.classList.remove('active');
+    }
+  }, [mobileOpen, isMounted]);
+
+  // Handle desktop collapsed state
+  useEffect(() => {
+    if (!isMounted) return;
+    
     if (collapsed) {
       document.body.classList.add('sidebar-collapsed');
     } else {
       document.body.classList.remove('sidebar-collapsed');
     }
-    
-    if (mobileOpen) {
-      document.body.classList.add('sidebar-mobile-open');
-    } else {
-      document.body.classList.remove('sidebar-mobile-open');
-    }
-  }, [collapsed, mobileOpen]);
+  }, [collapsed, isMounted]);
 
-  // Close sidebar when clicking outside on mobile
+  // Close sidebar when clicking outside
   useEffect(() => {
+    if (!isMounted) return;
+    
     const handleClickOutside = (event: MouseEvent) => {
       const sidebar = document.querySelector('.sidebar');
-      if (sidebar && !sidebar.contains(event.target as Node) && window.innerWidth <= 768 && mobileOpen) {
+      if (sidebar && !sidebar.contains(event.target as Node) && isMobile && mobileOpen) {
         setMobileOpen(false);
-        document.body.classList.remove('sidebar-mobile-open');
       }
     };
 
@@ -53,14 +104,15 @@ const SidebarMenu: React.FC = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [mobileOpen]);
+  }, [mobileOpen, isMobile, isMounted]);
 
   // Close sidebar when escape key is pressed
   useEffect(() => {
+    if (!isMounted) return;
+    
     const handleEscKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && mobileOpen) {
         setMobileOpen(false);
-        document.body.classList.remove('sidebar-mobile-open');
       }
     };
 
@@ -68,7 +120,7 @@ const SidebarMenu: React.FC = () => {
     return () => {
       document.removeEventListener('keydown', handleEscKey);
     };
-  }, [mobileOpen]);
+  }, [mobileOpen, isMounted]);
 
   // Function to render an icon based on name
   const renderIcon = (iconName: string) => {
@@ -134,20 +186,21 @@ const SidebarMenu: React.FC = () => {
 
   return (
     <>
-      {/* Overlay for mobile */}
+      {/* Overlay for mobile - no window object access during render */}
       <div 
-        className={`sidebar-overlay ${mobileOpen ? 'active' : ''}`} 
-        onClick={() => {
-          setMobileOpen(false);
-          document.body.classList.remove('sidebar-mobile-open');
-        }}
+        className={`sidebar-overlay ${mobileOpen ? 'active' : ''}`}
+        onClick={() => setMobileOpen(false)}
       ></div>
       
       {/* Sidebar */}
       <div className={`sidebar ${collapsed ? 'collapsed' : ''} ${mobileOpen ? 'mobile-open' : ''}`}>
         <div className="sidebar-header">
           {!collapsed && <h3>Browse</h3>}
-          <button className="collapse-btn" onClick={toggleSidebar} aria-label="Toggle sidebar">
+          <button 
+            className="collapse-btn" 
+            onClick={isMobile ? () => setMobileOpen(false) : toggleSidebar} 
+            aria-label="Toggle sidebar"
+          >
             {collapsed ? 
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 18l6-6-6-6"></path>
@@ -164,7 +217,7 @@ const SidebarMenu: React.FC = () => {
             <li key={index} className="sidebar-category-item">
               <a href="#" className="sidebar-category-link">
                 <span className="sidebar-icon">{renderIcon(category.icon)}</span>
-                {!collapsed && <span className="sidebar-text">{category.name}</span>}
+                <span className="sidebar-text">{category.name}</span>
               </a>
             </li>
           ))}
@@ -175,3 +228,10 @@ const SidebarMenu: React.FC = () => {
 };
 
 export default SidebarMenu;
+
+// Add global type definition
+declare global {
+  interface Window {
+    toggleMobileSidebar?: () => void;
+  }
+}
