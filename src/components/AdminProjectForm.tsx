@@ -1,8 +1,8 @@
-// src/components/AdminProjectForm.tsx
 "use client";
 
 import React, { useState } from 'react';
 import './AdminProjectForm.css';
+import { addProject } from '@/actions/projectsActions';
 
 interface AdminProjectFormProps {
   onProjectAdded: () => void;
@@ -137,27 +137,18 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
       setSubmitError(null);
       
       try {
-        // Prepare the data for submission
-        const projectData = {
+        // Use server action to add project
+        const result = await addProject({
           name: formData.name,
           description: formData.description,
           price: formData.price,
           youtubeUrl: formData.youtubeUrl || null,
           category: formData.category,
           programmingLanguage: formData.programmingLanguage
-        };
-        
-        const response = await fetch('/api/projects', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(projectData),
         });
         
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Failed to create project');
+        if (!result.success) {
+          throw new Error(result.error);
         }
         
         // Reset form after successful submission

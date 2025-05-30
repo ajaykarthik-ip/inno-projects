@@ -1,8 +1,8 @@
-// src/components/AdminProjectList.tsx
 "use client";
 
 import React, { useState, useEffect, useCallback } from 'react';
 import './AdminProjectList.css';
+import { fetchProjects, removeProject } from '@/actions/projectsActions';
 
 interface Project {
   id: string;
@@ -32,47 +32,33 @@ const AdminProjectList: React.FC<AdminProjectListProps> = ({ refreshTrigger }) =
   const [isDeleting, setIsDeleting] = useState<string | null>(null);
 
   // Function to fetch projects
-  const fetchProjects = useCallback(async () => {
+  const loadProjects = useCallback(async () => {
     setIsLoading(true);
     setError(null);
     
     try {
-      // Add search and filter parameters if they exist
-      let url = '/api/projects';
-      const params = new URLSearchParams();
+      // Prepare filters
+      const filters: any = {};
+      if (filterCategory !== 'all') filters.category = filterCategory;
+      if (filterLanguage !== 'all') filters.programmingLanguage = filterLanguage;
+      if (searchTerm) filters.search = searchTerm;
       
-      if (filterCategory !== 'all') {
-        params.append('category', filterCategory);
+      // Use the new server action to fetch projects
+      const result = await fetchProjects(filters);
+      
+      if (result.success) {
+        const projectsData = result.data || [];
+        setProjects(projectsData);
+        setFilteredProjects(projectsData);
+        
+        // Extract unique categories and languages
+        const uniqueCategories = ['all', ...new Set(projectsData.map((project: Project) => project.category))] as string[];
+        const uniqueLanguages = ['all', ...new Set(projectsData.map((project: Project) => project.programming_language))] as string[];
+        setCategories(uniqueCategories);
+        setLanguages(uniqueLanguages);
+      } else {
+        throw new Error(result.error);
       }
-      
-      if (filterLanguage !== 'all') {
-        params.append('programmingLanguage', filterLanguage);
-      }
-      
-      if (searchTerm) {
-        params.append('search', searchTerm);
-      }
-      
-      // Append parameters to URL if any exist
-      if (params.toString()) {
-        url += `?${params.toString()}`;
-      }
-      
-      const response = await fetch(url);
-      
-      if (!response.ok) {
-        throw new Error(`Failed to fetch projects: ${response.status}`);
-      }
-      
-      const data = await response.json();
-      setProjects(data);
-      setFilteredProjects(data);
-      
-      // Extract unique categories and languages
-      const uniqueCategories = ['all', ...new Set(data.map((project: Project) => project.category))] as string[];
-      const uniqueLanguages = ['all', ...new Set(data.map((project: Project) => project.programming_language))] as string[];
-      setCategories(uniqueCategories);
-      setLanguages(uniqueLanguages);
     } catch (err) {
       console.error('Error fetching projects:', err);
       setError(err instanceof Error ? err.message : 'Failed to load projects');
@@ -83,8 +69,8 @@ const AdminProjectList: React.FC<AdminProjectListProps> = ({ refreshTrigger }) =
 
   // Fetch projects on mount and when refresh trigger changes
   useEffect(() => {
-    fetchProjects();
-  }, [fetchProjects, refreshTrigger]);
+    loadProjects();
+  }, [loadProjects, refreshTrigger]);
 
   // Handle deleting a project
   const handleDeleteProject = async (id: string) => {
@@ -92,17 +78,15 @@ const AdminProjectList: React.FC<AdminProjectListProps> = ({ refreshTrigger }) =
       setIsDeleting(id);
       
       try {
-        const response = await fetch(`/api/projects/${id}`, {
-          method: 'DELETE',
-        });
+        // Use the new server action to delete a project
+        const result = await removeProject(id);
         
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Failed to delete project');
+        if (result.success) {
+          // Refresh the projects list
+          loadProjects();
+        } else {
+          throw new Error(result.error);
         }
-        
-        // Refresh the projects list
-        fetchProjects();
       } catch (err) {
         console.error('Error deleting project:', err);
         alert(err instanceof Error ? err.message : 'Failed to delete project');
@@ -139,6 +123,7 @@ const AdminProjectList: React.FC<AdminProjectListProps> = ({ refreshTrigger }) =
     });
   };
 
+  // Rest of the component remains unchanged
   return (
     <div className="admin-projects-container">
       <h2 className="admin-projects-title">Manage Projects</h2>
@@ -197,7 +182,7 @@ const AdminProjectList: React.FC<AdminProjectListProps> = ({ refreshTrigger }) =
           </svg>
           <h3>Error Loading Projects</h3>
           <p>{error}</p>
-          <button onClick={fetchProjects} className="retry-button">
+          <button onClick={loadProjects} className="retry-button">
             Try Again
           </button>
         </div>
