@@ -5,10 +5,11 @@ import { ProjectModel } from '../../../../models/Projects';
 // GET /api/projects/[id] - Get a project by ID
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const project = await ProjectModel.getProjectById(params.id);
+    const { id } = await context.params;
+    const project = await ProjectModel.getProjectById(id);
     
     if (!project) {
       return NextResponse.json(
@@ -19,7 +20,7 @@ export async function GET(
     
     return NextResponse.json(project);
   } catch (error) {
-    console.error(`Error fetching project ${params.id}:`, error);
+    console.error(`Error fetching project:`, error);
     return NextResponse.json(
       { error: 'Failed to fetch project' },
       { status: 500 }
@@ -30,13 +31,14 @@ export async function GET(
 // PUT /api/projects/[id] - Update a project
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await context.params;
     const body = await request.json();
     
     // Update the project
-    const updatedProject = await ProjectModel.updateProject(params.id, {
+    const updatedProject = await ProjectModel.updateProject(id, {
       name: body.name,
       description: body.description,
       price: body.price,
@@ -54,7 +56,7 @@ export async function PUT(
     
     return NextResponse.json(updatedProject);
   } catch (error) {
-    console.error(`Error updating project ${params.id}:`, error);
+    console.error(`Error updating project:`, error);
     return NextResponse.json(
       { error: 'Failed to update project' },
       { status: 500 }
@@ -65,10 +67,11 @@ export async function PUT(
 // DELETE /api/projects/[id] - Delete a project
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const success = await ProjectModel.deleteProject(params.id);
+    const { id } = await context.params;
+    const success = await ProjectModel.deleteProject(id);
     
     if (!success) {
       return NextResponse.json(
@@ -79,7 +82,7 @@ export async function DELETE(
     
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error(`Error deleting project ${params.id}:`, error);
+    console.error(`Error deleting project:`, error);
     return NextResponse.json(
       { error: 'Failed to delete project' },
       { status: 500 }
