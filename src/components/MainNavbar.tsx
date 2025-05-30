@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 
 const MainNavbar: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const router = useRouter();
 
   // Check if component is mounted
   useEffect(() => {
