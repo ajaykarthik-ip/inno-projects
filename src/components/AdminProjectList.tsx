@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './AdminProjectList.css';
 import { projectsApi } from '@/utils/api';
-import { Project } from '../models/Projects';
+import { Project, ProjectFilter } from '@/models/Projects';
 
 interface AdminProjectListProps {
   refreshTrigger: number;
@@ -28,7 +28,7 @@ const AdminProjectList: React.FC<AdminProjectListProps> = ({ refreshTrigger }) =
     
     try {
       // Prepare filters
-      const filters: any = {};
+      const filters: ProjectFilter = {};
       if (filterCategory !== 'all') filters.category = filterCategory;
       if (filterLanguage !== 'all') filters.programmingLanguage = filterLanguage;
       if (searchTerm) filters.search = searchTerm;

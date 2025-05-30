@@ -1,6 +1,6 @@
-// src/models/Project.ts
+// src/models/Projects.ts
 import { ObjectId } from 'mongodb';
-import { getCollection } from '@/lib/mongodb';
+import { getCollection, formatDocument, formatDocuments, createObjectId } from '@/lib/mongodb';
 
 export interface Project {
   _id?: ObjectId;
@@ -12,6 +12,7 @@ export interface Project {
   category: string;
   programming_language: string;
   created_at: Date;
+  updated_at?: Date;
 }
 
 export interface ProjectInput {
@@ -23,17 +24,19 @@ export interface ProjectInput {
   programmingLanguage: string;
 }
 
+export interface ProjectFilter {
+  category?: string;
+  programmingLanguage?: string;
+  search?: string;
+}
+
 export const ProjectModel = {
   // Get all projects with optional filters
-  async getAllProjects(filters?: {
-    category?: string;
-    programmingLanguage?: string;
-    search?: string;
-  }): Promise<Project[]> {
-    const collection = await getCollection('projects');
+  async getAllProjects(filters?: ProjectFilter): Promise<Project[]> {
+    const collection = await getCollection<Project>('projects');
     
     // Build query based on filters
-    const query: any = {};
+    const query: Record<string, unknown> = {};
     
     if (filters?.category) {
       query.category = filters.category;
@@ -53,27 +56,23 @@ export const ProjectModel = {
     const projects = await collection.find(query).sort({ created_at: -1 }).toArray();
     
     // Convert MongoDB _id to string id for client-side use
-    return projects.map(project => ({
-      ...project,
-      id: project._id.toString(),
-    }));
+    return formatDocuments(projects);
   },
   
   // Get a single project by ID
   async getProjectById(id: string): Promise<Project | null> {
-    const collection = await getCollection('projects');
+    const collection = await getCollection<Project>('projects');
     
     try {
-      const objectId = new ObjectId(id);
+      const objectId = createObjectId(id);
+      if (!objectId) return null;
+      
       const project = await collection.findOne({ _id: objectId });
       
       if (!project) return null;
       
-      return {
-        ...project,
-        id: project._id.toString(),
-      };
-    } catch (error) {
+      return formatDocument(project);
+    } catch (_) {
       console.error('Invalid ObjectId format:', id);
       return null;
     }
@@ -81,7 +80,7 @@ export const ProjectModel = {
   
   // Create a new project
   async createProject(projectData: ProjectInput): Promise<Project> {
-    const collection = await getCollection('projects');
+    const collection = await getCollection<Project>('projects');
     
     const newProject = {
       name: projectData.name,
@@ -104,13 +103,14 @@ export const ProjectModel = {
   
   // Update an existing project
   async updateProject(id: string, projectData: Partial<ProjectInput>): Promise<Project | null> {
-    const collection = await getCollection('projects');
+    const collection = await getCollection<Project>('projects');
     
     try {
-      const objectId = new ObjectId(id);
+      const objectId = createObjectId(id);
+      if (!objectId) return null;
       
       // Prepare update data (converting from camelCase to snake_case for DB)
-      const updateData: any = {};
+      const updateData: Partial<Project> = {};
       
       if (projectData.name !== undefined) updateData.name = projectData.name;
       if (projectData.description !== undefined) updateData.description = projectData.description;
@@ -132,27 +132,26 @@ export const ProjectModel = {
       
       if (!updatedProject) return null;
       
-      return {
-        ...updatedProject,
-        id: updatedProject._id.toString(),
-      };
-    } catch (error) {
-      console.error('Error updating project:', error);
+      return formatDocument(updatedProject);
+    } catch (_) {
+      console.error('Error updating project with ID:', id);
       return null;
     }
   },
   
   // Delete a project
   async deleteProject(id: string): Promise<boolean> {
-    const collection = await getCollection('projects');
+    const collection = await getCollection<Project>('projects');
     
     try {
-      const objectId = new ObjectId(id);
+      const objectId = createObjectId(id);
+      if (!objectId) return false;
+      
       const result = await collection.deleteOne({ _id: objectId });
       
       return result.deletedCount === 1;
-    } catch (error) {
-      console.error('Error deleting project:', error);
+    } catch (_) {
+      console.error('Error deleting project with ID:', id);
       return false;
     }
   }

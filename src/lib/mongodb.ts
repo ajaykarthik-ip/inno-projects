@@ -29,11 +29,14 @@ let clientPromise: Promise<MongoClient>;
 let db: Db;
 let isConnected = false;
 
-// In development, use a global variable to preserve the connection between hot reloads
+// Add these declarations to the global namespace
 declare global {
-  var _mongoClientPromise: Promise<MongoClient>;
-  var _db: Db;
-  var _isConnected: boolean;
+  // eslint-disable-next-line no-var
+  var _mongoClientPromise: Promise<MongoClient> | undefined;
+  // eslint-disable-next-line no-var
+  var _db: Db | undefined;
+  // eslint-disable-next-line no-var
+  var _isConnected: boolean | undefined;
 }
 
 // Create cached connection
@@ -47,7 +50,8 @@ if (process.env.NODE_ENV === 'development') {
         console.log('✅ CONNECTED TO MONGODB (Development)');
         console.log(`📊 Database: ${dbName}`);
         
-        global._db = client.db(dbName);
+        const database = client.db(dbName);
+        global._db = database;
         global._isConnected = true;
         
         return client;
@@ -58,8 +62,8 @@ if (process.env.NODE_ENV === 'development') {
       });
   }
   clientPromise = global._mongoClientPromise;
-  db = global._db;
-  isConnected = global._isConnected;
+  db = global._db as Db;
+  isConnected = global._isConnected || false;
 } else {
   // In production mode, it's best to not use a global variable.
   client = new MongoClient(uri, options);
@@ -83,9 +87,9 @@ if (process.env.NODE_ENV === 'development') {
 export async function getDatabase(): Promise<Db> {
   if (!isConnected) {
     await clientPromise;
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'development' && global._db) {
       db = global._db;
-      isConnected = global._isConnected;
+      isConnected = global._isConnected || false;
     }
   }
   return db;
@@ -93,15 +97,15 @@ export async function getDatabase(): Promise<Db> {
 
 // Helper function to get a collection
 export async function getCollection<T extends Document = Document>(collectionName: string): Promise<Collection<T>> {
-  const db = await getDatabase();
-  return db.collection<T>(collectionName);
+  const database = await getDatabase();
+  return database.collection<T>(collectionName);
 }
 
 // Advanced query helper with timing and logging
 export async function executeQuery<T extends Document>(
   collectionName: string,
   operation: string,
-  queryFn: (collection: Collection<T>) => Promise<any>
+  queryFn: (collection: Collection<T>) => Promise<unknown>
 ) {
   const start = Date.now();
   let result;
@@ -114,16 +118,16 @@ export async function executeQuery<T extends Document>(
     console.log(`✓ MongoDB ${operation} on ${collectionName} completed in ${duration}ms`);
     
     return result;
-  } catch (error) {
+  } catch (err) {
     const duration = Date.now() - start;
-    console.error(`❌ MongoDB ${operation} on ${collectionName} failed after ${duration}ms:`, error);
-    throw error;
+    console.error(`❌ MongoDB ${operation} on ${collectionName} failed after ${duration}ms:`, err);
+    throw err;
   }
 }
 
 // Helper to convert MongoDB _id to string id for client-side use
 export function formatDocument<T extends { _id?: ObjectId }>(doc: T): T & { id: string } {
-  if (!doc) return null as any;
+  if (!doc) return null as unknown as T & { id: string };
   
   const { _id, ...rest } = doc;
   return {
@@ -142,7 +146,7 @@ export function formatDocuments<T extends { _id?: ObjectId }>(docs: T[]): (T & {
 export function createObjectId(id: string): ObjectId | null {
   try {
     return new ObjectId(id);
-  } catch (error) {
+  } catch (_) {
     console.error(`Invalid ObjectId: ${id}`);
     return null;
   }
