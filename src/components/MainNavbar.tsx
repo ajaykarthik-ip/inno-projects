@@ -2,9 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import './MainNavbar.css';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const MainNavbar: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const router = useRouter();
 
   // Check if component is mounted
   useEffect(() => {
@@ -40,6 +43,12 @@ const MainNavbar: React.FC = () => {
     }
   };
 
+  const handleLogoClick = () => {
+    document.body.classList.remove('sidebar-collapsed', 'sidebar-mobile-open');
+    const overlay = document.querySelector('.sidebar-overlay');
+    if (overlay) overlay.classList.remove('active');
+  };
+
   return (
     <div className="main-navbar">
       <div className="main-navbar-container">
@@ -53,12 +62,12 @@ const MainNavbar: React.FC = () => {
         </button>
 
         {/* Logo */}
-        <a href="#" className="main-navbar-logo">
+        <Link href="/" className="main-navbar-logo" onClick={handleLogoClick}>
           Final Year Projects
-        </a>
+        </Link>
 
         {/* Search Bar */}
-        <div className="search-bar">
+        {/* <div className="search-bar">
           <select className="category-dropdown">
             <option>All Categories</option>
             <option>Java</option>
@@ -74,7 +83,7 @@ const MainNavbar: React.FC = () => {
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
           </button>
-        </div>
+        </div> */}
 
         {/* User Actions */}
         <div className="main-navbar-actions">

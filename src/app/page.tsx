@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect } from 'react';
-import MainNavbar from '@/components/MainNavbar';
-import SidebarMenu from '@/components/SidebarMenu';
 import HeroSection from '@/components/HeroSection';
 import FeaturedProjects from '@/components/FeaturedProjects';
 
@@ -21,22 +19,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="app-container">
-      <SidebarMenu />
-      
-      <div className="page-content">
-        <MainNavbar />
-        
-        <div className="main-content-wrapper">
-          <main className="main-content">
-            <HeroSection />
-            
-            <div className="content-section">
-              <FeaturedProjects />
-            </div>
-          </main>
+    <div className="main-content-wrapper">
+      <main className="main-content">
+        <HeroSection />
+        <div className="content-section">
+          <FeaturedProjects />
         </div>
-      </div>
+      </main>
     </div>
   );
 }

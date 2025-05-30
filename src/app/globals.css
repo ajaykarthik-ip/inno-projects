@@ -22,16 +22,19 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .app-container {
   position: relative;
   min-height: 100vh;
+  display: flex;
 }
 
 .main-content-wrapper {
   transition: var(--transition);
   padding: 1rem;
+  flex: 1;
 }
 
 .main-content {
@@ -63,6 +66,18 @@ button {
 .page-content {
   transition: var(--transition);
   width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar and content layout */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
 }
 
 body:not(.sidebar-collapsed):not(.sidebar-mobile-open) .page-content {
@@ -89,5 +104,13 @@ body.sidebar-collapsed .page-content {
   
   body.sidebar-mobile-open {
     overflow: hidden;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
   }
 }
