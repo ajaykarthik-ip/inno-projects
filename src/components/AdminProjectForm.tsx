@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import './AdminProjectForm.css';
-import { addProject } from '@/api/projectsCrud';
+import { projectsApi } from '@/utils/api';
 
 interface AdminProjectFormProps {
   onProjectAdded: () => void;
@@ -137,8 +137,8 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
       setSubmitError(null);
       
       try {
-        // Use server action to add project
-        const result = await addProject({
+        // Use the new API client to add a project
+        await projectsApi.createProject({
           name: formData.name,
           description: formData.description,
           price: formData.price,
@@ -146,10 +146,6 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
           category: formData.category,
           programmingLanguage: formData.programmingLanguage
         });
-        
-        if (!result.success) {
-          throw new Error(result.error);
-        }
         
         // Reset form after successful submission
         setFormData({

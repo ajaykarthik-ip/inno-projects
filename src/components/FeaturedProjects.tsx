@@ -3,17 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import ProjectCard from './ProjectCard';
 import './FeaturedProjects.css';
-
-interface Project {
-  id: string;
-  name: string;
-  description: string;
-  price: string;
-  youtube_url: string | null;
-  category: string;
-  programming_language: string;
-  created_at: string;
-}
+import { projectsApi } from '@/utils/api';
+import { Project } from '../models/Projects';
 
 const FeaturedProjects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -27,13 +18,8 @@ const FeaturedProjects: React.FC = () => {
     const fetchProjects = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/api/projects');
-        
-        if (!response.ok) {
-          throw new Error(`Failed to fetch projects: ${response.status}`);
-        }
-        
-        const data = await response.json();
+        // Use the new API client to fetch projects
+        const data = await projectsApi.getProjects();
         setProjects(data);
         
         // Extract unique categories
@@ -155,7 +141,7 @@ const FeaturedProjects: React.FC = () => {
         {filteredProjects.map((project) => (
           <ProjectCard 
             key={project.id}
-            id={project.id}
+            id={project.id!}
             title={project.name}
             description={project.description}
             price={project.price}
