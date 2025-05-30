@@ -1,8 +1,8 @@
 // src/models/Projects.ts
-import { ObjectId } from 'mongodb';
+import { ObjectId, Document as MongoDocument } from 'mongodb';
 import { getCollection, formatDocument, formatDocuments, createObjectId } from '@/lib/mongodb';
 
-export interface Project {
+export interface Project extends MongoDocument {
   _id?: ObjectId;
   id?: string;
   name: string;
@@ -72,7 +72,7 @@ export const ProjectModel = {
       if (!project) return null;
       
       return formatDocument(project);
-    } catch (_) {
+    } catch {
       console.error('Invalid ObjectId format:', id);
       return null;
     }
@@ -133,7 +133,7 @@ export const ProjectModel = {
       if (!updatedProject) return null;
       
       return formatDocument(updatedProject);
-    } catch (_) {
+    } catch {
       console.error('Error updating project with ID:', id);
       return null;
     }
@@ -150,7 +150,7 @@ export const ProjectModel = {
       const result = await collection.deleteOne({ _id: objectId });
       
       return result.deletedCount === 1;
-    } catch (_) {
+    } catch {
       console.error('Error deleting project with ID:', id);
       return false;
     }

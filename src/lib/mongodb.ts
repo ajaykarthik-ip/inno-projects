@@ -1,5 +1,5 @@
 // src/lib/mongodb.ts
-import { MongoClient, Db, Collection, ObjectId } from 'mongodb';
+import { MongoClient, Db, Collection, ObjectId, Document as MongoDocument } from 'mongodb';
 
 // MongoDB connection string and database name from environment variables
 const uri = process.env.MONGODB_URI || '';
@@ -96,13 +96,13 @@ export async function getDatabase(): Promise<Db> {
 }
 
 // Helper function to get a collection
-export async function getCollection<T extends Document = Document>(collectionName: string): Promise<Collection<T>> {
+export async function getCollection<T extends MongoDocument = MongoDocument>(collectionName: string): Promise<Collection<T>> {
   const database = await getDatabase();
   return database.collection<T>(collectionName);
 }
 
 // Advanced query helper with timing and logging
-export async function executeQuery<T extends Document>(
+export async function executeQuery<T extends MongoDocument>(
   collectionName: string,
   operation: string,
   queryFn: (collection: Collection<T>) => Promise<unknown>
@@ -146,7 +146,7 @@ export function formatDocuments<T extends { _id?: ObjectId }>(docs: T[]): (T & {
 export function createObjectId(id: string): ObjectId | null {
   try {
     return new ObjectId(id);
-  } catch (_) {
+  } catch {
     console.error(`Invalid ObjectId: ${id}`);
     return null;
   }
