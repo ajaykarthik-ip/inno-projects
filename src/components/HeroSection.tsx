@@ -190,48 +190,6 @@ const HeroSection: React.FC = () => {
   // Current active content
   const currentContent = contentItems[activeSlide];
 
-  // Get icon for the current content type
-  const getContentIcon = () => {
-    switch (currentContent.icon) {
-      case 'calendar':
-        return (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5v-5z"/>
-          </svg>
-        );
-      case 'project':
-        return (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-          </svg>
-        );
-      case 'document':
-        return (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-          </svg>
-        );
-      case 'support':
-        return (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-          </svg>
-        );
-      case 'gift':
-        return (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-            <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1h-2.02c.18-.29.31-.61.36-.95.34-.23.66-.55.96-1.05.13 0 .42-.02.7 0zM9 4c.55 0 1 .45 1 1s-.45 1-1 1H6.98c.18-.29.31-.61.36-.95.34-.23.66-.55.96-1.05.13 0 .42-.02.7 0zM4 8h16v2h-7v-1c0-.55-.45-1-1-1s-1 .45-1 1v1H4V8zm0 4h5v8H4v-8zm7 0h2v8h-2v-8zm4 0h5v8h-5v-8z"/>
-          </svg>
-        );
-      default:
-        return (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-            <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
-          </svg>
-        );
-    }
-  };
-
   // Generate gradient background style
   const getBackgroundStyle = () => {
     if (currentContent.gradientColors && currentContent.gradientColors.length > 0) {
