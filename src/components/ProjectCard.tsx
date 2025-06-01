@@ -44,7 +44,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   // Navigate to project details page
   const handleViewDetails = () => {
-    router.push(`/projects/${id}`);
+    router.push(`/project?id=${id}`);
   };
 
   return (
