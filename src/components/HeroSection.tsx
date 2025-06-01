@@ -33,8 +33,8 @@ const HeroSection: React.FC = () => {
     {
       id: 'ai-ml-project',
       title: 'Full Stack AI/ML Projects',
-      description: 'Get your AI and Machine Learning projects built in record time. Our expert team delivers complete solutions—from concept to deployment—in under 12 hours.',
-      price: 'Build and receive any project in less than 12 hours',
+      description: 'Get your AI and Machine Learning projects built in record time. Our expert team delivers complete solutions.',
+      price: 'Build and Get your project in less than 12 hours',
       ctaText: 'Start Your Project',
       ctaLink: '/ai-ml-project',
       mediaType: 'gradient',
