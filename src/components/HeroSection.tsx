@@ -28,12 +28,25 @@ const HeroSection: React.FC = () => {
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Updated content items with the 4 requested sections
+  // Updated content items with the AI/ML project section first
   const contentItems: ContentItem[] = [
+    {
+      id: 'ai-ml-project',
+      title: 'Full Stack AI/ML Projects',
+      description: 'Get your AI and Machine Learning projects built in record time. Our expert team delivers complete solutions—from concept to deployment—in under 12 hours.',
+      price: 'Build and receive any project in less than 12 hours',
+      ctaText: 'Start Your Project',
+      ctaLink: '/ai-ml-project',
+      mediaType: 'gradient',
+      gradientColors: ['#8B5CF6', '#EC4899'],
+      textColor: '#ffffff',
+      accentColor: '#10B981',
+      icon: 'ai'
+    },
     {
       id: 'referral-program',
       title: 'Refer & Earn Rewards',
-      description: 'Refer your friend to get up to 90% discount and also receive cashback on all your purchases. The more friends you refer, the bigger your rewards!',
+      description: 'Refer your friends to receive up to a 90% discount and cashback on all your purchases. The more friends you refer, the greater your rewards!',
       discount: 'UP TO 90% OFF',
       ctaText: 'Refer Now',
       ctaLink: '/referral',
@@ -46,7 +59,7 @@ const HeroSection: React.FC = () => {
     {
       id: 'book-appointment',
       title: 'Expert Consultation',
-      description: 'Schedule appointments with experienced software engineers to get personalized guidance on your projects.',
+      description: 'Schedule an appointment with an experienced software engineer to receive personalized guidance on your projects.',
       ctaText: 'Book a Session',
       ctaLink: '/appointments',
       mediaType: 'gradient',
@@ -57,8 +70,8 @@ const HeroSection: React.FC = () => {
     },
     {
       id: 'request-project',
-      title: 'Request New Project',
-      description: 'Need a custom AI project developed? Our team of experts can build tailored solutions from scratch.',
+      title: 'Request a New Project',
+      description: 'Need a custom AI project developed? Our team of experts builds tailored solutions from the ground up.',
       ctaText: 'Submit Request',
       ctaLink: '/request-project',
       mediaType: 'gradient',
@@ -70,8 +83,8 @@ const HeroSection: React.FC = () => {
     {
       id: 'ieee-publication',
       title: 'IEEE Journal Publication',
-      description: 'Get assistance with publishing your research in prestigious IEEE journals. Our academic team will help refine your paper.',
-      price: '₹35,000.00',
+      description: 'Get expert help publishing your research in prestigious IEEE journals. Our academic team will help you refine your paper.',
+      price: 'For less than ₹3,000.00',
       ctaText: 'Publish Research',
       ctaLink: '/ieee-publication',
       mediaType: 'gradient',
@@ -83,15 +96,17 @@ const HeroSection: React.FC = () => {
     {
       id: 'contact-support',
       title: 'Contact Us 24/7',
-      description: 'Our dedicated support team is available round-the-clock to assist you with any questions or concerns.',
+      description: 'Our dedicated support team is available around the clock to assist you with any questions or concerns.',
       ctaText: 'Get Help Now',
       ctaLink: '/contact',
       mediaType: 'gradient',
       gradientColors: ['#4A00E0', '#8E2DE2'],
       textColor: '#ffffff',
-      accentColor: '#8E2DE2',
+      accentColor: '#00FFC8',  // Bright cyan for button color
       icon: 'support'
     }
+    
+    
   ];
 
   // Function to switch to next slide - optimized for mobile
@@ -204,6 +219,49 @@ const HeroSection: React.FC = () => {
     return { backgroundColor: '#1a1a2e' };
   };
 
+  // Add scroll handler
+  const handleScrollClick = () => {
+    const nextSection = document.querySelector('.content-section');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Render icon based on content ID
+  const renderIcon = () => {
+    if (currentContent.id === 'ai-ml-project') {
+      return (
+        <>
+          <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"></path>
+          <path d="M7 12l3 3 7-7"></path>
+        </>
+      );
+    } else if (currentContent.id.includes('project')) {
+      return (
+        <>
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 8v8"></path>
+          <path d="M8 12h8"></path>
+        </>
+      );
+    } else if (currentContent.id.includes('product')) {
+      return (
+        <>
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <path d="M5 12h14"></path>
+          <path d="M12 5l7 7-7 7"></path>
+        </>
+      );
+    }
+  };
+
   return (
     <div 
       className="hero-section"
@@ -226,15 +284,22 @@ const HeroSection: React.FC = () => {
             <div className="shape shape-1"></div>
             <div className="shape shape-2"></div>
             <div className="shape shape-3"></div>
+            {currentContent.id === 'ai-ml-project' && (
+              <>
+                <div className="ai-particle ai-particle-1"></div>
+                <div className="ai-particle ai-particle-2"></div>
+                <div className="ai-particle ai-particle-3"></div>
+                <div className="ai-particle ai-particle-4"></div>
+                <div className="ai-particle ai-particle-5"></div>
+                <div className="ai-circuit"></div>
+              </>
+            )}
           </div>
         </div>
         
         <div className="hero-text">
           <div className="content-header">
             <h1>{currentContent.title}</h1>
-            {currentContent.discount && (
-              <div className="discount-badge">{currentContent.discount}</div>
-            )}
           </div>
           
           <p>{currentContent.description}</p>
@@ -247,24 +312,7 @@ const HeroSection: React.FC = () => {
           
           <a href={currentContent.ctaLink} className="hero-cta" style={{ backgroundColor: currentContent.accentColor || 'var(--accent-primary)' }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              {currentContent.id.includes('project') ? (
-                <>
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M12 8v8"></path>
-                  <path d="M8 12h8"></path>
-                </>
-              ) : currentContent.id.includes('product') ? (
-                <>
-                  <circle cx="9" cy="21" r="1"></circle>
-                  <circle cx="20" cy="21" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </>
-              ) : (
-                <>
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5l7 7-7 7"></path>
-                </>
-              )}
+              {renderIcon()}
             </svg>
             {currentContent.ctaText}
           </a>
@@ -296,6 +344,13 @@ const HeroSection: React.FC = () => {
             <span className="indicator-progress"></span>
           </button>
         ))}
+      </div>
+
+      {/* Add scroll indicator */}
+      <div className="scroll-indicator" onClick={handleScrollClick} role="button" aria-label="Scroll to next section">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
       </div>
     </div>
   );
