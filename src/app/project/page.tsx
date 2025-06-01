@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import './page.css';
 
@@ -243,4 +243,24 @@ const ProjectPage = () => {
   );
 };
 
-export default ProjectPage;
+// Wrap the component with Suspense
+const ProjectPageWithSuspense = () => {
+  return (
+    <Suspense fallback={
+      <div className="project-details-container">
+        <div className="project-card">
+          <div className="project-content">
+            <div className="loading-animation">
+              <div className="pulse-animation" />
+              <p className="section-content" style={{ textAlign: 'center', marginTop: '1rem' }}>Loading project details...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    }>
+      <ProjectPage />
+    </Suspense>
+  );
+};
+
+export default ProjectPageWithSuspense;
