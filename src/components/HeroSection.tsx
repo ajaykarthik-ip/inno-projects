@@ -35,7 +35,7 @@ const HeroSection: React.FC = () => {
       title: 'Refer & Earn Rewards',
       description: 'Refer your friend to get up to 90% discount and also receive cashback on all your purchases. The more friends you refer, the bigger your rewards!',
       discount: 'UP TO 90% OFF',
-      ctaText: 'Invite Friends Now',
+      ctaText: 'Refer Now',
       ctaLink: '/referral',
       mediaType: 'gradient',
       gradientColors: ['#FF416C', '#FF4B2B'],
