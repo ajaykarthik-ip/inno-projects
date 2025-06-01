@@ -3,9 +3,11 @@
 import React, { useEffect, useState } from 'react';
 import './MainNavbar.css';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const MainNavbar: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const pathname = usePathname();
 
   // Check if component is mounted
   useEffect(() => {
@@ -59,10 +61,16 @@ const MainNavbar: React.FC = () => {
           </svg>
         </button>
 
-        {/* Logo */}
-        <Link href="/" className="main-navbar-logo" onClick={handleLogoClick}>
-          Final Year Projects
-        </Link>
+        {/* Logo - conditionally rendered based on current path */}
+        {pathname === '/' ? (
+          <span className="main-navbar-logo">
+            Inno Projects
+          </span>
+        ) : (
+          <Link href="/" className="main-navbar-logo" onClick={handleLogoClick}>
+            Inno Projects
+          </Link>
+        )}
 
         {/* Search Bar */}
         {/* <div className="search-bar">
