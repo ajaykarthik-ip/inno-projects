@@ -14,7 +14,7 @@ const SidebarMenu: React.FC = () => {
 
   const categories = [
     { name: 'View My Project', icon: 'monitor', path: '/view-my-project' },
-    { name: 'Project list', icon: 'list', path: '/project-list' },
+    { name: 'Project list', icon: 'list', path: '/' },
     { name: 'Request new Project', icon: 'code-plus', path: '/request-project' },
     { name: 'IEEE Journal Paper', icon: 'file-text', path: '/ieee-journal' },
     { name: 'Dashboard', icon: 'layout', path: '/dashboard' },

@@ -151,13 +151,7 @@ const FeaturedProjects: React.FC = () => {
         ))}
       </div>
 
-      <button className="view-all-button" onClick={() => window.location.href = '/projects'}>
-        View All Projects
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M5 12h14"></path>
-          <path d="M12 5l7 7-7 7"></path>
-        </svg>
-      </button>
+
     </div>
   );
 };
