@@ -352,6 +352,11 @@ const HeroSection: React.FC = () => {
           <path d="M12 5v14M5 12l7 7 7-7"/>
         </svg>
       </div>
+
+      <div className="flex gap-4 my-4">
+        <button className="btn btn-primary">Create Project</button>
+        <button className="btn btn-secondary">Manage Projects</button>
+      </div>
     </div>
   );
 };

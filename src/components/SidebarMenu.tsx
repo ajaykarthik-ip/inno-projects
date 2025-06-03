@@ -19,7 +19,7 @@ const SidebarMenu: React.FC = () => {
     { name: 'IEEE Journal Paper', icon: 'file-text', path: '/ieee-journal' },
     { name: 'Dashboard', icon: 'layout', path: '/dashboard' },
     { name: 'Contact Us', icon: 'whatsapp', path: '/contact' },
-    { name: 'calander', icon: 'calendar', path: '/book-meeting' },
+    { name: 'calendar', icon: 'calendar', path: '/book-meeting' },
     { name: 'Mini Project', icon: 'code', path: '/mini-project' }
   ];
 
