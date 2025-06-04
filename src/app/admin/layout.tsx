@@ -2,8 +2,6 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import MainNavbar from '@/components/MainNavbar';
-import SidebarMenu from '@/components/SidebarMenu';
 
 export default function AdminLayout({
   children,
@@ -23,25 +21,7 @@ export default function AdminLayout({
     };
   }, []);
 
-  return (
-    <div className="app-container">
-      <SidebarMenu />
-      
-      <div className="page-content">
-        <MainNavbar />
-        
-        <div className="main-content-wrapper">
-          <main className="main-content">
-            <div className="content-section">
-              <div className="admin-header">
-                <h1>Admin Dashboard</h1>
-                <p>Manage your projects from this panel</p>
-              </div>
-              {children}
-            </div>
-          </main>
-        </div>
-      </div>
-    </div>
-  );
+  // We're not adding any wrapper elements here, 
+  // just passing children directly to avoid duplication
+  return children;
 }

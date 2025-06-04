@@ -1,191 +1,184 @@
 /* src/components/AdminProjectForm.css */
 .admin-form-container {
-    width: 100%;
-  }
-  
-  .admin-form-title {
-    font-size: 1.5rem;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
-  .admin-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .form-group label {
-    color: var(--text-primary);
-    font-weight: 500;
-    font-size: 1rem;
-  }
-  
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    padding: 0.75rem;
-    background-color: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--text-primary);
-    font-size: 1rem;
-    transition: var(--transition);
-    font-family: inherit;
-  }
-  
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.2);
-  }
-  
-  .form-group input.error,
-  .form-group textarea.error,
-  .form-group select.error {
-    border-color: #e53935;
-  }
-  
-  .error-message {
-    color: #e53935;
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
-  }
-  
-  .form-help-text {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
-  }
-  
-  .image-preview {
-    margin-top: 1rem;
-    padding: 1rem;
-    background-color: var(--bg-tertiary);
-    border-radius: 8px;
-    text-align: center;
-  }
-  
-  .image-preview h3 {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: var(--text-secondary);
-  }
-  
-  .image-preview img {
-    max-width: 100%;
-    max-height: 200px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-  }
-  
+  width: 100%;
+}
+
+.admin-form-title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  display: none; /* Hide the title as we're showing it in the parent component */
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 0.75rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.2);
+}
+
+.form-group input.error,
+.form-group textarea.error,
+.form-group select.error {
+  border-color: #e53935;
+}
+
+.error-message {
+  color: #e53935;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.form-help-text {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.image-preview {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--bg-tertiary);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.image-preview h3 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.admin-form-submit,
+.admin-form-reset {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.admin-form-submit {
+  background-color: var(--accent-primary);
+  color: white;
+  border: none;
+  flex-grow: 1;
+}
+
+.admin-form-submit:hover {
+  background-color: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+.admin-form-reset {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.admin-form-reset:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.form-error-message {
+  background-color: rgba(229, 57, 53, 0.1);
+  color: #e53935;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spinner {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Style for disabled buttons and inputs */
+.admin-form input:disabled,
+.admin-form textarea:disabled,
+.admin-form select:disabled,
+.admin-form-submit:disabled,
+.admin-form-reset:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.admin-form-submit:disabled:hover,
+.admin-form-reset:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .form-actions {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
   
   .admin-form-submit,
   .admin-form-reset {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: var(--transition);
+    width: 100%;
+    justify-content: center;
   }
-  
-  .admin-form-submit {
-    background-color: var(--accent-primary);
-    color: white;
-    border: none;
-    flex-grow: 1;
-  }
-  
-  .admin-form-submit:hover {
-    background-color: var(--accent-secondary);
-    transform: translateY(-2px);
-  }
-  
-  .admin-form-reset {
-    background-color: transparent;
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-  }
-  
-  .admin-form-reset:hover {
-    background-color: var(--bg-tertiary);
-    color: var(--text-primary);
-  }
-  
-  /* src/components/AdminProjectForm.css */
-/* Add these new styles to your existing CSS file */
-
-.form-error-message {
-    background-color: rgba(229, 57, 53, 0.1);
-    color: #e53935;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .spinner {
-    animation: spin 1.5s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  /* Style for disabled buttons and inputs */
-  .admin-form input:disabled,
-  .admin-form textarea:disabled,
-  .admin-form select:disabled,
-  .admin-form-submit:disabled,
-  .admin-form-reset:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-  
-  .admin-form-submit:disabled:hover,
-  .admin-form-reset:disabled:hover {
-    transform: none;
-    box-shadow: none;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .form-actions {
-      flex-direction: column;
-    }
-    
-    .admin-form-submit,
-    .admin-form-reset {
-      width: 100%;
-      justify-content: center;
-    }
-  }
-  
-  @media (min-width: 992px) {
-    .admin-form {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-  }
+}

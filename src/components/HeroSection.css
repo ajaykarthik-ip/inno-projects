@@ -772,7 +772,7 @@
 .scroll-indicator {
   position: absolute;
   left: 40px;
-  bottom: -32px; /* Place just below the hero card */
+  bottom: 50px; /* Place just below the hero card */
   width: 28px;
   height: 28px;
   display: flex;

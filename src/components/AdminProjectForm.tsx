@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import './AdminProjectForm.css';
 import { projectsApi } from '@/utils/api';
 
-interface AdminProjectFormProps {
+// Explicitly define the props interface
+export interface AdminProjectFormProps {
   onProjectAdded: () => void;
 }
 
@@ -158,7 +159,9 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
         });
         
         // Notify parent that a project was added
-        onProjectAdded();
+        if (onProjectAdded) {
+          onProjectAdded();
+        }
         
         // Show success message
         alert('Project added successfully!');
@@ -173,8 +176,6 @@ const AdminProjectForm: React.FC<AdminProjectFormProps> = ({ onProjectAdded }) =
 
   return (
     <div className="admin-form-container">
-      <h2 className="admin-form-title">Add New Project</h2>
-      
       {submitError && (
         <div className="form-error-message">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

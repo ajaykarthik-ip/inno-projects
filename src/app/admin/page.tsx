@@ -21,28 +21,41 @@ export default function AdminPage() {
   };
 
   return (
-    <div className="admin-container">
-      <div className="admin-tabs">
-        <button 
-          className={`admin-tab ${activeTab === 'create' ? 'active' : ''}`}
-          onClick={() => setActiveTab('create')}
-        >
-          Create Project
-        </button>
-        <button 
-          className={`admin-tab ${activeTab === 'manage' ? 'active' : ''}`}
-          onClick={() => setActiveTab('manage')}
-        >
-          Manage Projects
-        </button>
+    <div className="content-section">
+      {/* Admin header */}
+      <div className="admin-header">
+        <h1>Admin Dashboard</h1>
+        <p>Manage your projects from this panel</p>
       </div>
+      
+      {/* Tab navigation */}
+      <div className="admin-container">
+        <div className="admin-tabs">
+          <button 
+            className={`admin-tab ${activeTab === 'create' ? 'active' : ''}`}
+            onClick={() => setActiveTab('create')}
+          >
+            Create Project
+          </button>
+          <button 
+            className={`admin-tab ${activeTab === 'manage' ? 'active' : ''}`}
+            onClick={() => setActiveTab('manage')}
+          >
+            Manage Projects
+          </button>
+        </div>
 
-      <div className="admin-content">
-        {activeTab === 'create' ? (
-          <AdminProjectForm onProjectAdded={handleProjectAdded} />
-        ) : (
-          <AdminProjectList refreshTrigger={refreshCounter} />
-        )}
+        {/* Tab content */}
+        <div className="admin-content">
+          {activeTab === 'create' ? (
+            <>
+              <h2 className="admin-section-title">Add New Project</h2>
+              <AdminProjectForm onProjectAdded={handleProjectAdded} />
+            </>
+          ) : (
+            <AdminProjectList refreshTrigger={refreshCounter} />
+          )}
+        </div>
       </div>
     </div>
   );
