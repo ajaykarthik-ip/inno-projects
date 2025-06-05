@@ -1,0 +1,312 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: #000000;
+}
+
+.contact-card {
+  background: linear-gradient(145deg, #111111, #1a1a1a);
+  border: 1px solid #333333;
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  text-align: center;
+  animation: fadeInScale 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.3), transparent);
+}
+
+.contact-title {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.contact-subtitle {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: #cccccc;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.whatsapp-section {
+  background: rgba(37, 211, 102, 0.05);
+  border: 1px solid rgba(37, 211, 102, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.whatsapp-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.whatsapp-section:hover::before {
+  opacity: 1;
+}
+
+.whatsapp-section:hover {
+  transform: translateY(-8px);
+  border-color: rgba(37, 211, 102, 0.4);
+  box-shadow: 
+    0 20px 40px rgba(37, 211, 102, 0.2),
+    0 0 0 1px rgba(37, 211, 102, 0.1);
+  background: rgba(37, 211, 102, 0.08);
+}
+
+.whatsapp-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.whatsapp-section:hover .whatsapp-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+}
+
+.service-title {
+  font-size: clamp(1.3rem, 4vw, 1.6rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  position: relative;
+  z-index: 2;
+}
+
+.service-description {
+  color: #aaaaaa;
+  margin-bottom: 1.5rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  position: relative;
+  z-index: 2;
+}
+
+.phone-number {
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  font-weight: 700;
+  color: #25d366;
+  margin: 1rem 0 2rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 2;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.whatsapp-btn, .call-btn {
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  z-index: 2;
+  min-width: 200px;
+  justify-content: center;
+  color: white;
+}
+
+.whatsapp-btn {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+  background: linear-gradient(135deg, #2ae66e, #14a085);
+}
+
+.call-btn {
+  background: linear-gradient(135deg, #007aff, #0056cc);
+  box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3);
+}
+
+.call-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 122, 255, 0.4);
+  background: linear-gradient(135deg, #1e88ff, #0066dd);
+}
+
+.whatsapp-btn:active, .call-btn:active {
+  transform: translateY(0) scale(1.02);
+}
+
+.contact-footer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #333333;
+  color: #888888;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+  
+  .contact-card {
+    padding: 2rem;
+    margin: 1rem 0;
+    border-radius: 20px;
+  }
+  
+  .whatsapp-section {
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .whatsapp-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .whatsapp-btn, .call-btn {
+    padding: 1rem 2rem;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .phone-number {
+    margin: 1rem 0 1.5rem;
+  }
+}
+
+/* Large Desktop Styles */
+@media (min-width: 1200px) {
+  .contact-card {
+    max-width: 600px;
+    padding: 4rem;
+  }
+  
+  .whatsapp-section {
+    padding: 3rem;
+  }
+  
+  .whatsapp-icon {
+    width: 90px;
+    height: 90px;
+    font-size: 3rem;
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1600px) {
+  .contact-container {
+    padding: 2rem;
+  }
+  
+  .contact-card {
+    max-width: 700px;
+    padding: 5rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .whatsapp-section:hover {
+    transform: none;
+  }
+  
+  .whatsapp-section:active {
+    transform: scale(0.98);
+    background: rgba(37, 211, 102, 0.1);
+  }
+  
+  .whatsapp-btn:hover, .call-btn:hover {
+    transform: none;
+  }
+  
+  .whatsapp-btn:active, .call-btn:active {
+    transform: scale(0.95);
+  }
+}

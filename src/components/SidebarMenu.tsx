@@ -13,11 +13,11 @@ const SidebarMenu: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
 
   const categories = [
-    { name: 'View My Project', icon: 'monitor', path: '/view-my-project' },
+    // { name: 'View My Project', icon: 'monitor', path: '/view-my-project' },
     { name: 'Project list', icon: 'list', path: '/' },
     { name: 'Request new Project', icon: 'code-plus', path: '/request-project' },
     { name: 'IEEE Journal Paper', icon: 'file-text', path: '/ieee-journal' },
-    { name: 'Dashboard', icon: 'layout', path: '/dashboard' },
+    // { name: 'Dashboard', icon: 'layout', path: '/dashboard' },
     { name: 'Contact Us', icon: 'whatsapp', path: '/contact' },
     // { name: 'calendar', icon: 'calendar', path: '/book-meeting' },
     // { name: 'Mini Project', icon: 'code', path: '/mini-project' }
