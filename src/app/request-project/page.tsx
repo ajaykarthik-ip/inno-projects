@@ -63,8 +63,8 @@ Let's discuss this project! Please review my request and get back to me. Thank y
         <div className="request-header">
           <h1 className="request-title">Request New Project</h1>
           <p className="request-subtitle">
-            Tell us about your project requirements and we'll get back to you with a custom solution. 
-            Fill out the form below and we'll contact you via WhatsApp.
+            Tell us about your project requirements and we&apos;ll get back to you with a custom solution. 
+            Fill out the form below and we&apos;ll contact you via WhatsApp.
           </p>
         </div>
 
@@ -227,7 +227,7 @@ Let's discuss this project! Please review my request and get back to me. Thank y
           </div>
 
           <div className="lets-discuss-section">
-            <h3 className="lets-discuss-title">Let's Discuss</h3>
+            <h3 className="lets-discuss-title">Let&apos;s Discuss</h3>
           </div>
 
           <div className="form-note">
@@ -238,7 +238,7 @@ Let's discuss this project! Please review my request and get back to me. Thank y
 
           <div className="submit-section">
             <p className="submit-description">
-              Click below to send your project request via WhatsApp. We'll review your requirements and get back to you within 2 hours.
+              Click below to send your project request via WhatsApp. We&apos;ll review your requirements and get back to you within 2 hours.
             </p>
             <button type="submit" className="submit-btn">
               <span>📤</span>
