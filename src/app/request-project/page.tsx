@@ -241,7 +241,7 @@ Let's discuss this project! Please review my request and get back to me. Thank y
               Click below to send your project request via WhatsApp. We&apos;ll review your requirements and get back to you within 2 hours.
             </p>
             <button type="submit" className="submit-btn">
-              <span>📤</span>
+              {/* <span>📤</span> */}
               <span>Send Request via WhatsApp</span>
             </button>
           </div>
