@@ -24,6 +24,7 @@ const ProjectPage = () => {
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (!projectId) {
@@ -91,6 +92,19 @@ Could you please provide more information about this project and how to proceed 
     window.open(`https://wa.me/919600309140?text=${encodedMessage}`, '_blank');
   };
 
+  const getThumbnailUrl = (videoId: string): string => {
+    return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+  };
+
+  const handlePlayVideo = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   if (loading) {
     return (
       <div className="project-details-container">
@@ -139,13 +153,38 @@ Could you please provide more information about this project and how to proceed 
           
           <div className="project-content">
             {youtubeVideoId && (
-              <div className="youtube-container">
-                <iframe
-                  src={`https://www.youtube.com/embed/${youtubeVideoId}`}
-                  title={`${project.name} Demo`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+              <div className="youtube-container" onClick={handlePlayVideo}>
+                <img
+                  src={getThumbnailUrl(youtubeVideoId)}
+                  alt={`${project.name} thumbnail`}
+                  style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block'}}
+                  onError={e => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = `https://i.ytimg.com/vi/${youtubeVideoId}/hqdefault.jpg`;
+                  }}
                 />
+                <button
+                  className="youtube-play-button"
+                  aria-label="Play video"
+                  tabIndex={-1}
+                >
+                  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="12,8 12,24 24,16" fill="white"/>
+                  </svg>
+                </button>
+              </div>
+            )}
+            {showModal && youtubeVideoId && (
+              <div className="youtube-modal" onClick={closeModal}>
+                <div className="youtube-modal-content" onClick={e => e.stopPropagation()}>
+                  <button className="youtube-modal-close" onClick={closeModal}>×</button>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&rel=0`}
+                    title={project.name}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             )}
             
