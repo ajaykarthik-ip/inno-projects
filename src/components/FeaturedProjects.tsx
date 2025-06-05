@@ -1,157 +1,173 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import './ProjectCard.css';
-import { useRouter } from 'next/navigation';
+"use client";
 
-interface ProjectCardProps {
-  id: string; 
-  title: string;
-  description: string;
-  price: string;
-  category: string;
-  youtubeUrl: string | null;
-}
+import React, { useState, useEffect } from 'react';
+import ProjectCard from './ProjectCard';
+import './FeaturedProjects.css';
+import { projectsApi } from '@/utils/api';
+import { Project } from '../models/Projects';
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ 
-  id,
-  title, 
-  description, 
-  price, 
-  category, 
-  youtubeUrl 
-}) => {
-  const router = useRouter();
-  const [showModal, setShowModal] = useState(false);
-
-  // Extract YouTube video ID from URL
-  const getYoutubeVideoId = (url: string | null): string | null => {
-    if (!url) return null;
-    
-    try {
-      const urlObj = new URL(url);
-      if (urlObj.hostname === 'youtu.be') {
-        return urlObj.pathname.slice(1); // Remove leading slash
-      } else if (urlObj.hostname.includes('youtube.com')) {
-        const searchParams = new URLSearchParams(urlObj.search);
-        return searchParams.get('v');
-      }
-      return null;
-    } catch {
-      return null;
-    }
-  };
-
-  const youtubeVideoId = getYoutubeVideoId(youtubeUrl);
+const FeaturedProjects: React.FC = () => {
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [categories, setCategories] = useState<string[]>(['all']);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   
-  // Get high quality thumbnail URL
-  const getThumbnailUrl = (videoId: string): string => {
-    // Try to get max resolution thumbnail, with fallbacks
-    return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+  // Fetch projects on component mount
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        // Use the API client to fetch projects
+        const data = await projectsApi.getProjects();
+        
+        // Clean and validate the data
+        const cleanedProjects = data.map((project: Project) => ({
+          ...project,
+          // Ensure all required fields have fallback values
+          description: project.description || 'No description available',
+          name: project.name || 'Untitled Project',
+          price: project.price || 'Price not available',
+          category: project.category || 'Uncategorized',
+          youtube_url: project.youtube_url || null
+        }));
+        
+        setProjects(cleanedProjects);
+        
+        // Extract unique categories (filter out empty/null categories)
+        const validCategories = cleanedProjects
+          .map((project: Project) => project.category)
+          .filter((category): category is string => Boolean(category));
+        
+        const uniqueCategories = ['all', ...new Set(validCategories)] as string[];
+        setCategories(uniqueCategories);
+      } catch (err) {
+        console.error('Error fetching projects:', err);
+        setError(err instanceof Error ? err.message : 'Failed to load projects');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchProjects();
+  }, []);
+
+  // Filter projects based on selected category
+  const filteredProjects = activeFilter === 'all' 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter);
+
+  // Handle filter change
+  const handleFilterChange = (category: string) => {
+    setActiveFilter(category);
   };
 
-  // Navigate to project details page
-  const handleViewDetails = () => {
-    router.push(`/project?id=${id}`);
-  };
-
-  // Handle video play click - open modal instead of playing inline
-  const handlePlayVideo = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setShowModal(true);
-  };
-
-  // Close modal when clicked outside
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
-  return (
-    <div className="project-card">
-      <div className="project-card-image-container">
-        {youtubeVideoId ? (
-          <>
-            <div style={{position: 'relative', width: '100%', height: '100%'}}>
-              <Image 
-                src={getThumbnailUrl(youtubeVideoId)} 
-                alt={`${title} thumbnail`}
-                fill
-                style={{objectFit: 'cover'}}
-                className="youtube-thumbnail"
-                onError={() => {
-                  // Set fallback image URL - we can't use the event target directly with Next Image
-                  const fallbackUrl = `https://i.ytimg.com/vi/${youtubeVideoId}/hqdefault.jpg`;
-                  const imgElements = document.querySelectorAll(`.project-card[data-id="${id}"] .youtube-thumbnail`);
-                  imgElements.forEach((img: Element) => {
-                    if (img instanceof HTMLImageElement) {
-                      img.src = fallbackUrl;
-                    }
-                  });
-                }}
-              />
-            </div>
-            <button 
-              className="youtube-play-button"
-              onClick={handlePlayVideo}
-              aria-label="Play video"
-            >
-              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="12,8 12,24 24,16" fill="white"/>
-              </svg>
-            </button>
-          </>
-        ) : (
-          <div className="project-card-placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
-              <line x1="7" y1="2" x2="7" y2="22"></line>
-              <line x1="17" y1="2" x2="17" y2="22"></line>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <line x1="2" y1="7" x2="7" y2="7"></line>
-              <line x1="2" y1="17" x2="7" y2="17"></line>
-              <line x1="17" y1="17" x2="22" y2="17"></line>
-              <line x1="17" y1="7" x2="22" y2="7"></line>
-            </svg>
-            <p>No Video Available</p>
-          </div>
-        )}
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="featured-projects">
+        <div className="section-header">
+          <h2 className="section-title">Featured Projects</h2>
+          <p className="section-description">
+            Explore our selection of innovative final year projects across different domains
+          </p>
+        </div>
+        <div className="loading-state">
+          <svg className="spinner" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 6v6l4 2"></path>
+          </svg>
+          <p>Loading amazing projects...</p>
+        </div>
       </div>
-      
-      <div className="project-card-content">
-        <div className="project-card-category">{category}</div>
-        <h3 className="project-card-title">{title}</h3>
-        <p className="project-card-description">
-          {description.length > 120 
-            ? `${description.substring(0, 120)}...` 
-            : description}
-        </p>
-        <div className="project-card-footer">
-          <div className="project-card-price">{price}</div>
-          <button className="project-card-button" onClick={handleViewDetails}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="M12 5l7 7-7 7"></path>
-            </svg>
-            View Details
+    );
+  }
+
+  // Show error state
+  if (error) {
+    return (
+      <div className="featured-projects">
+        <div className="section-header">
+          <h2 className="section-title">Featured Projects</h2>
+          <p className="section-description">
+            Explore our selection of innovative final year projects across different domains
+          </p>
+        </div>
+        <div className="error-state">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <h3>Error Loading Projects</h3>
+          <p>{error}</p>
+          <button className="retry-button" onClick={() => window.location.reload()}>
+            Try Again
           </button>
         </div>
       </div>
+    );
+  }
 
-      {/* YouTube Modal */}
-      {showModal && youtubeVideoId && (
-        <div className="youtube-modal" onClick={closeModal}>
-          <div className="youtube-modal-content" onClick={e => e.stopPropagation()}>
-            <button className="youtube-modal-close" onClick={closeModal}>×</button>
-            <iframe
-              src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&rel=0`}
-              title={title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
+  // Show empty state if no projects
+  if (projects.length === 0) {
+    return (
+      <div className="featured-projects">
+        <div className="section-header">
+          <h2 className="section-title">Featured Projects</h2>
+          <p className="section-description">
+            Explore our selection of innovative final year projects across different domains
+          </p>
         </div>
-      )}
+        <div className="no-projects">
+          <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+            <polyline points="13 2 13 9 20 9"></polyline>
+          </svg>
+          <h3>No projects found</h3>
+          <p>No projects have been added yet. Check back later for exciting final year projects.</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="featured-projects">
+      <div className="section-header">
+        <h2 className="section-title">Featured Projects</h2>
+        <p className="section-description">
+          Explore our selection of innovative final year projects across different domains
+        </p>
+      </div>
+      
+      {/* Category filters */}
+      <div className="project-filters">
+        {categories.map((category, index) => (
+          <button 
+            key={index}
+            className={`filter-button ${activeFilter === category ? 'active' : ''}`}
+            onClick={() => handleFilterChange(category)}
+          >
+            {category === 'all' ? 'All Projects' : category}
+          </button>
+        ))}
+      </div>
+      
+      <div className="project-grid">
+        {filteredProjects.map((project) => (
+          <ProjectCard 
+            key={project.id}
+            id={project.id!}
+            title={project.name}
+            description={project.description}
+            price={project.price}
+            category={project.category}
+            youtubeUrl={project.youtube_url}
+          />
+        ))}
+      </div>
     </div>
   );
 };
 
-export default ProjectCard;
+export default FeaturedProjects;

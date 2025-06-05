@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import './ProjectCard.css';
 import { useRouter } from 'next/navigation';
 
@@ -21,6 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   // Extract YouTube video ID from URL
   const getYoutubeVideoId = (url: string | null): string | null => {
@@ -42,9 +44,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   const youtubeVideoId = getYoutubeVideoId(youtubeUrl);
   
-  // Get high quality thumbnail URL
+  // Get high quality thumbnail URL with fallback
   const getThumbnailUrl = (videoId: string): string => {
-    // Try to get max resolution thumbnail, with fallbacks
+    if (imageError) {
+      // Use standard definition thumbnail as fallback
+      return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+    }
+    // Try to get max resolution thumbnail first
     return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
   };
 
@@ -64,21 +70,27 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     setShowModal(false);
   };
 
+  // Handle image load error
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
-    <div className="project-card">
+    <div className="project-card" data-id={id}>
       <div className="project-card-image-container">
         {youtubeVideoId ? (
           <>
-            <img 
-              src={getThumbnailUrl(youtubeVideoId)} 
-              alt={`${title} thumbnail`} 
-              className="youtube-thumbnail"
-              onError={(e) => {
-                // Fallback to standard quality if max resolution fails
-                const target = e.target as HTMLImageElement;
-                target.src = `https://i.ytimg.com/vi/${youtubeVideoId}/hqdefault.jpg`;
-              }}
-            />
+            <div style={{position: 'relative', width: '100%', height: '100%'}}>
+              <Image 
+                src={getThumbnailUrl(youtubeVideoId)} 
+                alt={`${title} thumbnail`}
+                fill
+                style={{objectFit: 'cover'}}
+                className="youtube-thumbnail"
+                onError={handleImageError}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
             <button 
               className="youtube-play-button"
               onClick={handlePlayVideo}
@@ -110,9 +122,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="project-card-category">{category}</div>
         <h3 className="project-card-title">{title}</h3>
         <p className="project-card-description">
-          {description.length > 120 
+          {description && description.length > 120 
             ? `${description.substring(0, 120)}...` 
-            : description}
+            : description || 'No description available'}
         </p>
         <div className="project-card-footer">
           <div className="project-card-price">{price}</div>
