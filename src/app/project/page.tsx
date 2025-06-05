@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 import './page.css';
 
 interface Project {
@@ -175,15 +176,21 @@ Could you please provide more information about customization options and pricin
                   ></iframe>
                 ) : (
                   <>
-                    <img
-                      src={getThumbnailUrl(youtubeVideoId)}
-                      alt={`${project.name} thumbnail`}
-                      style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block'}}
-                      onError={e => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = `https://i.ytimg.com/vi/${youtubeVideoId}/hqdefault.jpg`;
-                      }}
-                    />
+                    <div style={{position: 'relative', width: '100%', height: '100%'}}>
+                      <Image
+                        src={getThumbnailUrl(youtubeVideoId)}
+                        alt={`${project.name} thumbnail`}
+                        fill
+                        style={{objectFit: 'cover'}}
+                        onError={() => {
+                          // Using a function without event parameter to avoid type errors
+                          const fallbackUrl = `https://i.ytimg.com/vi/${youtubeVideoId}/hqdefault.jpg`;
+                          // Set fallback image URL
+                          const imgElement = document.querySelector('.youtube-container img') as HTMLImageElement;
+                          if (imgElement) imgElement.src = fallbackUrl;
+                        }}
+                      />
+                    </div>
                     <button
                       className="youtube-play-button"
                       aria-label="Play video"
@@ -263,7 +270,7 @@ Could you please provide more information about customization options and pricin
           {/* Included Items Card */}
           <div className="action-card">
             <div className="action-content">
-              <h2 className="section-title">What's Included</h2>
+              <h2 className="section-title">What&apos;s Included</h2>
               <div className="section-content">
                 <div className="included-item">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
