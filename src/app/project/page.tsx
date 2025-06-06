@@ -109,6 +109,48 @@ Could you please provide more information about customization options and pricin
     window.open(`https://wa.me/919600309140?text=${encodedMessage}`, '_blank');
   };
 
+  // Function to download abstract as a Word document
+  const downloadAbstract = () => {
+    if (!project) return;
+    
+    // Create HTML content that Word can open
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <title>${project.name} - Abstract</title>
+        <style>
+          body { font-family: 'Calibri', sans-serif; margin: 2cm; }
+          h1 { color: #333; font-size: 18pt; }
+          p { font-size: 12pt; line-height: 1.5; }
+        </style>
+      </head>
+      <body>
+        <h1>${project.name} - Abstract</h1>
+        <p>${project.description}</p>
+      </body>
+      </html>
+    `;
+    
+    // Create a Blob with the HTML content
+    const blob = new Blob([htmlContent], { type: 'application/msword' });
+    
+    // Create a download link
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${project.name} - Abstract.doc`;
+    document.body.appendChild(a);
+    a.click();
+    
+    // Clean up
+    setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 100);
+  };
+
   const getThumbnailUrl = (videoId: string): string => {
     return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
   };
@@ -206,7 +248,21 @@ Could you please provide more information about customization options and pricin
             )}
             
             <div className="project-section">
-              <h2 className="section-title">Description</h2>
+              <div className="section-header">
+                <h2 className="section-title">Abstract</h2>
+                <button 
+                  className="download-button" 
+                  onClick={downloadAbstract}
+                  aria-label="Download Abstract"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  Download Abstract
+                </button>
+              </div>
               <p className="section-content">{project.description}</p>
             </div>
             
