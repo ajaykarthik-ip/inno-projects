@@ -1,9 +1,12 @@
 "use client";
 
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import './page.css';
 
-export default function Contact() {
+export default function Contact(): React.JSX.Element {
   const phoneNumber = "9600309140";
   const whatsappUrl = `https://wa.me/91${phoneNumber}?text=Hello!%20I%20would%20like%20to%20get%20in%20touch%20with%20you.`;
 
@@ -25,7 +28,7 @@ export default function Contact() {
 
         <div className="whatsapp-section">
           <div className="whatsapp-icon">
-            📱
+            <FontAwesomeIcon icon={faWhatsapp} />
           </div>
           <h3 className="service-title">Contact Us</h3>
           <p className="service-description">
@@ -35,12 +38,12 @@ export default function Contact() {
           
           <div className="action-buttons">
             <button className="whatsapp-btn" onClick={handleWhatsAppClick}>
-              <span>💬</span>
+              <FontAwesomeIcon icon={faWhatsapp} />
               <span>Start Chat</span>
             </button>
             
             <button className="call-btn" onClick={handleCallClick}>
-              <span>📞</span>
+              <FontAwesomeIcon icon={faPhone} />
               <span>Call Now</span>
             </button>
           </div>
