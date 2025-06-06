@@ -139,7 +139,7 @@ export default function IEEEJournal() {
           <h2 className="cta-title">Ready to Publish Your Research?</h2>
           <p className="cta-description">
             Get professional help with your IEEE journal paper. We deliver plagiarism-free, unique content 
-            within 12 hours. Contact us now for expert assistance in formatting, writing, and preparing your research for publication.
+            within 3 hours. Contact us now for expert assistance in formatting, writing, and preparing your research for publication.
           </p>
           <button className="contact-btn" onClick={handleContactClick}>
             {/* <span>💬</span> */}
