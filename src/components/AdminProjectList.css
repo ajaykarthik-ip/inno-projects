@@ -1,189 +1,356 @@
 /* src/components/AdminProjectList.css */
 .admin-projects-container {
-    width: 100%;
-  }
-  
-  .admin-projects-title {
-    font-size: 1.5rem;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
-  .admin-projects-filters {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  .search-filter,
-  .category-filter {
-    flex-grow: 1;
-  }
-  
-  .search-filter input,
-  .category-filter select {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--text-primary);
-    font-size: 1rem;
-    transition: var(--transition);
-  }
-  
-  .search-filter input:focus,
-  .category-filter select:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.2);
-  }
-  
-  .admin-projects-list {
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-  }
-  
-  .admin-projects-header {
-    display: flex;
-    background-color: var(--bg-tertiary);
-    padding: 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    border-bottom: 1px solid var(--border-color);
-  }
-  
-  .admin-project-item {
-    display: flex;
-    padding: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    transition: var(--transition);
-    align-items: center;
-  }
-  
-  .admin-project-item:last-child {
-    border-bottom: none;
-  }
-  
-  .admin-project-item:hover {
-    background-color: var(--bg-tertiary);
-  }
-  
-  .project-col {
-    padding: 0 0.5rem;
-  }
-  
-  .project-col-image {
-    width: 80px;
-    flex-shrink: 0;
-  }
-  
-  .project-col-image img {
-    width: 60px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid var(--border-color);
-  }
-  
-  .project-col-title {
-    flex-grow: 1;
-    min-width: 200px;
-  }
-  
-  .project-col-title h3 {
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
-    color: var(--text-primary);
-  }
-  
-  .project-description-preview {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-  }
-  
-  .project-col-category {
-    width: 150px;
-    flex-shrink: 0;
-  }
-  
-  .category-badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background-color: rgba(126, 87, 194, 0.1);
-    color: var(--accent-primary);
-    border-radius: 20px;
-    font-size: 0.85rem;
-  }
-  
-  .project-col-price {
-    width: 100px;
-    flex-shrink: 0;
-    font-weight: 600;
-    color: var(--accent-secondary);
-  }
-  
-  .project-col-actions {
-    width: 60px;
-    flex-shrink: 0;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .delete-button {
-    background-color: transparent;
-    border: none;
-    color: var(--text-secondary);
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 4px;
-    transition: var(--transition);
-  }
-  
-  .delete-button:hover {
-    color: #e53935;
-    background-color: rgba(229, 57, 53, 0.1);
-  }
-  
-  .no-projects {
-    text-align: center;
-    padding: 3rem 1rem;
-    color: var(--text-secondary);
-    background-color: var(--bg-tertiary);
-    border-radius: 8px;
-    border: 1px dashed var(--border-color);
-  }
-  
-  .no-projects svg {
-    margin-bottom: 1rem;
-    color: var(--text-secondary);
-  }
-  
-  .no-projects h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
-  }
-  
-  .no-projects p {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .projects-count {
-    text-align: right;
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-  }
+  width: 100%;
+}
 
-  /* src/components/AdminProjectList.css */
-/* Add these new styles to your existing CSS file */
+.admin-projects-title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
 
+.admin-projects-filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-filter,
+.category-filter,
+.language-filter {
+  flex-grow: 1;
+}
+
+.search-filter input,
+.category-filter select,
+.language-filter select {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.search-filter input:focus,
+.category-filter select:focus,
+.language-filter select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.2);
+}
+
+.admin-projects-list {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.admin-projects-header {
+  display: flex;
+  background-color: var(--bg-tertiary);
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-project-item {
+  display: flex;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+  align-items: center;
+}
+
+.admin-project-item:last-child {
+  border-bottom: none;
+}
+
+.admin-project-item:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.admin-project-item.editing {
+  background-color: rgba(126, 87, 194, 0.05);
+  border-bottom: none;
+}
+
+.project-col {
+  padding: 0 0.5rem;
+}
+
+.project-col-image {
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.project-col-image img {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.project-col-title {
+  flex-grow: 1;
+  min-width: 200px;
+}
+
+.project-col-title h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.project-description-preview {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.project-col-category {
+  width: 150px;
+  flex-shrink: 0;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(126, 87, 194, 0.1);
+  color: var(--accent-primary);
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.project-col-language {
+  width: 150px;
+  flex-shrink: 0;
+}
+
+.language-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.project-col-demo {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.demo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.demo-link:hover {
+  color: var(--accent-secondary);
+}
+
+.no-demo {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.project-col-price {
+  width: 100px;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--accent-secondary);
+}
+
+.project-col-date {
+  width: 120px;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.project-col-actions {
+  width: 120px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.edit-button,
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-button:hover {
+  color: var(--accent-primary);
+  background-color: rgba(126, 87, 194, 0.1);
+}
+
+.delete-button:hover {
+  color: #e53935;
+  background-color: rgba(229, 57, 53, 0.1);
+}
+
+.edit-button:disabled,
+.delete-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Edit Form Styles */
+.edit-form-container {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.edit-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.edit-form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.edit-form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form-group.full-width {
+  width: 100%;
+}
+
+.edit-form-group label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.edit-form-group input,
+.edit-form-group select,
+.edit-form-group textarea {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.edit-form-group input:focus,
+.edit-form-group select:focus,
+.edit-form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.2);
+}
+
+.edit-form-group input.error,
+.edit-form-group select.error,
+.edit-form-group textarea.error {
+  border-color: #e53935;
+  box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.2);
+}
+
+.edit-form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.error-text {
+  color: #e53935;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.edit-form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.save-button,
+.cancel-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.save-button {
+  background-color: var(--accent-primary);
+  color: white;
+}
+
+.save-button:hover:not(:disabled) {
+  background-color: var(--accent-secondary);
+  transform: translateY(-1px);
+}
+
+.save-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cancel-button {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.cancel-button:hover:not(:disabled) {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.cancel-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Loading and Error States */
 .loading-state,
 .error-state {
   text-align: center;
@@ -244,47 +411,119 @@
   100% { transform: rotate(360deg); }
 }
 
-.delete-button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
+.no-projects {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary);
+  background-color: var(--bg-tertiary);
+  border-radius: 8px;
+  border: 1px dashed var(--border-color);
 }
-  
-  /* Responsive adjustments */
-  @media (max-width: 992px) {
-    .admin-projects-header {
-      display: none; /* Hide header on smaller screens */
-    }
-    
-    .admin-project-item {
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    
-    .project-col-image {
-      width: 60px;
-    }
-    
-    .project-col-title {
-      width: calc(100% - 140px);
-    }
-    
-    .project-col-category {
-      width: 100%;
-      order: 3;
-    }
-    
-    .project-col-price {
-      width: auto;
-      margin-left: auto;
-    }
-    
-    .project-col-actions {
-      width: auto;
-    }
+
+.no-projects svg {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.no-projects h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.no-projects p {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.projects-count {
+  text-align: right;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .project-col-actions {
+    width: 100px;
   }
   
-  @media (max-width: 768px) {
-    .admin-projects-filters {
-      flex-direction: column;
-    }
+  .edit-form-row {
+    flex-direction: column;
+    gap: 0.75rem;
   }
+  
+  .edit-form-actions {
+    flex-direction: column-reverse;
+  }
+  
+  .save-button,
+  .cancel-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 992px) {
+  .admin-projects-header {
+    display: none; /* Hide header on smaller screens */
+  }
+  
+  .admin-project-item {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .project-col-image {
+    width: 60px;
+  }
+  
+  .project-col-title {
+    width: calc(100% - 140px);
+  }
+  
+  .project-col-category {
+    width: 100%;
+    order: 3;
+  }
+  
+  .project-col-language {
+    width: 100%;
+    order: 4;
+  }
+  
+  .project-col-demo {
+    width: auto;
+    order: 5;
+  }
+  
+  .project-col-price {
+    width: auto;
+    margin-left: auto;
+  }
+  
+  .project-col-actions {
+    width: auto;
+  }
+  
+  .edit-form-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-projects-filters {
+    flex-direction: column;
+  }
+  
+  .project-col-actions {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .edit-button,
+  .delete-button {
+    padding: 0.4rem;
+  }
+}

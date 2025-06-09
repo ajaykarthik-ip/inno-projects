@@ -10,6 +10,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Inno Projects</title>
+      </head>
       <body suppressHydrationWarning>
         <div className="app-container">
           <SidebarMenu />

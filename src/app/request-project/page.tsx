@@ -1,24 +1,41 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import './page.css';
 
-export default function RequestProject() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    projectType: '',
-    title: '',
-    description: '',
-    requirements: '',
-    deadline: '',
-    urgency: ''
+interface FormData {
+  studentName: string;
+  phoneNumber: string;
+  collegeName: string;
+  department: string;
+  domain: string;
+  bundles: string;
+  collegeMailId: string;
+  projectTitle: string;
+  referredBy: string;
+  referralCode: string;
+  referrerPhone: string;
+}
+
+const InnoProjectsForm: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
+    studentName: '',
+    phoneNumber: '',
+    collegeName: '',
+    department: '',
+    domain: '',
+    bundles: '',
+    collegeMailId: '',
+    projectTitle: '',
+    referredBy: '',
+    referralCode: '',
+    referrerPhone: ''
   });
 
-  const phoneNumber = "9600309140";
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitStatus, setSubmitStatus] = useState<string>('');
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -26,227 +43,300 @@ export default function RequestProject() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    // Validate required fields
+    const requiredFields: (keyof FormData)[] = [
+      'studentName', 'phoneNumber', 'collegeName', 'department', 
+      'domain', 'bundles', 'collegeMailId', 'projectTitle'
+    ];
     
-    // Create WhatsApp message
-    const message = `
-🔥 NEW PROJECT REQUEST 🔥
+    const missingFields = requiredFields.filter(field => !formData[field]);
+    
+    if (missingFields.length > 0) {
+      setSubmitStatus('Please fill all required fields');
+      setIsSubmitting(false);
+      return;
+    }
 
-📋 Personal Details:
-• Name: ${formData.name}
-• Email: ${formData.email}
-• Phone: ${formData.phone}
+    try {
+      // Create form data for Google Forms
+      const googleFormData = new URLSearchParams();
+      
+      // Map to actual Google Form entry IDs
+      googleFormData.append('entry.1618759074', formData.studentName);
+      googleFormData.append('entry.1148733084', formData.phoneNumber);
+      googleFormData.append('entry.1210331088', formData.collegeName);
+      googleFormData.append('entry.1676200664', formData.department);
+      googleFormData.append('entry.642961539', formData.domain);
+      googleFormData.append('entry.902127592', formData.bundles);
+      googleFormData.append('entry.623169949', formData.collegeMailId);
+      googleFormData.append('entry.340885761', formData.projectTitle);
+      googleFormData.append('entry.470659127', formData.referredBy || '');
+      googleFormData.append('entry.858114275', formData.referralCode || '');
+      googleFormData.append('entry.430367506', formData.referrerPhone || '');
 
-🎯 Project Information:
-• Type: ${formData.projectType}
-• Title: ${formData.title}
-• Description: ${formData.description}
+      // Submit to Google Forms
+      await fetch('https://docs.google.com/forms/d/e/1FAIpQLSf2wvNSAEkbAQIowErGQ45leSs2nGIFLOsHnGj7-8YWgvWUBQ/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: googleFormData.toString()
+      });
 
-📝 Requirements:
-${formData.requirements || 'No specific requirements mentioned'}
+      setSubmitStatus('Form submitted successfully! We will contact you shortly.');
+      
+      // Reset form
+      setFormData({
+        studentName: '',
+        phoneNumber: '',
+        collegeName: '',
+        department: '',
+        domain: '',
+        bundles: '',
+        collegeMailId: '',
+        projectTitle: '',
+        referredBy: '',
+        referralCode: '',
+        referrerPhone: ''
+      });
 
-⏰ Timeline:
-• Deadline: ${formData.deadline || 'Not specified'}
-• Urgency: ${formData.urgency}
-
-Let's discuss this project! Please review my request and get back to me. Thank you!
-    `.trim();
-
-    const whatsappUrl = `https://wa.me/91${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitStatus('Form submitted! (Google Forms doesn\'t return status)');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="request-container">
-      <div className="request-content">
-        <div className="request-header">
-          <h1 className="request-title">Request New Project</h1>
-          <p className="request-subtitle">
-            Tell us about your project requirements and we&apos;ll get back to you with a custom solution. 
-            Fill out the form below and we&apos;ll contact you via WhatsApp.
-          </p>
+    <div className="page-wrapper">
+      <div className="container">
+        <div className="header">
+          <h1 className="title">Custom Project </h1>
+          <p className="subtitle">Get Your Custom Project in 12 Hours!</p>
         </div>
 
-        <form className="project-form" onSubmit={handleSubmit}>
-          {/* Personal Information */}
-          <div className="form-row">
-            <div className="form-group">
-              <label className="form-label" htmlFor="name">Full Name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                className="form-input"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-                placeholder="Enter your full name"
-              />
+        <div className="form-card">
+          <form onSubmit={handleSubmit} className="form">
+            {/* Main Fields */}
+            <div className="form-row">
+              <div className="form-group">
+                <label className="label">
+                  Student Name <span className="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="studentName"
+                  value={formData.studentName}
+                  onChange={handleChange}
+                  className="input"
+                  placeholder="Enter your full name"
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label className="label">
+                  Phone Number <span className="required">*</span>
+                </label>
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  className="input"
+                  placeholder="+91 9876543210"
+                  required
+                />
+              </div>
             </div>
+
             <div className="form-group">
-              <label className="form-label" htmlFor="email">Email Address *</label>
+              <label className="label">
+                College Mail ID <span className="required">*</span>
+              </label>
               <input
                 type="email"
-                id="email"
-                name="email"
-                className="form-input"
-                value={formData.email}
-                onChange={handleInputChange}
+                name="collegeMailId"
+                value={formData.collegeMailId}
+                onChange={handleChange}
+                className="input"
+                placeholder="your.email@college.edu"
                 required
-                placeholder="your.email@example.com"
               />
             </div>
-          </div>
 
-          <div className="form-group">
-            <label className="form-label" htmlFor="phone">Phone Number *</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              className="form-input"
-              value={formData.phone}
-              onChange={handleInputChange}
-              required
-              placeholder="+91 9876543210"
-            />
-          </div>
-
-          {/* Project Information */}
-          <div className="form-group">
-            <label className="form-label" htmlFor="projectType">Project Type *</label>
-            <p className="form-helper">Select the type of project:</p>
-            <select
-              id="projectType"
-              name="projectType"
-              className="form-select"
-              value={formData.projectType}
-              onChange={handleInputChange}
-              required
-            >
-              <option value="">Select project type</option>
-              <option value="IEEE Format Journal Paper">IEEE Format Journal Paper</option>
-              <option value="Final Year Project">Final Year Project</option>
-              <option value="Technical Writing">Technical Writing</option>
-              <option value="Mini Project">Mini Project</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label className="form-label" htmlFor="title">Project Title *</label>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              className="form-input"
-              value={formData.title}
-              onChange={handleInputChange}
-              required
-              placeholder="Brief title of your project"
-            />
-          </div>
-
-          <div className="form-group">
-            <label className="form-label" htmlFor="description">Project Description *</label>
-            <textarea
-              id="description"
-              name="description"
-              className="form-textarea"
-              value={formData.description}
-              onChange={handleInputChange}
-              required
-              placeholder="Provide a detailed description of your project, objectives, and expected outcomes..."
-            />
-          </div>
-
-          <div className="form-group">
-            <label className="form-label" htmlFor="requirements">Specific Requirements</label>
-            <textarea
-              id="requirements"
-              name="requirements"
-              className="form-textarea"
-              value={formData.requirements}
-              onChange={handleInputChange}
-              placeholder="Any specific formatting requirements, citation styles, page limits, or special instructions..."
-            />
-          </div>
-
-          <div className="form-group">
-            <label className="form-label" htmlFor="deadline">Preferred Deadline</label>
-            <input
-              type="date"
-              id="deadline"
-              name="deadline"
-              className="form-input"
-              value={formData.deadline}
-              onChange={handleInputChange}
-              min={new Date().toISOString().split('T')[0]}
-            />
-          </div>
-
-          {/* Urgency Level */}
-          <div className="form-group">
-            <label className="form-label">Urgency Level *</label>
-            <div className="urgency-options">
-              <div className="urgency-option">
+            <div className="form-row">
+              <div className="form-group">
+                <label className="label">
+                  College Name <span className="required">*</span>
+                </label>
                 <input
-                  type="radio"
-                  id="standard"
-                  name="urgency"
-                  value="5–7 Days"
-                  onChange={handleInputChange}
+                  type="text"
+                  name="collegeName"
+                  value={formData.collegeName}
+                  onChange={handleChange}
+                  className="input"
+                  placeholder="Your college name"
                   required
                 />
-                <label htmlFor="standard">5–7 Days</label>
               </div>
-              <div className="urgency-option">
+
+              <div className="form-group">
+                <label className="label">
+                  Department <span className="required">*</span>
+                </label>
                 <input
-                  type="radio"
-                  id="urgent"
-                  name="urgency"
-                  value="2–3 Days"
-                  onChange={handleInputChange}
+                  type="text"
+                  name="department"
+                  value={formData.department}
+                  onChange={handleChange}
+                  className="input"
+                  placeholder="Computer Science"
                   required
                 />
-                <label htmlFor="urgent">2–3 Days</label>
-              </div>
-              <div className="urgency-option">
-                <input
-                  type="radio"
-                  id="express"
-                  name="urgency"
-                  value="12–24 Hours"
-                  onChange={handleInputChange}
-                  required
-                />
-                <label htmlFor="express">12–24 Hours</label>
               </div>
             </div>
-          </div>
 
-          <div className="lets-discuss-section">
-            <h3 className="lets-discuss-title">Let&apos;s Discuss</h3>
-          </div>
+            <div className="form-group">
+              <label className="label">
+                Project Title <span className="required">*</span>
+              </label>
+              <input
+                type="text"
+                name="projectTitle"
+                value={formData.projectTitle}
+                onChange={handleChange}
+                className="input"
+                placeholder="Enter project title or let us suggest one!"
+                required
+              />
+            </div>
 
-          <div className="form-note">
-            <p className="form-note-text">
-              📱 Your request will be sent via WhatsApp for a quick response and smooth communication.
-            </p>
-          </div>
+            <div className="form-row">
+              <div className="form-group">
+                <label className="label">
+                  Domain <span className="required">*</span>
+                </label>
+                <div className="select-wrapper">
+                  <select
+                    name="domain"
+                    value={formData.domain}
+                    onChange={handleChange}
+                    className="select"
+                    required
+                  >
+                    <option value="">Select Domain</option>
+                    <option value="Machine Learning">Machine Learning / AI</option>
+                    <option value="Full Stack">Full Stack Development</option>
+                    <option value="Block Chain">Blockchain Technology</option>
+                    <option value="Cloud Computing">Cloud Computing</option>
+                    <option value="IOT">Internet of Things (IoT)</option>
+                    <option value="Other">Other Technology</option>
+                  </select>
+                </div>
+              </div>
 
-          <div className="submit-section">
-            <p className="submit-description">
-              Click below to send your project request via WhatsApp. We&apos;ll review your requirements and get back to you within 2 hours.
-            </p>
-            <button type="submit" className="submit-btn">
-              {/* <span>📤</span> */}
-              <span>Send Request via WhatsApp</span>
-            </button>
-          </div>
-        </form>
+              <div className="form-group">
+                <label className="label">
+                  Premium Packages <span className="required">*</span>
+                </label>
+                <div className="select-wrapper">
+                  <select
+                    name="bundles"
+                    value={formData.bundles}
+                    onChange={handleChange}
+                    className="select"
+                    required
+                  >
+                    <option value="">Select Package</option>
+                    <option value="Bundle 1">Project + Complete setup + Video Tutorial + IEEE Journal Publication (24/7 Support)</option>
+                    <option value="Bundle 2">Project + Setup + Detailed Video Tutorial (24/7 Support)</option>
+                    <option value="Bundle 3">Project + Detailed Video Tutorial </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Optional Section */}
+            <div className="divider">
+              <span className="divider-text">Get 25% Discount (Referral Code)</span>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label className="label">Referred by (Friend's Name)</label>
+                <input
+                  type="text"
+                  name="referredBy"
+                  value={formData.referredBy}
+                  onChange={handleChange}
+                  className="input"
+                  placeholder="Enter your friend's name"
+                />
+              </div>
+
+              <div className="form-group">
+                <label className="label">Referral Code </label>
+                <input
+                  type="text"
+                  name="referralCode"
+                  value={formData.referralCode}
+                  onChange={handleChange}
+                  className="input"
+                  placeholder="Enter referral code for discount"
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label className="label">Referrer's Phone Number</label>
+              <input
+                type="tel"
+                name="referrerPhone"
+                value={formData.referrerPhone}
+                onChange={handleChange}
+                className="input"
+                placeholder="+91 9876543210"
+              />
+            </div>
+
+            <div className="submit-section">
+              <button
+                type="submit"
+                className={`submit-button ${isSubmitting ? 'submitting' : ''}`}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="spinner"></div>
+                    Processing...
+                  </>
+                ) : (
+                  'Get Your Custom Project Now!'
+                )}
+              </button>
+
+              {submitStatus && (
+                <div className={`status ${submitStatus.includes('success') ? 'success' : 'error'}`}>
+                  <span className="status-icon">
+                    {submitStatus.includes('success') ? '✓' : '!'} 
+                  </span>
+                  {submitStatus}
+                </div>
+              )}
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default InnoProjectsForm;
