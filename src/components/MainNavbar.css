@@ -23,6 +23,47 @@
   text-decoration: none;
 }
 
+/* Left-to-Right Color Flow Animation */
+.neon-text {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 1s ease;
+  background: linear-gradient(
+    90deg,
+    #1e293b,
+    #475569,
+    #64748b,
+    #94a3b8,
+    #3b82f6,
+    #1e293b
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: colorFlowLeftToRight 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.1));
+}
+
+.neon-text:hover {
+  transform: translateY(-1px);
+  animation: colorFlowLeftToRight 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.2));
+}
+
+@keyframes colorFlowLeftToRight {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .search-bar {
   display: flex;
   align-items: center;
@@ -237,5 +278,11 @@
   
   .search-bar input {
     min-width: 150px;
+  }
+  
+  /* Keep minimal on mobile */
+  .neon-text {
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
   }
 }

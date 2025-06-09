@@ -63,33 +63,14 @@ const MainNavbar: React.FC = () => {
 
         {/* Logo - conditionally rendered based on current path */}
         {pathname === '/' ? (
-          <span className="main-navbar-logo">
+          <span className="main-navbar-logo neon-text">
             Inno Projects
           </span>
         ) : (
-          <Link href="/" className="main-navbar-logo" onClick={handleLogoClick}>
+          <Link href="/" className="main-navbar-logo neon-text" onClick={handleLogoClick}>
             Inno Projects
           </Link>
         )}
-
-        {/* Search Bar */}
-        {/* <div className="search-bar">
-          <select className="category-dropdown">
-            <option>All Categories</option>
-            <option>Java</option>
-            <option>Python</option>
-            <option>Embedded</option>
-            <option>Machine Learning</option>
-            <option>Web Development</option>
-          </select>
-          <input type="text" placeholder="Search projects..." />
-          <button className="search-button">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </button>
-        </div> */}
 
         {/* User Actions */}
         <div className="main-navbar-actions">
@@ -105,4 +86,4 @@ const MainNavbar: React.FC = () => {
   );
 };
 
-export default MainNavbar;  
+export default MainNavbar;
