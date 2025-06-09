@@ -238,7 +238,7 @@ const AdminProjectList: React.FC<AdminProjectListProps> = ({ refreshTrigger }) =
   };
 
   // Render edit form
-  const renderEditForm = (project: Project) => {
+  const renderEditForm = () => {
     return (
       <div className="edit-form-container">
         <div className="edit-form">
@@ -527,7 +527,7 @@ const AdminProjectList: React.FC<AdminProjectListProps> = ({ refreshTrigger }) =
                 </div>
               </div>
               
-              {editingProjectId === project.id && renderEditForm(project)}
+              {editingProjectId === project.id && renderEditForm()}
             </React.Fragment>
           ))}
         </div>

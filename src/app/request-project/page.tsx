@@ -108,7 +108,7 @@ const InnoProjectsForm: React.FC = () => {
 
     } catch (error) {
       console.error('Submission error:', error);
-      setSubmitStatus('Form submitted! (Google Forms doesn\'t return status)');
+      setSubmitStatus('Form submitted! (Google Forms doesn&apos;t return status)');
     } finally {
       setIsSubmitting(false);
     }
@@ -271,7 +271,7 @@ const InnoProjectsForm: React.FC = () => {
 
             <div className="form-row">
               <div className="form-group">
-                <label className="label">Referred by (Friend's Name)</label>
+                <label className="label">Referred by (Friend&apos;s Name)</label>
                 <input
                   type="text"
                   name="referredBy"
@@ -296,7 +296,7 @@ const InnoProjectsForm: React.FC = () => {
             </div>
 
             <div className="form-group">
-              <label className="label">Referrer's Phone Number</label>
+              <label className="label">Referrer&apos;s Phone Number</label>
               <input
                 type="tel"
                 name="referrerPhone"
