@@ -680,6 +680,7 @@ Looking forward to hearing from you!`;
                       <td className="td-serial">
                         <span className="serial-number">{(index + 1).toString().padStart(2, '0')}</span>
                       </td>
+                  
                       <td className="td-title">
                         <div className="project-info">
                           <h3 className="project-name">{project.title}</h3>

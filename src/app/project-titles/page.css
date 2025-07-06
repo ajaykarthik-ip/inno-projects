@@ -557,7 +557,7 @@ body {
   
   .projects-table th,
   .projects-table td {
-    padding: 12px 8px;
+    padding: 10px 6px;
   }
   
   /* Hide ID column on mobile and reorganize */
@@ -565,7 +565,11 @@ body {
   .td-id {
     display: none;
   }
-  
+    /* Hide serial column on mobile and reorganize */
+  .th-serial,
+  .td-serial {
+    display: none;
+  }
   /* Adjust column widths for mobile without ID */
   .th-action { 
     width: 25%; 
