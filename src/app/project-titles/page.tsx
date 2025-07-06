@@ -244,7 +244,7 @@ Looking forward to hearing from you!`;
             </div>
             <h3 className="empty-title">No projects found</h3>
             <p className="empty-description">
-              Try adjusting your search terms or filters to find what you're looking for.
+              Try adjusting your search terms or filters to find what you looking for.
             </p>
             <button className="reset-btn" onClick={clearFilters}>
               Show all projects
