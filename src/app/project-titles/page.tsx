@@ -194,17 +194,17 @@ Looking forward to hearing from you!`;
               <table className="projects-table">
                 <thead>
                   <tr>
-                    <th className="th-id">ID</th>
+                    <th className="th-serial">#</th>
                     <th className="th-title">Project</th>
                     <th className="th-category">Category</th>
-                    <th className="th-action">Get Details</th>
+                    <th className="th-action">Contact</th>
                   </tr>
                 </thead>
                 <tbody>
                   {filteredProjects.map((project, index) => (
                     <tr key={project.id} className="project-row" style={{ animationDelay: `${index * 50}ms` }}>
-                      <td className="td-id">
-                        <span className="project-number">#{project.id.padStart(2, '0')}</span>
+                      <td className="td-serial">
+                        <span className="serial-number">{(index + 1).toString().padStart(2, '0')}</span>
                       </td>
                       <td className="td-title">
                         <div className="project-info">

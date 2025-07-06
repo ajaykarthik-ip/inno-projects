@@ -544,33 +544,71 @@ body {
     gap: 8px;
   }
   
+  /* Mobile table - no horizontal scroll, fit to screen */
   .table-wrapper {
-    -webkit-overflow-scrolling: touch;
+    overflow-x: visible;
   }
   
   .projects-table {
-    min-width: 600px;
+    width: 100%;
+    min-width: auto;
+    table-layout: fixed;
   }
   
   .projects-table th,
   .projects-table td {
-    padding: 16px 12px;
+    padding: 12px 8px;
   }
   
-  .th-id { width: 60px; }
-  .th-category { width: 100px; }
-  .th-action { width: 120px; }
+  /* Hide ID column on mobile and reorganize */
+  .th-id,
+  .td-id {
+    display: none;
+  }
+  
+  /* Adjust column widths for mobile without ID */
+  .th-action { 
+    width: 25%; 
+    text-align: left;
+    order: -1; /* Move WhatsApp column to the left */
+  }
+  .th-title { width: 50%; }
+  .th-category { width: 25%; }
+  
+  .td-action {
+    text-align: left;
+    order: -1; /* Move WhatsApp cell to the left */
+  }
+  
+  /* Reorder table cells on mobile */
+  .project-row {
+    display: table-row;
+  }
+  
+  .project-row .td-action {
+    display: table-cell;
+  }
   
   .project-name {
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .category-badge {
+    font-size: 10px;
+    padding: 3px 6px;
+    white-space: nowrap;
   }
   
   .whatsapp-btn {
-    padding: 10px 14px;
-    font-size: 13px;
-    min-width: 44px;
-    min-height: 44px;
+    padding: 8px 6px;
+    font-size: 12px;
+    min-width: 40px;
+    min-height: 40px;
     justify-content: center;
+    border-radius: 8px;
   }
   
   .btn-text {
@@ -578,8 +616,8 @@ body {
   }
   
   .whatsapp-icon {
-    width: 20px !important;
-    height: 20px !important;
+    width: 18px !important;
+    height: 18px !important;
     flex-shrink: 0;
   }
   
@@ -603,31 +641,40 @@ body {
   
   .projects-table th,
   .projects-table td {
-    padding: 12px 8px;
+    padding: 10px 6px;
   }
   
+  /* Even tighter layout for very small screens */
+  .th-id { width: 12%; }
+  .th-title { width: 48%; }
+  .th-category { width: 18%; }
+  .th-action { width: 22%; }
+  
   .project-name {
-    font-size: 14px;
-    line-height: 1.3;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+  
+  .project-number {
+    font-size: 12px;
   }
   
   .whatsapp-btn {
-    padding: 8px 12px;
-    gap: 6px;
-    min-width: 48px;
-    min-height: 48px;
-    justify-content: center;
+    padding: 6px 4px;
+    gap: 4px;
+    min-width: 36px;
+    min-height: 36px;
+    border-radius: 6px;
   }
   
   .whatsapp-icon {
-    width: 18px !important;
-    height: 18px !important;
-    flex-shrink: 0;
+    width: 16px !important;
+    height: 16px !important;
   }
   
   .category-badge {
-    font-size: 10px;
-    padding: 3px 8px;
+    font-size: 9px;
+    padding: 2px 4px;
   }
 }
 
