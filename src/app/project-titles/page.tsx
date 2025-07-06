@@ -54,7 +54,7 @@ const ProjectListing: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
-  const [showMobileFilters, setShowMobileFilters] = useState<boolean>(false);
+
 
   // Get unique categories for filter buttons
   const categories = ['all', ...new Set(projects.map(project => project.category))];
@@ -101,7 +101,6 @@ Looking forward to hearing from you!`;
   const clearFilters = () => {
     setActiveFilter('all');
     setSearchTerm('');
-    setShowMobileFilters(false);
   };
 
   return (
