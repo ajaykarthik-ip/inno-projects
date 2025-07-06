@@ -646,6 +646,7 @@ body {
   .projects-table th,
   .projects-table td {
     padding: 10px 6px;
+    padding-left: 20px;
   }
   
   /* Even tighter layout for very small screens */
