@@ -14,13 +14,12 @@ const SidebarMenu: React.FC = () => {
 
   const categories = [
     // { name: 'View My Project', icon: 'monitor', path: '/view-my-project' },
-    { name: 'Project list', icon: 'list', path: '/' },
+    { name: 'Project list', icon: 'list', path: '/project-titles' },
     { name: 'Request new Project', icon: 'code-plus', path: '/request-project' },
     { name: 'IEEE Journal Paper', icon: 'file-text', path: '/ieee-journal' },
     // { name: 'Dashboard', icon: 'layout', path: '/dashboard' },
     { name: 'Contact Us', icon: 'whatsapp', path: '/contact' },
-    // { name: 'calendar', icon: 'calendar', path: '/book-meeting' },
-    // { name: 'Mini Project', icon: 'code', path: '/mini-project' }
+    // { name: 'Project', icon: 'code', path: '/project-titles' }
   ];
 
   // Set isMounted to true after component mounts
