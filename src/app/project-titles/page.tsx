@@ -83,7 +83,7 @@ const ProjectListing: React.FC = () => {
 
   // Handle WhatsApp contact
   const handleWhatsAppContact = (projectTitle: string) => {
-    const message = `Hi! I&apos;m interested in the *${projectTitle}* project.
+    const message = `Hi! I am interested in the *${projectTitle}* project.
 
 Could you please send me detailed information about:
 • Project overview and features
