@@ -510,6 +510,10 @@ body {
     padding: 60px 0 40px;
   }
   
+  .hero-content {
+  max-height: 200px;
+}
+
   .hero-title {
     font-size: 2.5rem;
   }
