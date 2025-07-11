@@ -34,13 +34,42 @@ const InnoProjectsForm: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<string>('');
+  const [referralStatus, setReferralStatus] = useState<string>('');
+  const [isValidReferral, setIsValidReferral] = useState<boolean>(false);
+
+  // Hardcoded valid referral codes
+  const VALID_REFERRAL_CODES = ['P2026500', 'AA500'];
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    
+    // Update form data
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+
+    // Clear referral status when typing (don't auto-validate)
+    if (name === 'referralCode' && referralStatus) {
+      setReferralStatus('');
+      setIsValidReferral(false);
+    }
+  };
+
+  const validateReferralCode = (code: string) => {
+    if (code === '') {
+      setReferralStatus('');
+      setIsValidReferral(false);
+      return;
+    }
+
+    if (VALID_REFERRAL_CODES.includes(code.toUpperCase())) {
+      setReferralStatus('✓ Offer applied! Get ₹500 discount');
+      setIsValidReferral(true);
+    } else {
+      setReferralStatus('✗ Invalid referral code');
+      setIsValidReferral(false);
+    }
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -89,7 +118,8 @@ const InnoProjectsForm: React.FC = () => {
         body: googleFormData.toString()
       });
 
-      setSubmitStatus('Form submitted successfully! We will contact you shortly.');
+      const discountMessage = isValidReferral ? ' (₹500 discount applied!)' : '';
+      setSubmitStatus(`Form submitted successfully! We will contact you shortly.${discountMessage}`);
       
       // Reset form
       setFormData({
@@ -105,6 +135,8 @@ const InnoProjectsForm: React.FC = () => {
         referralCode: '',
         referrerPhone: ''
       });
+      setReferralStatus('');
+      setIsValidReferral(false);
 
     } catch (error) {
       console.error('Submission error:', error);
@@ -284,14 +316,29 @@ const InnoProjectsForm: React.FC = () => {
 
               <div className="form-group">
                 <label className="label">Referral Code </label>
-                <input
-                  type="text"
-                  name="referralCode"
-                  value={formData.referralCode}
-                  onChange={handleChange}
-                  className="input"
-                  placeholder="Enter referral code for discount"
-                />
+                <div className="referral-input-group">
+                  <input
+                    type="text"
+                    name="referralCode"
+                    value={formData.referralCode}
+                    onChange={handleChange}
+                    className={`input referral-input ${referralStatus ? (isValidReferral ? 'valid-referral' : 'invalid-referral') : ''}`}
+                    placeholder="Enter referral code"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => validateReferralCode(formData.referralCode)}
+                    className="apply-button"
+                    disabled={!formData.referralCode}
+                  >
+                    Apply
+                  </button>
+                </div>
+                {referralStatus && (
+                  <div className={`referral-status ${isValidReferral ? 'valid' : 'invalid'}`}>
+                    {referralStatus}
+                  </div>
+                )}
               </div>
             </div>
 

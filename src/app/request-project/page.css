@@ -103,6 +103,77 @@
   border-color: #0fffb7;
 }
 
+/* Referral Code Input Group */
+.referral-input-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.referral-input {
+  flex: 1;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.apply-button {
+  padding: 0.6rem 1.2rem;
+  background: #0fffb7;
+  color: #000000;
+  border: none;
+  border-radius: 6px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.apply-button:hover:not(:disabled) {
+  background: #00e0a0;
+}
+
+.apply-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.apply-button:disabled {
+  background: #1a1a1a;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+/* Referral Code Input States */
+.input.valid-referral {
+  border-color: #0fffb7;
+  background: rgba(15, 255, 183, 0.05);
+}
+
+.input.invalid-referral {
+  border-color: #ff3358;
+  background: rgba(255, 51, 88, 0.05);
+}
+
+/* Referral Status Message */
+.referral-status {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.referral-status.valid {
+  color: #0fffb7;
+}
+
+.referral-status.invalid {
+  color: #ff3358;
+}
+
 /* Select Dropdown Styling */
 .select-wrapper {
   position: relative;
@@ -250,5 +321,25 @@
   
   .form-group {
     margin-bottom: 0.75rem;
+  }
+  
+  /* Adjust referral status for mobile */
+  .referral-status {
+    margin-top: 0.5rem;
+  }
+  
+  /* Responsive referral input group */
+  .referral-input-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .referral-input {
+    border-radius: 6px;
+  }
+  
+  .apply-button {
+    border-radius: 6px;
+    width: 100%;
   }
 }
