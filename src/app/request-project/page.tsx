@@ -298,7 +298,7 @@ const InnoProjectsForm: React.FC = () => {
 
             {/* Optional Section */}
             <div className="divider">
-              <span className="divider-text">Get 25% Discount (Referral Code)</span>
+              <span className="divider-text">Get upto 90% Discount (Referral Code)</span>
             </div>
 
             <div className="form-row">
