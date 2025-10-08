@@ -1,6 +1,7 @@
 import React from 'react';
 import MainNavbar from '@/components/MainNavbar';
 import SidebarMenu from '@/components/SidebarMenu';
+import Footer from '@/components/Footer';
 import './globals.css';
 
 export default function RootLayout({
@@ -26,6 +27,7 @@ export default function RootLayout({
                 {children}
               </main>
             </div>
+            <Footer />
           </div>
         </div>
       </body>

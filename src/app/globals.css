@@ -31,12 +31,6 @@ body {
   display: flex;
 }
 
-.main-content-wrapper {
-  transition: var(--transition);
-  padding: 1rem;
-  flex: 1;
-}
-
 .main-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -90,13 +84,19 @@ body.sidebar-collapsed .page-content {
   width: calc(100% - 70px);
 }
 
+.main-content-wrapper {
+  transition: var(--transition);
+  padding: 1rem;
+  flex: 1;
+}
+
 /* Adjust for mobile */
 @media (max-width: 768px) {
   .page-content {
     margin-left: 0 !important;
     width: 100% !important;
   }
-  
+
   .main-content-wrapper {
     width: 100%;
     padding: 0.5rem;

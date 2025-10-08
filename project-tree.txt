@@ -1,0 +1,71 @@
+﻿├── public
+  ├── favicon.ico
+  ├── file.svg
+  ├── globe.svg
+  ├── next.svg
+  ├── vercel.svg
+  ├── window.svg
+├── src
+  ├── app
+    ├── api
+      ├── projects
+        ├── [id]
+        ├── route.ts
+    ├── contact
+      ├── page.css
+      ├── page.tsx
+    ├── fuckin-rich
+      ├── admin.css
+      ├── layout.tsx
+      ├── page.tsx
+    ├── ieee-journal
+      ├── page.css
+      ├── page.tsx
+    ├── project
+      ├── page.css
+      ├── page.tsx
+    ├── project-titles
+      ├── page.css
+      ├── page.tsx
+    ├── request-project
+      ├── page.css
+      ├── page.tsx
+    ├── view-my-project
+      ├── page.tsx
+    ├── globals.css
+    ├── layout.tsx
+    ├── metadata.ts
+    ├── page.tsx
+  ├── components
+    ├── AdminProjectForm.css
+    ├── AdminProjectForm.tsx
+    ├── AdminProjectList.css
+    ├── AdminProjectList.tsx
+    ├── FeaturedProjects.css
+    ├── FeaturedProjects.tsx
+    ├── HeroSection.css
+    ├── HeroSection.tsx
+    ├── MainNavbar.css
+    ├── MainNavbar.tsx
+    ├── MinimalYouTubePlayer.css
+    ├── MinimalYouTubePlayer.tsx
+    ├── ProjectCard.css
+    ├── ProjectCard.tsx
+    ├── SidebarMenu.css
+    ├── SidebarMenu.tsx
+  ├── lib
+    ├── mongodb.ts
+  ├── models
+    ├── Projects.ts
+  ├── utils
+    ├── api.ts
+├── .env
+├── .gitignore
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── README.md
+├── tsconfig.json
