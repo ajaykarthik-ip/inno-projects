@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span>29/A, Baba St, Janaki Nagar, Venkitapuram, post, Velandipalayam, Coimbatore, Tamil Nadu 641025</span>
+                <span>28, Baba St, Janaki Nagar, Venkitapuram, post, Velandipalayam, Coimbatore, Tamil Nadu 641025</span>
               </div>
               <div className="contact-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
