@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import './page.css';
 
 interface Project {
@@ -524,36 +524,39 @@ const projects: Project[] = [
 ];
 
 const ProjectListing: React.FC = () => {
-  // State for filtering and search
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
+  const pillRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const indicatorRef = useRef<HTMLDivElement>(null);
 
-  // Get unique categories for filter buttons with custom order
   const categoryOrder = ['all', 'ML', 'WEB', 'AI & API', 'IOT', 'BLOCKCHAIN'];
   const uniqueCategories = new Set(projects.map(project => project.category));
   const categories = categoryOrder.filter(cat => cat === 'all' || uniqueCategories.has(cat));
 
-  // Handle filter changes
+  // Slide indicator to active pill
   useEffect(() => {
-    let results = projects;
-    
-    // Apply category filter
-    if (activeFilter !== 'all') {
-      results = results.filter(project => project.category === activeFilter);
+    const activeIndex = categories.indexOf(activeFilter);
+    const pill = pillRefs.current[activeIndex];
+    const indicator = indicatorRef.current;
+    if (pill && indicator) {
+      indicator.style.width = `${pill.offsetWidth}px`;
+      indicator.style.transform = `translateX(${pill.offsetLeft}px)`;
     }
-    
-    // Apply search filter
+  }, [activeFilter, categories]);
+
+  // Compute filtered list synchronously — no extra render cycle
+  const filteredProjects = useMemo(() => {
+    let results = projects;
+    if (activeFilter !== 'all') {
+      results = results.filter(p => p.category === activeFilter);
+    }
     if (searchTerm) {
-      const lowercaseSearch = searchTerm.toLowerCase();
+      const q = searchTerm.toLowerCase();
       results = results.filter(
-        project => 
-          project.title.toLowerCase().includes(lowercaseSearch) ||
-          project.category.toLowerCase().includes(lowercaseSearch)
+        p => p.title.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)
       );
     }
-    
-    setFilteredProjects(results);
+    return results;
   }, [activeFilter, searchTerm]);
 
   // Handle WhatsApp contact
@@ -578,21 +581,26 @@ Looking forward to hearing from you!`;
     setSearchTerm('');
   };
 
+  // Count per category
+  const categoryCounts: Record<string, number> = {};
+  projects.forEach(p => {
+    categoryCounts[p.category] = (categoryCounts[p.category] || 0) + 1;
+  });
+
   return (
     <div className="container">
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            Innovative
-            <span className="hero-gradient"> AI ML & Web </span>
-            Projects
-          </h1>
-          <p className="hero-subtitle">
-            Discover 500+ IEEE Level Project in AI, ML, Web Development, APIs, IoT, and Blockchain
-          </p>
+      {/* Page Header */}
+      <div className="page-header">
+        <h1 className="page-title">Project <span className="title-accent">Catalog</span></h1>
+        <p className="page-subtitle">Browse {projects.length}+ projects across AI, ML, Web, IoT &amp; Blockchain</p>
+        <div className="stats-row">
+          <div className="stat-item"><span className="stat-value">{categoryCounts['ML'] || 0}</span><span className="stat-label">ML</span></div>
+          <div className="stat-item"><span className="stat-value">{categoryCounts['WEB'] || 0}</span><span className="stat-label">Web</span></div>
+          <div className="stat-item"><span className="stat-value">{categoryCounts['AI & API'] || 0}</span><span className="stat-label">AI & API</span></div>
+          <div className="stat-item"><span className="stat-value">{categoryCounts['IOT'] || 0}</span><span className="stat-label">IoT</span></div>
+          <div className="stat-item"><span className="stat-value">{categoryCounts['BLOCKCHAIN'] || 0}</span><span className="stat-label">Blockchain</span></div>
         </div>
-      </section>
+      </div>
 
       {/* Controls Section */}
       <section className="controls-section">
@@ -627,16 +635,18 @@ Looking forward to hearing from you!`;
         {/* Filter Pills */}
         <div className="filters-container">
           <div className="filter-pills">
-            {categories.map((category) => (
+            <div className="filter-indicator" ref={indicatorRef} />
+            {categories.map((category, i) => (
               <button
                 key={category}
+                ref={el => { pillRefs.current[i] = el; }}
                 className={`filter-pill ${activeFilter === category ? 'active' : ''}`}
                 onClick={() => setActiveFilter(category)}
               >
                 {category === 'all' ? 'All Projects' : category}
                 <span className="pill-count">
-                  {category === 'all' 
-                    ? projects.length 
+                  {category === 'all'
+                    ? projects.length
                     : projects.filter(p => p.category === category).length
                   }
                 </span>
@@ -676,7 +686,7 @@ Looking forward to hearing from you!`;
                 </thead>
                 <tbody>
                   {filteredProjects.map((project, index) => (
-                    <tr key={project.id} className="project-row" style={{ animationDelay: `${index * 50}ms` }}>
+                    <tr key={project.id} className="project-row" style={{ animationDelay: `${Math.min(index * 30, 300)}ms` }}>
                       <td className="td-serial">
                         <span className="serial-number">{(index + 1).toString().padStart(2, '0')}</span>
                       </td>

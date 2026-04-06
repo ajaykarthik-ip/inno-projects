@@ -8,12 +8,12 @@
 .hero-content {
   display: flex;
   flex-direction: column;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
   position: relative;
   padding: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease, box-shadow 0.5s ease;
   /* Adaptive height for mobile */
   min-height: 450px;
   height: auto;

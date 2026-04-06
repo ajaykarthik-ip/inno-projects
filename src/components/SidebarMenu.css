@@ -4,46 +4,56 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 250px;
-  background-color: var(--bg-secondary);
-  border-right: 1px solid var(--border-color);
+  width: 240px;
+  background: rgba(13, 13, 20, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-right: 1px solid rgba(147, 51, 234, 0.12);
   z-index: 1000;
-  transition: transform 0.3s ease, width 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
-  padding-top: 20px;
-  box-shadow: var(--shadow);
+  overflow-x: hidden;
+  padding-top: 0;
+  box-shadow: 4px 0 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
 }
 
+
 .sidebar.collapsed {
-  width: 70px;
+  width: 68px;
 }
 
 .sidebar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.5rem;
-  margin-bottom: 1.5rem;
+  padding: 1.1rem 1rem 0.75rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .sidebar-header h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #55556a;
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 .collapse-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #55556a;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.35rem;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .collapsed .collapse-btn {
@@ -52,46 +62,74 @@
 }
 
 .collapse-btn:hover {
-  color: var(--accent-primary);
-  background-color: rgba(126, 87, 194, 0.1);
+  color: #c084fc;
+  background: rgba(147, 51, 234, 0.15);
+  border-color: rgba(147, 51, 234, 0.3);
 }
 
 .sidebar-categories {
   list-style: none;
-  padding: 0;
+  padding: 0.5rem 0.65rem;
   margin: 0;
+  flex: 1;
+}
+
+.collapsed .sidebar-categories {
+  padding: 0.5rem 0.4rem;
 }
 
 .sidebar-category-item {
-  margin: 0.5rem 0;
+  margin: 0.15rem 0;
 }
 
 .sidebar-category-link {
   display: flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  color: var(--text-secondary);
+  padding: 0.65rem 0.85rem;
+  color: #9090b0;
   text-decoration: none;
-  transition: all 0.3s ease;
-  border-radius: 0 20px 20px 0;
-  gap: 1rem;
+  transition: all 0.2s ease;
+  border-radius: 10px;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  position: relative;
 }
 
 .collapsed .sidebar-category-link {
   justify-content: center;
-  padding: 0.75rem;
+  padding: 0.7rem;
 }
 
 .sidebar-category-link:hover {
-  background-color: rgba(126, 87, 194, 0.1);
-  color: var(--accent-primary);
+  background: rgba(147, 51, 234, 0.1);
+  color: #eeeeff;
+}
+
+.sidebar-category-link.active {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.18), rgba(99, 102, 241, 0.12));
+  color: #c084fc;
+  font-weight: 600;
+}
+
+.sidebar-category-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 3px;
+  background: linear-gradient(180deg, #9333ea, #6366f1);
+  border-radius: 0 3px 3px 0;
 }
 
 .sidebar-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 24px;
+  min-width: 20px;
+  color: inherit;
+  flex-shrink: 0;
 }
 
 .sidebar-text {
@@ -111,12 +149,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 999;
   transition: opacity 0.3s ease;
   opacity: 0;
   pointer-events: none;
-  /* Hide by default */
   display: none;
 }
 
@@ -126,79 +165,69 @@
 }
 
 @media (max-width: 768px) {
-  /* Always hide sidebar completely off-screen on mobile by default */
   .sidebar {
     transform: translateX(-100%);
-    width: 270px;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    width: 260px;
+    box-shadow: 8px 0 40px rgba(0, 0, 0, 0.6);
   }
-  
-  /* Only show sidebar when mobile-open class is present */
+
   .sidebar.mobile-open {
     transform: translateX(0);
   }
-  
-  /* Handle collapsed state on mobile - still keep full width */
+
   .sidebar.collapsed {
-    width: 270px;
+    width: 260px;
     transform: translateX(-100%);
   }
-  
-  /* Even if collapsed, show it if mobile-open is present */
+
   .sidebar.collapsed.mobile-open {
     transform: translateX(0);
   }
-  
-  /* Always show text on mobile, even when collapsed */
+
   .sidebar.collapsed .sidebar-text {
     display: block;
   }
-  
-  /* Keep sidebar links with full padding on mobile */
+
   .sidebar.collapsed .sidebar-category-link {
     justify-content: flex-start;
-    padding: 0.75rem 1.5rem;
+    padding: 0.65rem 0.85rem;
   }
-  
-  /* Force sidebar header to always show on mobile */
+
   .sidebar-header h3 {
     display: block !important;
   }
-  
-  /* Prevent scrolling when sidebar is open */
+
   body.sidebar-mobile-open {
     overflow: hidden;
   }
-  
-  /* Add subtle visual effect to content when sidebar is open */
+
   body.sidebar-mobile-open .page-content {
-    opacity: 0.8;
-    pointer-events: none; /* Prevent interaction with content while sidebar is open */
-    transition: opacity 0.3s ease; /* Smooth transition */
+    opacity: 0.6;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
   }
 
-  /* When sidebar is open, ensure the overlay is displayed */
   .sidebar-overlay {
     display: block;
   }
 
-  /* When close animation finishes, ensure overlay is fully hidden */
   body:not(.sidebar-mobile-open) .sidebar-overlay {
     opacity: 0;
     transition: opacity 0.3s ease, visibility 0s 0.3s;
     visibility: hidden;
   }
 
-  /* Use different styling for collapse button on mobile */
   .sidebar-header .collapse-btn {
-    background-color: var(--accent-primary);
+    background: linear-gradient(135deg, #9333ea, #6366f1);
     color: white;
+    border: none;
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.4);
   }
-  
+
   .sidebar-header .collapse-btn:hover {
-    background-color: var(--accent-secondary);
+    filter: brightness(1.15);
   }
 }

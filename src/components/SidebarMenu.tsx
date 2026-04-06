@@ -312,9 +312,9 @@ const SidebarMenu: React.FC = () => {
         <ul className="sidebar-categories">
           {categories.map((category, index) => (
             <li key={index} className="sidebar-category-item">
-              <a 
+              <a
                 href={category.path}
-                className="sidebar-category-link"
+                className={`sidebar-category-link ${pathname === category.path ? 'active' : ''}`}
                 onClick={(e) => {
                   e.preventDefault();
                   router.push(category.path);
