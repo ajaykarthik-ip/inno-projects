@@ -1,0 +1,21 @@
+{
+  "name": "Inno Projects – Final Year Project Ideas",
+  "short_name": "Inno Projects",
+  "description": "500+ final year project ideas in ML, AI, Web, IoT & Blockchain with implementation support",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d18",
+  "theme_color": "#9333ea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "lang": "en-IN",
+  "dir": "ltr",
+  "scope": "/"
+}
