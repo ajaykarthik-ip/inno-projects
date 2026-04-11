@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/fuckin-rich/', '/api/'],
       },
     ],
-    sitemap: 'https://innoprojects.in/sitemap.xml',
-    host: 'https://innoprojects.in',
+    sitemap: 'https://www.innoprojects.tech/sitemap.xml',
+    host: 'https://www.innoprojects.tech',
   };
 }

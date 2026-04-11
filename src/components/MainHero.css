@@ -1,0 +1,372 @@
+/* ============================================================
+   MAIN HERO — scroll-in section below the carousel
+   ============================================================ */
+
+.main-hero {
+  position: relative;
+  padding: 6rem 1.5rem 5rem;
+  /* Start hidden — JS adds .main-hero--visible on scroll */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-hero--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Background glows ───────────────────────────────────── */
+.mh-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+}
+
+.mh-glow-1 {
+  width: 520px;
+  height: 520px;
+  top: -120px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.18) 0%, transparent 70%);
+}
+
+.mh-glow-2 {
+  width: 400px;
+  height: 400px;
+  bottom: -80px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.14) 0%, transparent 70%);
+}
+
+[data-theme="light"] .mh-glow-1,
+[data-theme="light"] .mh-glow-2 {
+  display: none;
+}
+
+/* ── Dot grid ───────────────────────────────────────────── */
+.mh-dot-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(147, 51, 234, 0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.5;
+}
+
+[data-theme="light"] .mh-dot-grid {
+  display: none;
+}
+
+/* ── Layout ─────────────────────────────────────────────── */
+.mh-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ── Left: content ──────────────────────────────────────── */
+.mh-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Badge */
+.mh-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(147, 51, 234, 0.10);
+  border: 1px solid rgba(147, 51, 234, 0.25);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  width: fit-content;
+  letter-spacing: 0.02em;
+}
+
+.mh-badge-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  animation: mhPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes mhPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.5); }
+  50%       { box-shadow: 0 0 0 5px rgba(147, 51, 234, 0); }
+}
+
+/* Headline */
+.mh-headline {
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.mh-accent {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtext */
+.mh-subtext {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 540px;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Tags */
+.mh-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mh-tag {
+  padding: 4px 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.mh-tag:hover {
+  background: rgba(147, 51, 234, 0.1);
+  border-color: rgba(147, 51, 234, 0.3);
+  color: var(--accent-primary);
+}
+
+/* CTA buttons */
+.mh-ctas {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.mh-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.85rem 1.75rem;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #fff;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 20px rgba(147, 51, 234, 0.35);
+}
+
+.mh-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(147, 51, 234, 0.45);
+  color: #fff;
+}
+
+.mh-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.85rem 1.75rem;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.mh-btn-secondary:hover {
+  background: rgba(37, 211, 102, 0.08);
+  border-color: #25d366;
+  color: #25d366;
+  transform: translateY(-2px);
+}
+
+/* ── Right: stats card ───────────────────────────────────── */
+.mh-right {
+  position: relative;
+}
+
+.mh-stats-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="dark"] .mh-stats-card {
+  background:
+    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    linear-gradient(145deg, rgba(147, 51, 234, 0.45), rgba(255,255,255,0.04) 50%, rgba(99, 102, 241, 0.25)) border-box;
+  border: 1px solid transparent;
+}
+
+.mh-card-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: radial-gradient(circle at 70% 20%, rgba(147, 51, 234, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.mh-stats-header {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mh-stats-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+/* Stats 2×2 grid */
+.mh-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mh-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.75rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  text-align: center;
+}
+
+.mh-stat:hover {
+  border-color: rgba(147, 51, 234, 0.3);
+  background: rgba(147, 51, 234, 0.06);
+}
+
+.mh-stat-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.mh-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* Features list */
+.mh-stats-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.mh-feature-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.mh-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: rgba(147, 51, 234, 0.12);
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .mh-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .mh-right {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-hero {
+    padding: 4rem 1rem 3.5rem;
+  }
+
+  .mh-headline {
+    font-size: 2.1rem;
+  }
+
+  .mh-ctas {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mh-btn-primary,
+  .mh-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .mh-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

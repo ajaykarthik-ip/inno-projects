@@ -5,8 +5,8 @@
 }
 
 body {
-  background: #000000;
-  color: #ffffff;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -16,19 +16,17 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background: #000000;
+  background: var(--bg-primary);
 }
 
 .contact-card {
-  background: linear-gradient(145deg, #111111, #1a1a1a);
-  border: 1px solid #333333;
+  background: linear-gradient(145deg, var(--bg-secondary), var(--bg-card));
+  border: 1px solid var(--border-color);
   border-radius: 24px;
   padding: 3rem;
   max-width: 500px;
   width: 100%;
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-lg);
   text-align: center;
   animation: fadeInScale 0.8s ease-out;
   position: relative;
@@ -48,14 +46,14 @@ body {
 .contact-title {
   font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
 }
 
 .contact-subtitle {
   font-size: clamp(1rem, 3vw, 1.2rem);
-  color: #cccccc;
+  color: var(--text-secondary);
   margin-bottom: 3rem;
   line-height: 1.6;
   font-weight: 400;
@@ -122,14 +120,14 @@ body {
 .service-title {
   font-size: clamp(1.3rem, 4vw, 1.6rem);
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 0.8rem;
   position: relative;
   z-index: 2;
 }
 
 .service-description {
-  color: #aaaaaa;
+  color: var(--text-secondary);
   margin-bottom: 1.5rem;
   font-size: clamp(0.9rem, 2.5vw, 1rem);
   position: relative;
@@ -203,8 +201,8 @@ body {
 .contact-footer {
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid #333333;
-  color: #888888;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
   font-size: clamp(0.8rem, 2vw, 0.9rem);
 }
 

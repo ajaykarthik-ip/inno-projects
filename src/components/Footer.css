@@ -1,15 +1,12 @@
 .footer {
   position: relative;
-  background: linear-gradient(
-    180deg,
-    rgba(13, 13, 24, 0.0) 0%,
-    rgba(9, 8, 18, 0.98)  100%
-  );
+  background: var(--bg-footer);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-subtle);
   margin-top: auto;
   width: 100%;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 /* Vivid gradient top line */
@@ -72,7 +69,7 @@
 }
 
 .footer-tagline {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted);
   font-size: 0.875rem;
   line-height: 1.7;
   max-width: 280px;
@@ -119,7 +116,7 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--text-muted);
   margin-bottom: 0.25rem;
 }
 
@@ -135,7 +132,7 @@
 .footer-nav li a,
 .footer-nav li span {
   display: inline-block;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-secondary);
   font-size: 0.875rem;
   font-weight: 400;
   padding: 0.3rem 0;
@@ -149,7 +146,7 @@
 }
 
 .footer-nav li a:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
   padding-left: 0.3rem;
 }
 
@@ -164,14 +161,14 @@
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-secondary);
   font-size: 0.875rem;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a.footer-contact-item:hover {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
 }
 
 .footer-contact-icon {
@@ -211,18 +208,18 @@ a.footer-contact-item:hover {
   align-items: center;
   justify-content: space-between;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--border-color);
   gap: 1rem;
   flex-wrap: wrap;
 }
 
 .footer-copy {
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
   font-size: 0.8rem;
 }
 
 .footer-made {
-  color: rgba(255, 255, 255, 0.15);
+  color: var(--text-muted);
   font-size: 0.8rem;
   font-style: italic;
 }

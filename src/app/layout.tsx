@@ -3,19 +3,34 @@ import type { Metadata } from 'next';
 import MainNavbar from '@/components/MainNavbar';
 import SidebarMenu from '@/components/SidebarMenu';
 import Footer from '@/components/Footer';
+import { ThemeProvider } from '@/components/ThemeProvider';
 import './globals.css';
 
-const siteUrl = 'https://innoprojects.in';
+const siteUrl = 'https://www.innoprojects.tech';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Inno Projects – 500+ Final Year Project Ideas with Implementation Help',
-    template: '%s | Inno Projects',
+    default: 'Best Final Year Project Center in Coimbatore | Inno Projects – 500+ Projects',
+    template: '%s | Inno Projects – Project Center in Coimbatore',
   },
   description:
-    'Get 500+ final year project ideas in ML, AI, Web Development, IoT & Blockchain with full source code and implementation support. Best final year projects for BTech, BE, MCA, MCS, MSc students in 2025.',
+    'Inno Projects is the best final year project center in Coimbatore. Get 500+ final year projects in ML, AI, Web Development, IoT & Blockchain with full source code, documentation and implementation support for BTech, BE, MCA, MSc students. Delivered in 12 hours.',
   keywords: [
+    // Local keywords (highest priority)
+    'final year project center in coimbatore',
+    'best project center in coimbatore',
+    'project center in coimbatore',
+    'best final year project center in coimbatore',
+    'final year project coimbatore',
+    'project center coimbatore gandhipuram',
+    'IEEE project center coimbatore',
+    'software project center coimbatore',
+    'engineering project center coimbatore',
+    'project center near me coimbatore',
+    'final year project coimbatore 2025',
+    'best project center coimbatore for engineering',
+    // Generic national keywords
     'final year project',
     'final year project ideas',
     'final year project 2025',
@@ -65,31 +80,33 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: siteUrl,
     siteName: 'Inno Projects',
-    title: 'Inno Projects – 500+ Final Year Project Ideas with Implementation Help',
+    title: 'Best Final Year Project Center in Coimbatore | Inno Projects',
     description:
-      'Browse 500+ final year project titles in ML, AI, Web, IoT & Blockchain. Get expert implementation support for BTech, BE, MCA students in 2025.',
+      'Best final year project center in Coimbatore. 500+ projects in ML, AI, Web, IoT & Blockchain. Full source code, documentation, IEEE support. Delivered in 12 hours. Call +91 9600309140.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Inno Projects – Final Year Project Ideas',
+        alt: 'Inno Projects – Best Final Year Project Center in Coimbatore',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Inno Projects – Final Year Project Ideas & Implementation Help',
+    title: 'Best Final Year Project Center in Coimbatore | Inno Projects',
     description:
-      'Browse 500+ final year projects in ML, AI, Web, IoT & Blockchain with expert implementation support.',
+      'Best project center in Coimbatore. 500+ final year projects in ML, AI, Web, IoT & Blockchain with full source code and 12-hour delivery.',
     images: ['/og-image.png'],
   },
   alternates: {
     canonical: siteUrl,
   },
   other: {
-    'geo.region': 'IN',
-    'geo.placename': 'India',
+    'geo.region': 'IN-TN',
+    'geo.placename': 'Coimbatore, Tamil Nadu, India',
+    'geo.position': '11.0168;76.9558',
+    'ICBM': '11.0168, 76.9558',
   },
 };
 
@@ -98,23 +115,48 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'Organization',
+        '@type': ['LocalBusiness', 'EducationalOrganization'],
         '@id': `${siteUrl}/#organization`,
         name: 'Inno Projects',
+        alternateName: 'Inno Projects - Final Year Project Center Coimbatore',
         url: siteUrl,
         logo: {
           '@type': 'ImageObject',
           url: `${siteUrl}/favicon.ico`,
         },
+        image: `${siteUrl}/og-image.png`,
+        description:
+          'Inno Projects is the best final year project center in Coimbatore, Tamil Nadu. We provide 500+ final year projects in ML, AI, Web Development, IoT, and Blockchain with full source code, documentation, and expert implementation support for BTech, BE, MCA, and MSc students. Projects delivered in 12 hours.',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '28, Baba St, Janaki Nagar, Venkitapuram',
+          addressLocality: 'Coimbatore',
+          addressRegion: 'Tamil Nadu',
+          addressCountry: 'IN',
+          postalCode: '641025',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: '11.0301',
+          longitude: '77.0046',
+        },
+        telephone: '+91-9600309140',
         contactPoint: {
           '@type': 'ContactPoint',
           telephone: '+91-9600309140',
           contactType: 'customer support',
           availableLanguage: ['English', 'Tamil'],
           contactOption: 'TollFree',
+          areaServed: ['Coimbatore', 'Tamil Nadu', 'India'],
         },
-        description:
-          'Inno Projects provides 500+ final year project ideas with full implementation support for engineering and computer science students.',
+        openingHours: 'Mo-Su 00:00-23:59',
+        priceRange: '₹₹',
+        servesCuisine: undefined,
+        areaServed: [
+          { '@type': 'City', name: 'Coimbatore' },
+          { '@type': 'State', name: 'Tamil Nadu' },
+        ],
+        sameAs: [siteUrl],
       },
       {
         '@type': 'WebSite',
@@ -122,7 +164,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         url: siteUrl,
         name: 'Inno Projects',
         description:
-          '500+ final year project ideas with source code and implementation support for BTech, BE, MCA students.',
+          'Best final year project center in Coimbatore. 500+ projects in ML, AI, Web, IoT & Blockchain with source code and implementation support.',
         publisher: { '@id': `${siteUrl}/#organization` },
         potentialAction: {
           '@type': 'SearchAction',
@@ -138,34 +180,50 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         mainEntity: [
           {
             '@type': 'Question',
-            name: 'What is Inno Projects?',
+            name: 'What is the best final year project center in Coimbatore?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Inno Projects is a platform offering 500+ final year project ideas in ML, AI, Web Development, IoT, and Blockchain with full implementation support for BTech, BE, MCA, and MSc students.',
+              text: 'Inno Projects is one of the best final year project centers in Coimbatore, Tamil Nadu. We offer 500+ projects in ML, AI, Web Development, IoT, and Blockchain with full source code, documentation, and expert support for BTech, BE, MCA, and MSc students.',
             },
           },
           {
             '@type': 'Question',
-            name: 'Do you provide final year projects with source code?',
+            name: 'Which project center in Coimbatore provides projects with source code?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Yes, we provide complete final year projects with full source code, documentation, and implementation support. Contact us on WhatsApp at +91 9600309140.',
+              text: 'Inno Projects in Coimbatore provides complete final year projects with full source code, documentation, PPT, and IEEE paper support. Contact us on WhatsApp at +91 9600309140.',
             },
           },
           {
             '@type': 'Question',
-            name: 'What categories of final year projects are available?',
+            name: 'What is the cost of final year projects in Coimbatore?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'We offer projects in Machine Learning (ML), Artificial Intelligence (AI), Web Development, Internet of Things (IoT), and Blockchain — over 500 projects total.',
+              text: 'At Inno Projects Coimbatore, final year project prices are affordable and student-friendly. We offer competitive pricing with full source code, documentation, and implementation support. Contact us at +91 9600309140 for the latest pricing.',
             },
           },
           {
             '@type': 'Question',
-            name: 'How can I get help with my final year project?',
+            name: 'Does Inno Projects in Coimbatore offer IEEE projects?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Contact us via WhatsApp at +91 9600309140 or visit our contact page. We are available 24/7 to help with project selection, implementation, and documentation.',
+              text: 'Yes, Inno Projects Coimbatore offers IEEE-based final year projects in ML, AI, Deep Learning, IoT, Blockchain, and Web Development. We also assist with IEEE journal publication for less than ₹3,000.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'How fast can I get my final year project in Coimbatore?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Inno Projects delivers final year projects in Coimbatore within 12 hours. We are available 24/7 on WhatsApp at +91 9600309140.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'What categories of final year projects are available at Inno Projects Coimbatore?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'We offer projects in Machine Learning (ML), Artificial Intelligence (AI), Deep Learning, Web Development, Internet of Things (IoT), Blockchain, Data Science, and Computer Vision — over 500 projects total in Coimbatore.',
             },
           },
         ],
@@ -174,8 +232,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* FOUC prevention: set theme before first paint */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){}})();` }} />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
@@ -190,18 +250,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body suppressHydrationWarning>
-        <div className="app-container">
-          <SidebarMenu />
-          <div className="page-content">
-            <MainNavbar />
-            <div className="main-content-wrapper">
-              <main className="main-content">
-                {children}
-              </main>
+        <ThemeProvider>
+          <div className="app-container">
+            <SidebarMenu />
+            <div className="page-content">
+              <MainNavbar />
+              <div className="main-content-wrapper">
+                <main className="main-content">
+                  {children}
+                </main>
+              </div>
+              <Footer />
             </div>
-            <Footer />
           </div>
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );

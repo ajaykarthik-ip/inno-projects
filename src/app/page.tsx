@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect } from 'react';
-import HeroSection from '@/components/HeroSection';
+import MainHero from '@/components/MainHero';
+import ReferEarnBanner from '@/components/ReferEarnBanner';
 import FeaturedProjects from '@/components/FeaturedProjects';
 
 export default function Home() {
@@ -21,7 +22,8 @@ export default function Home() {
   return (
     <div className="main-content-wrapper">
       <main className="main-content">
-        <HeroSection />
+        <MainHero />
+        <ReferEarnBanner />
         <div className="content-section">
           <FeaturedProjects />
         </div>

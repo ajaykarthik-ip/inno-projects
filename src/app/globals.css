@@ -19,6 +19,37 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --radius: 14px;
   --radius-lg: 20px;
+  /* Component-specific */
+  --bg-nav: rgba(13, 13, 24, 0.85);
+  --bg-sidebar: rgba(13, 13, 20, 0.97);
+  --bg-footer: rgba(9, 8, 18, 0.98);
+  --bg-dropdown: rgba(19, 19, 31, 0.95);
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5ff;
+  --bg-tertiary: #ededfa;
+  --bg-card: #ffffff;
+  --text-primary: #0d0d18;
+  --text-secondary: #4a4a6e;
+  --text-muted: #8888aa;
+  --accent-primary: #9333ea;
+  --accent-secondary: #6366f1;
+  --accent-glow: rgba(147, 51, 234, 0.15);
+  --accent-glow-lg: rgba(147, 51, 234, 0.25);
+  --border-color: #dcdcee;
+  --border-subtle: rgba(147, 51, 234, 0.15);
+  --shadow: 0 4px 24px rgba(147, 51, 234, 0.08);
+  --shadow-lg: 0 20px 60px rgba(147, 51, 234, 0.14);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius: 14px;
+  --radius-lg: 20px;
+  /* Component-specific */
+  --bg-nav: rgba(255, 255, 255, 0.92);
+  --bg-sidebar: rgba(255, 255, 255, 0.98);
+  --bg-footer: rgba(249, 249, 252, 0.98);
+  --bg-dropdown: rgba(255, 255, 255, 0.97);
 }
 
 * {
@@ -29,6 +60,8 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  min-height: 100%;
 }
 
 /* Custom scrollbar */
@@ -39,7 +72,7 @@ html {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-tertiary);
+  background: var(--border-color);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -55,6 +88,7 @@ html {
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: var(--bg-primary);
+  min-height: 100vh;
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;

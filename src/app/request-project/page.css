@@ -8,7 +8,7 @@
 
 .page-wrapper {
   min-height: 100vh;
-  background: #080808;
+  background: var(--bg-primary);
   font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
   display: flex;
   align-items: flex-start;
@@ -24,7 +24,7 @@
 .header {
   text-align: center;
   margin-bottom: 0;
-  background: #111111;
+  background: var(--bg-secondary);
   padding: 1.5rem 0;
 }
 
@@ -37,14 +37,14 @@
 }
 
 .subtitle {
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 1rem;
   font-weight: 400;
 }
 
 /* Form Card */
 .form-card {
-  background: #111111;
+  background: var(--bg-secondary);
   overflow: hidden;
   position: relative;
   border-radius: 0;
@@ -70,7 +70,7 @@
   display: block;
   margin-bottom: 0.35rem;
   font-weight: 500;
-  color: #e2e8f0;
+  color: var(--text-primary);
   font-size: 0.92rem;
 }
 
@@ -84,17 +84,17 @@
 .select {
   width: 100%;
   padding: 0.6rem 0.7rem;
-  background: #0a0a0a;
-  border: 1px solid rgba(15, 255, 183, 0.1);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: 6px;
-  color: #e2e8f0;
+  color: var(--text-primary);
   font-size: 0.95rem;
   transition: all 0.2s ease;
   font-family: inherit;
 }
 
 .input::placeholder {
-  color: #64748b;
+  color: var(--text-muted);
 }
 
 .input:focus,
@@ -358,8 +358,8 @@
 }
 
 .apply-button:disabled {
-  background: #1a1a1a;
-  color: #64748b;
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
   cursor: not-allowed;
 }
 
@@ -417,8 +417,8 @@
 }
 
 .select option {
-  background: #0a0a0a;
-  color: #e2e8f0;
+  background: var(--bg-card);
+  color: var(--text-primary);
   padding: 0.6rem;
 }
 
@@ -439,7 +439,7 @@
 
 .divider-text {
   padding: 0 1rem;
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 0.9rem;
   font-weight: 500;
 }

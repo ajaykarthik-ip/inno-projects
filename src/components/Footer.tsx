@@ -1,8 +1,8 @@
 "use client";
 
 import React from 'react';
-import './Footer.css';
 import Link from 'next/link';
+import './Footer.css';
 
 const Footer: React.FC = () => {
   const handleWhatsApp = () => {
@@ -39,6 +39,7 @@ const Footer: React.FC = () => {
               <li><Link href="/project-titles">Project Catalog</Link></li>
               <li><Link href="/request-project">Request a Project</Link></li>
               <li><Link href="/ieee-journal">IEEE Journal</Link></li>
+              <li><Link href="/blog">Tips &amp; Tricks</Link></li>
               <li><Link href="/contact">Contact Us</Link></li>
             </ul>
           </div>

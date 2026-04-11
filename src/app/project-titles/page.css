@@ -112,7 +112,7 @@
   right: 0.85rem;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--bg-tertiary);
   border: none;
   border-radius: 50%;
   width: 26px;
@@ -142,8 +142,8 @@
   justify-content: center;
   flex-wrap: nowrap;
   padding: 5px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
   border-radius: 18px;
   backdrop-filter: blur(40px) saturate(200%);
   -webkit-backdrop-filter: blur(40px) saturate(200%);
@@ -206,7 +206,7 @@
   border-radius: 13px;
   font-size: 0.84rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.38);
+  color: var(--text-muted);
   cursor: pointer;
   transition: color 0.2s ease;
   outline: none;
@@ -218,11 +218,11 @@
 }
 
 .filter-pill:hover {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
 }
 
 .filter-pill:active {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
 }
 
 .filter-pill.active {
@@ -237,8 +237,8 @@
   padding: 1px 6px;
   border-radius: 20px;
   letter-spacing: 0.02em;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.3);
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
   transition: background 0.2s ease, color 0.2s ease;
 }
 
@@ -285,13 +285,13 @@
 }
 
 .table-container {
-  background: rgba(17, 17, 32, 0.7);
+  background: var(--bg-card);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid #1e1e30;
+  border: 1px solid var(--border-color);
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-lg);
 }
 
 .table-wrapper {
@@ -304,8 +304,8 @@
 }
 
 .projects-table thead {
-  background: rgba(28, 28, 46, 0.8);
-  border-bottom: 1px solid #1e1e30;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .projects-table th {
@@ -313,7 +313,7 @@
   text-align: left;
   font-size: 0.72rem;
   font-weight: 700;
-  color: #55556a;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -323,7 +323,7 @@
 .th-action { width: 130px; text-align: center; }
 
 .project-row {
-  border-bottom: 1px solid rgba(30, 30, 48, 0.8);
+  border-bottom: 1px solid var(--border-color);
   transition: all 0.2s ease;
   opacity: 0;
   animation: fadeInUp 0.35s ease forwards;
@@ -465,16 +465,16 @@
 .empty-state {
   text-align: center;
   padding: 5rem 1.5rem;
-  background: rgba(17, 17, 32, 0.6);
+  background: var(--bg-card);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid #1e1e30;
+  border: 1px solid var(--border-color);
   border-radius: 18px;
 }
 
 .empty-icon {
   margin-bottom: 1.5rem;
-  color: #55556a;
+  color: var(--text-muted);
 }
 
 .empty-title {
