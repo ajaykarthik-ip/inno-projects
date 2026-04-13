@@ -12,7 +12,7 @@
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 0.75rem;
-  color: #eeeeff;
+  color: var(--text-primary);
 }
 
 .title-accent {
@@ -23,7 +23,7 @@
 }
 
 .page-subtitle {
-  color: #9090b0;
+  color: var(--text-secondary);
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -53,7 +53,7 @@
 
 .stat-label {
   font-size: 0.75rem;
-  color: #9090b0;
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-weight: 600;
@@ -78,12 +78,12 @@
   width: 100%;
   padding: 0.85rem 1.25rem 0.85rem 3rem;
   font-size: 0.95rem;
-  border: 1px solid #1e1e30;
+  border: 1px solid var(--border-color);
   border-radius: 14px;
-  background: rgba(28, 28, 46, 0.6);
+  background: var(--bg-secondary);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  color: #eeeeff;
+  color: var(--text-primary);
   transition: all 0.25s ease;
   outline: none;
   font-family: inherit;
@@ -95,7 +95,7 @@
 }
 
 .search-input::placeholder {
-  color: #55556a;
+  color: var(--text-muted);
 }
 
 .search-icon {
@@ -103,7 +103,7 @@
   left: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #55556a;
+  color: var(--text-muted);
   pointer-events: none;
 }
 
@@ -257,7 +257,7 @@
 }
 
 .results-text {
-  color: #9090b0;
+  color: var(--text-secondary);
   font-size: 0.85rem;
 }
 
@@ -356,7 +356,7 @@
 .serial-number {
   font-size: 0.78rem;
   font-weight: 600;
-  color: #55556a;
+  color: var(--text-muted);
   font-variant-numeric: tabular-nums;
   font-family: 'SF Mono', 'Monaco', 'Roboto Mono', monospace;
 }
@@ -369,7 +369,7 @@
 .project-name {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #eeeeff;
+  color: var(--text-primary);
   line-height: 1.4;
   margin: 0;
 }
@@ -480,12 +480,12 @@
 .empty-title {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #eeeeff;
+  color: var(--text-primary);
   margin-bottom: 0.75rem;
 }
 
 .empty-description {
-  color: #9090b0;
+  color: var(--text-secondary);
   margin-bottom: 2rem;
   max-width: 400px;
   margin-left: auto;
@@ -671,4 +671,46 @@
   .page-title {
     font-size: 2.5rem;
   }
+}
+
+/* ─── Light Theme Overrides ───────────────────────── */
+[data-theme="light"] .filter-pills {
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 8px 24px rgba(147, 51, 234, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .category-badge.ml {
+  background: rgba(147, 51, 234, 0.1);
+  color: #7c3aed;
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+[data-theme="light"] .category-badge.ai {
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+[data-theme="light"] .category-badge.web {
+  background: rgba(5, 150, 105, 0.1);
+  color: #059669;
+  border-color: rgba(5, 150, 105, 0.3);
+}
+
+[data-theme="light"] .category-badge.iot {
+  background: rgba(217, 119, 6, 0.1);
+  color: #d97706;
+  border-color: rgba(217, 119, 6, 0.3);
+}
+
+[data-theme="light"] .category-badge.blockchain {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+  border-color: rgba(220, 38, 38, 0.25);
+}
+
+[data-theme="light"] .project-row:hover {
+  background: rgba(147, 51, 234, 0.04);
 }
