@@ -15,7 +15,7 @@ export default function AdminPage() {
   const handleProjectAdded = () => {
     // Increment refresh counter to trigger a refresh of the project list
     setRefreshCounter(prev => prev + 1);
-    
+
     // Optionally switch to the manage tab after adding
     setActiveTab('manage');
   };
@@ -27,17 +27,17 @@ export default function AdminPage() {
         <h1>Admin Dashboard</h1>
         <p>Manage your projects from this panel</p>
       </div>
-      
+
       {/* Tab navigation */}
       <div className="admin-container">
         <div className="admin-tabs">
-          <button 
+          <button
             className={`admin-tab ${activeTab === 'create' ? 'active' : ''}`}
             onClick={() => setActiveTab('create')}
           >
             Create Project
           </button>
-          <button 
+          <button
             className={`admin-tab ${activeTab === 'manage' ? 'active' : ''}`}
             onClick={() => setActiveTab('manage')}
           >

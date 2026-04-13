@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     title: 'Contact Inno Projects – Final Year Project Help 24/7',
     description:
       'Get instant help for your final year project via WhatsApp. Expert support for ML, AI, Web, IoT & Blockchain projects.',
-    url: 'https://innoprojects.in/contact',
+    url: 'https://www.innoprojects.tech/contact',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://innoprojects.in/contact',
+    canonical: 'https://www.innoprojects.tech/contact',
   },
 };
 
@@ -35,12 +35,12 @@ export default function ContactLayout({ children }: { children: React.ReactNode 
     '@type': 'ContactPage',
     name: 'Contact Inno Projects',
     description: 'Contact page for final year project help and support',
-    url: 'https://innoprojects.in/contact',
+    url: 'https://www.innoprojects.tech/contact',
     mainEntity: {
       '@type': 'LocalBusiness',
       name: 'Inno Projects',
       telephone: '+91-9600309140',
-      url: 'https://innoprojects.in',
+      url: 'https://www.innoprojects.tech',
       openingHours: 'Mo-Su 00:00-23:59',
       priceRange: '$$',
       description: 'Final year project implementation and support service',

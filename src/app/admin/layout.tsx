@@ -13,7 +13,7 @@ export default function AdminLayout({
     // Set initial state - not collapsed
     document.body.classList.remove('sidebar-collapsed');
     document.body.classList.remove('sidebar-mobile-open');
-    
+
     // Clean up when component unmounts
     return () => {
       document.body.classList.remove('sidebar-collapsed');
@@ -21,7 +21,5 @@ export default function AdminLayout({
     };
   }, []);
 
-  // We're not adding any wrapper elements here, 
-  // just passing children directly to avoid duplication
   return children;
 }

@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/fuckin-rich/', '/api/'],
+        disallow: ['/admin/', '/api/'],
       },
     ],
     sitemap: 'https://www.innoprojects.tech/sitemap.xml',

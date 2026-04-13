@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     title: 'IEEE Journal Services – Paper Writing & Formatting | Inno Projects',
     description:
       'Professional IEEE journal paper writing and formatting assistance. Get your research paper published with expert guidance.',
-    url: 'https://innoprojects.in/ieee-journal',
+    url: 'https://www.innoprojects.tech/ieee-journal',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://innoprojects.in/ieee-journal',
+    canonical: 'https://www.innoprojects.tech/ieee-journal',
   },
 };
 

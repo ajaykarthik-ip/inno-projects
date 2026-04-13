@@ -86,7 +86,7 @@
   .admin-container {
     padding: 2rem 1rem;
   }
-  
+
   .admin-content {
     padding: 2.5rem;
   }
@@ -103,12 +103,12 @@
     flex-direction: column;
     width: 100%;
   }
-  
+
   .admin-tab {
     width: 100%;
     text-align: center;
   }
-  
+
   .admin-content {
     padding: 1.5rem 1rem;
   }
