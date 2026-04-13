@@ -16,6 +16,7 @@ const SidebarMenu: React.FC = () => {
     // { name: 'View My Project', icon: 'monitor', path: '/view-my-project' },
     { name: 'Project list', icon: 'list', path: '/project-titles' },
     { name: 'Request new Project', icon: 'code-plus', path: '/request-project' },
+    { name: 'Project Center', icon: 'map-pin', path: '/project-center-in-coimbatore' },
     { name: 'IEEE Journal Paper', icon: 'file-text', path: '/ieee-journal' },
     { name: 'Tips & Tricks', icon: 'book-open', path: '/blog' },
     // { name: 'Dashboard', icon: 'layout', path: '/dashboard' },
@@ -190,6 +191,13 @@ const SidebarMenu: React.FC = () => {
             <line x1="16" y1="13" x2="8" y2="13"></line>
             <line x1="16" y1="17" x2="8" y2="17"></line>
             <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        );
+      case 'map-pin':
+        return (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
           </svg>
         );
       case 'book-open':

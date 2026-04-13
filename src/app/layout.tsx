@@ -11,11 +11,11 @@ const siteUrl = 'https://www.innoprojects.tech';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Best Final Year Project Center in Coimbatore | Inno Projects – 500+ Projects',
+    default: 'Best Final Year Project Center in Coimbatore | Inno Projects',
     template: '%s | Inno Projects – Project Center in Coimbatore',
   },
   description:
-    'Inno Projects is the best final year project center in Coimbatore. Get 500+ final year projects in ML, AI, Web Development, IoT & Blockchain with full source code, documentation and implementation support for BTech, BE, MCA, MSc students. Delivered in 12 hours.',
+    'Inno Projects is the best final year project center in Coimbatore. 600+ final year projects delivered every year in ML, AI, Web Development, IoT & Blockchain with full source code, documentation and implementation support for BTech, BE, MCA, MSc students. Delivered in 12 hours.',
   keywords: [
     // Local keywords (highest priority)
     'final year project center in coimbatore',
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     siteName: 'Inno Projects',
     title: 'Best Final Year Project Center in Coimbatore | Inno Projects',
     description:
-      'Best final year project center in Coimbatore. 500+ projects in ML, AI, Web, IoT & Blockchain. Full source code, documentation, IEEE support. Delivered in 12 hours. Call +91 9600309140.',
+      'Best final year project center in Coimbatore. 600+ projects delivered every year in ML, AI, Web, IoT & Blockchain. Full source code, documentation, IEEE support. Delivered in 12 hours. Call +91 9600309140.',
     images: [
       {
         url: '/og-image.png',
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Best Final Year Project Center in Coimbatore | Inno Projects',
     description:
-      'Best project center in Coimbatore. 500+ final year projects in ML, AI, Web, IoT & Blockchain with full source code and 12-hour delivery.',
+      'Best project center in Coimbatore. 600+ final year projects delivered every year in ML, AI, Web, IoT & Blockchain with full source code and 12-hour delivery.',
     images: ['/og-image.png'],
   },
   alternates: {
@@ -126,7 +126,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         },
         image: `${siteUrl}/og-image.png`,
         description:
-          'Inno Projects is the best final year project center in Coimbatore, Tamil Nadu. We provide 500+ final year projects in ML, AI, Web Development, IoT, and Blockchain with full source code, documentation, and expert implementation support for BTech, BE, MCA, and MSc students. Projects delivered in 12 hours.',
+          'Inno Projects is the best final year project center in Coimbatore, Tamil Nadu. We deliver 600+ final year projects every year in ML, AI, Web Development, IoT, and Blockchain with full source code, documentation, and expert implementation support for BTech, BE, MCA, and MSc students. Projects delivered in 12 hours.',
         address: {
           '@type': 'PostalAddress',
           streetAddress: '28, Baba St, Janaki Nagar, Venkitapuram',
@@ -164,7 +164,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         url: siteUrl,
         name: 'Inno Projects',
         description:
-          'Best final year project center in Coimbatore. 500+ projects in ML, AI, Web, IoT & Blockchain with source code and implementation support.',
+          'Best final year project center in Coimbatore. 600+ projects delivered every year in ML, AI, Web, IoT & Blockchain with source code and implementation support.',
         publisher: { '@id': `${siteUrl}/#organization` },
         potentialAction: {
           '@type': 'SearchAction',
@@ -183,7 +183,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             name: 'What is the best final year project center in Coimbatore?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Inno Projects is one of the best final year project centers in Coimbatore, Tamil Nadu. We offer 500+ projects in ML, AI, Web Development, IoT, and Blockchain with full source code, documentation, and expert support for BTech, BE, MCA, and MSc students.',
+              text: 'Inno Projects is one of the best final year project centers in Coimbatore, Tamil Nadu. We deliver 600+ projects every year in ML, AI, Web Development, IoT, and Blockchain with full source code, documentation, and expert support for BTech, BE, MCA, and MSc students.',
             },
           },
           {
@@ -223,7 +223,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             name: 'What categories of final year projects are available at Inno Projects Coimbatore?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'We offer projects in Machine Learning (ML), Artificial Intelligence (AI), Deep Learning, Web Development, Internet of Things (IoT), Blockchain, Data Science, and Computer Vision — over 500 projects total in Coimbatore.',
+              text: 'We offer projects in Machine Learning (ML), Artificial Intelligence (AI), Deep Learning, Web Development, Internet of Things (IoT), Blockchain, Data Science, and Computer Vision — 600+ projects delivered every year in Coimbatore.',
             },
           },
         ],

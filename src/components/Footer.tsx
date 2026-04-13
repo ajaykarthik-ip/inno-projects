@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
                 <span>Coimbatore, Tamil Nadu</span>
               </div>
               <div className="footer-badge-row">
-                <span className="footer-badge">500+ Projects</span>
+                <span className="footer-badge">600+ Projects / Year</span>
                 <span className="footer-badge">24/7 Support</span>
               </div>
             </div>

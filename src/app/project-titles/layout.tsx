@@ -2,9 +2,9 @@ import React from 'react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '500+ Final Year Project Titles – ML, AI, Web, IoT & Blockchain',
+  title: 'Final Year Project Titles – ML, AI, Web, IoT & Blockchain',
   description:
-    'Browse 500+ final year project titles in Machine Learning, Artificial Intelligence, Web Development, IoT, and Blockchain. Find the perfect project for your BTech, BE, MCA, or MSc degree in 2025.',
+    'Browse final year project titles in Machine Learning, Artificial Intelligence, Web Development, IoT, and Blockchain. Find the perfect project for your BTech, BE, MCA, or MSc degree. 600+ projects delivered every year.',
   keywords: [
     'final year project titles',
     'project ideas 2025',
@@ -27,17 +27,17 @@ export const metadata: Metadata = {
     'project with WhatsApp contact',
   ],
   openGraph: {
-    title: '500+ Final Year Project Titles – ML, AI, Web, IoT & Blockchain | Inno Projects',
+    title: 'Final Year Project Titles – ML, AI, Web, IoT & Blockchain | Inno Projects',
     description:
-      'Browse 500+ final year project titles in ML, AI, Web, IoT & Blockchain. Get expert implementation support instantly via WhatsApp.',
+      'Browse final year project titles in ML, AI, Web, IoT & Blockchain. 600+ projects delivered every year. Get expert implementation support instantly via WhatsApp.',
     url: 'https://www.innoprojects.tech/project-titles',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: '500+ Final Year Project Titles | Inno Projects',
+    title: 'Final Year Project Titles | Inno Projects',
     description:
-      'Browse 500+ final year project titles in ML, AI, Web, IoT & Blockchain with expert implementation support.',
+      'Browse final year project titles in ML, AI, Web, IoT & Blockchain. 600+ projects delivered every year with expert implementation support.',
   },
   alternates: {
     canonical: 'https://www.innoprojects.tech/project-titles',
@@ -48,9 +48,9 @@ export default function ProjectTitlesLayout({ children }: { children: React.Reac
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: '500+ Final Year Project Titles',
+    name: 'Final Year Project Titles',
     description:
-      'A comprehensive catalog of 500+ final year project titles in ML, AI, Web Development, IoT, and Blockchain.',
+      'A comprehensive catalog of final year project titles in ML, AI, Web Development, IoT, and Blockchain. 600+ projects delivered every year.',
     url: 'https://www.innoprojects.tech/project-titles',
     publisher: {
       '@type': 'Organization',

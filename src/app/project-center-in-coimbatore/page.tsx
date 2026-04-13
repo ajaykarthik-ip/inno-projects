@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Best Final Year Project Center in Coimbatore 2025 | Inno Projects',
   description:
-    'Inno Projects – the best final year project center in Coimbatore, Tamil Nadu. 500+ IEEE & non-IEEE projects in ML, AI, Web Development, IoT & Blockchain. Full source code, documentation, PPT and 12-hour delivery. Serving BE, BTech, MCA, MSc students across Coimbatore.',
+    'Inno Projects – the best final year project center in Coimbatore, Tamil Nadu. 600+ IEEE & non-IEEE projects delivered every year in ML, AI, Web Development, IoT & Blockchain. Full source code, documentation, PPT and 12-hour delivery. Serving BE, BTech, MCA, MSc students across Coimbatore.',
   keywords: [
     'best final year project center in coimbatore',
     'final year project center in coimbatore',
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     siteName: 'Inno Projects',
     title: 'Best Final Year Project Center in Coimbatore 2025 | Inno Projects',
     description:
-      'Best final year project center in Coimbatore. 500+ projects in ML, AI, Web Dev, IoT & Blockchain. Full source code, 12-hour delivery. Call +91 9600309140.',
+      'Best final year project center in Coimbatore. 600+ projects delivered every year in ML, AI, Web Dev, IoT & Blockchain. Full source code, 12-hour delivery. Call +91 9600309140.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Inno Projects – Best Final Year Project Center in Coimbatore' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Best Final Year Project Center in Coimbatore 2025 | Inno Projects',
-    description: 'Best project center in Coimbatore. 500+ final year projects in ML, AI, Web Dev, IoT & Blockchain. 12-hour delivery. +91 9600309140.',
+    description: 'Best project center in Coimbatore. 600+ final year projects delivered every year in ML, AI, Web Dev, IoT & Blockchain. 12-hour delivery. +91 9600309140.',
     images: ['/og-image.png'],
   },
 };
@@ -154,12 +154,56 @@ const areas = [
 ];
 
 const colleges = [
-  'PSG College of Technology', 'Coimbatore Institute of Technology',
-  'Sri Ramakrishna Engineering College', 'Karpagam College of Engineering',
-  'SNS College of Technology', 'Amrita School of Engineering',
-  'KGiSL Institute of Technology', 'Sri Krishna College of Engineering',
-  'Hindusthan College of Engineering', 'RVS College of Engineering',
-  'Bannari Amman Institute of Technology', 'Dr NGP Institute of Technology',
+  // Coimbatore
+  'PSG College of Technology',
+  'PSG College of Arts and Science',
+  'PSG Polytechnic College',
+  'Coimbatore Institute of Technology',
+  'Sri Ramakrishna Engineering College',
+  'Sri Ramakrishna Institute of Technology',
+  'Sri Ramakrishna College of Arts and Science',
+  'Karpagam College of Engineering',
+  'Karpagam Institute of Technology',
+  'Karpagam Academy of Higher Education',
+  'SNS College of Technology',
+  'Amrita Vishwa Vidyapeetham, Coimbatore',
+  'KGiSL Institute of Technology',
+  'Sri Krishna College of Engineering and Technology',
+  'Hindusthan College of Engineering',
+  'RVS College of Engineering',
+  'Bannari Amman Institute of Technology',
+  'Dr NGP Institute of Technology',
+  'Kumaraguru College of Technology',
+  'Sri Shakthi Institute of Engineering and Technology',
+  'Akshaya College of Engineering and Technology',
+  'Jansons Institute of Technology',
+  'GRT Institute of Engineering and Technology',
+  'PPG College of Arts and Science',
+  'PPG Institute of Technology',
+  'VLB College of Arts and Science',
+  'Sri Vidya College of Engineering and Technology',
+  'Avinashilingam Institute for Home Science and Higher Education for Women',
+  'Nandha Engineering College',
+  'CSI College of Engineering',
+  // Tamil Nadu
+  'Sathyabama Institute of Science and Technology, Chennai',
+  'Mepco Schlenk Engineering College',
+  'SRI SAI RANGANATHAN ENGINEERING COLLEGE',
+  'Anna University',
+  // Kerala
+  'TKM College of Engineering, Kollam',
+  'Federal Institute of Science and Technology (FISAT), Angamaly',
+  'NSS College of Engineering (NSSCE)',
+  // Karnataka
+  'Dayananda Sagar University, Bangalore',
+  'Jain University, Bangalore',
+  'New Horizon College of Engineering (NHCE), Bangalore',
+  // Other States
+  'VIT Vellore',
+  'Misrimal Navajee Munoth Jain Engineering College',
+  // International
+  'Anhalt University of Applied Sciences, Germany',
+  'University of Roehampton, UK',
 ];
 
 const faqs = [
@@ -410,11 +454,11 @@ export default function ProjectCenterCoimbatorePage() {
           <div className="cbe-container">
             <p className="cbe-eyebrow">Colleges We Serve</p>
             <h2 className="cbe-section-h2">
-              Serving Students from Every College in Coimbatore
+              Serving Students Across Tamil Nadu, Kerala, Karnataka &amp; Abroad
             </h2>
             <p className="cbe-section-p">
-              Our projects are accepted at all Coimbatore colleges and comply with Anna University &amp; Bharathiar
-              University project submission guidelines.
+              Our projects are accepted at colleges across India and internationally. We comply with Anna University,
+              Bharathiar University, VTU, and other university project submission guidelines.
             </p>
             <ul className="cbe-college-list">
               {colleges.map(c => (
@@ -429,7 +473,7 @@ export default function ProjectCenterCoimbatorePage() {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                All other colleges in Coimbatore &amp; Tamil Nadu
+                All other colleges in Tamil Nadu, Kerala, Karnataka &amp; beyond
               </li>
             </ul>
           </div>

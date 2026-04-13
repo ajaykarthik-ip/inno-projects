@@ -5,10 +5,10 @@ import Link from 'next/link';
 import './MainHero.css';
 
 const stats = [
-  { value: '500+', label: 'Projects Available' },
+  { value: '600+', label: 'Projects / Year' },
   { value: '12hr', label: 'Avg. Delivery' },
   { value: '3000+', label: 'Students Helped' },
-  { value: '600+', label: 'Final Year Projects / Year' },
+  { value: '24/7', label: 'WhatsApp Support' },
 ];
 
 const tags = ['Machine Learning', 'Deep Learning', 'Web Development', 'IoT', 'Blockchain', 'AI', 'Data Science', 'Computer Vision'];
@@ -50,7 +50,7 @@ export default function MainHero() {
           </h1>
 
           <p className="mh-subtext">
-            Browse 500+ ready-to-submit projects across ML, AI, Web, IoT &amp; Blockchain —
+            600+ final year projects delivered every year across ML, AI, Web, IoT &amp; Blockchain —
             with full source code, documentation, and expert support.
           </p>
 
