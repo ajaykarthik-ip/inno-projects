@@ -1,0 +1,233 @@
+/* ─── BrowseByDomain.css ────────────────────────────────────────────────────
+   Domain browsing section for Inno Projects home page.
+   ──────────────────────────────────────────────────────────────────────── */
+
+.bbd-section {
+  padding: 5rem 1.5rem;
+  background: var(--bg-secondary);
+}
+
+.bbd-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Section Header ─────────────────────────────────────────────────────── */
+.bbd-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.bbd-label {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(99, 102, 241, 0.15));
+  border: 1px solid rgba(147, 51, 234, 0.35);
+  color: #c084fc;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  margin-bottom: 1.25rem;
+}
+
+.bbd-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0;
+}
+
+.bbd-subtitle {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: 0.85rem;
+}
+
+/* ── Grid ───────────────────────────────────────────────────────────────── */
+.bbd-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── Domain Card ────────────────────────────────────────────────────────── */
+.bbd-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+/* Gradient top border */
+.bbd-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition);
+}
+
+.bbd-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  opacity: 0.35;
+}
+
+.bbd-card:hover {
+  border-color: rgba(147, 51, 234, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(147, 51, 234, 0.2);
+  color: inherit;
+}
+
+.bbd-card:hover::before {
+  transform: scaleX(1);
+}
+
+.bbd-card:hover::after {
+  opacity: 0;
+}
+
+/* ── Card Content ───────────────────────────────────────────────────────── */
+.bbd-card-emoji {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.bbd-card:hover .bbd-card-emoji {
+  transform: scale(1.1);
+}
+
+.bbd-card-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.bbd-card-tagline {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.bbd-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.bbd-card-count {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #a78bfa;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 100px;
+  padding: 0.2rem 0.65rem;
+  letter-spacing: 0.02em;
+}
+
+.bbd-card-explore {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.bbd-card:hover .bbd-card-explore {
+  color: #c084fc;
+  transform: translateX(3px);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .bbd-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .bbd-section {
+    padding: 3.5rem 1rem;
+  }
+
+  .bbd-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .bbd-header {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bbd-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .bbd-card {
+    padding: 1.25rem 1rem 1rem;
+  }
+
+  .bbd-card-emoji {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .bbd-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Light Theme ────────────────────────────────────────────────────────── */
+[data-theme="light"] .bbd-section {
+  background: var(--bg-secondary);
+}
+
+[data-theme="light"] .bbd-card {
+  box-shadow: var(--shadow);
+}
+
+[data-theme="light"] .bbd-card:hover {
+  box-shadow: var(--shadow-lg);
+}

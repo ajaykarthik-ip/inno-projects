@@ -7,12 +7,12 @@ const pageUrl = `${siteUrl}/blog/top-iot-project-ideas-for-engineering-students`
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Top IoT Project Ideas for Engineering Students 2025 | Inno Projects',
+  title: 'Top IoT Project Ideas for Engineering Students 2026 | Inno Projects',
   description:
-    'Explore the best IoT project ideas for engineering students in 2025. Smart home, health monitor, agriculture, GPS tracker, and more — with Arduino, NodeMCU, and Raspberry Pi. Full source code and circuit diagram from Inno Projects.',
+    'Explore the best IoT project ideas for engineering students in 2026. Smart home, health monitor, agriculture, GPS tracker, and more — with Arduino, NodeMCU, and Raspberry Pi. Full source code and circuit diagram from Inno Projects.',
   keywords: [
     'IoT project ideas for engineering students',
-    'IoT final year project 2025',
+    'IoT final year project 2026',
     'Arduino project ideas',
     'NodeMCU project ideas',
     'Raspberry Pi final year project',
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'Inno Projects IoT',
   ],
   alternates: { canonical: pageUrl },
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
   openGraph: {
     type: 'article',
     url: pageUrl,

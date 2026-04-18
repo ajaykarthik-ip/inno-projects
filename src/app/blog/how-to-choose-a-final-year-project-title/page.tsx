@@ -7,22 +7,23 @@ const pageUrl = `${siteUrl}/blog/how-to-choose-a-final-year-project-title`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'How to Choose the Right Final Year Project Title in 2025 | Inno Projects',
+  title: 'How to Choose the Right Final Year Project Title in 2026 | Inno Projects',
   description:
-    'Confused about how to choose a final year project title? This guide covers step-by-step tips for BE, BTech, MCA & MSc students to pick the best project title in ML, AI, Web Development, IoT and Blockchain for 2025.',
+    'Confused about how to choose a final year project title? This guide covers step-by-step tips for BE, BTech, MCA & MSc students to pick the best project title in ML, AI, Web Development, IoT and Blockchain for 2026.',
   keywords: [
     'how to choose final year project title',
-    'best final year project title 2025',
+    'best final year project title 2026',
     'how to select project title for engineering',
     'final year project title ideas',
-    'project title for CSE 2025',
+    'project title for CSE 2026',
     'how to pick a good project topic',
     'final year project selection guide',
     'best project title for BTech',
     'MCA final year project title',
-    'ML project title ideas 2025',
+    'ML project title ideas 2026',
   ],
   alternates: { canonical: pageUrl },
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
   openGraph: {
     type: 'article',
     url: pageUrl,

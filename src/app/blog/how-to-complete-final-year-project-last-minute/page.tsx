@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'Inno Projects fast delivery',
   ],
   alternates: { canonical: pageUrl },
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
   openGraph: {
     type: 'article',
     url: pageUrl,

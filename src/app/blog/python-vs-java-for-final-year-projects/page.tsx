@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'python vs java for final year project',
     'which language for final year project',
     'python or java for engineering project',
-    'best language for final year project 2025',
+    'best language for final year project 2026',
     'python final year project',
     'java final year project',
     'python vs java placement',
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'Inno Projects language choice',
   ],
   alternates: { canonical: pageUrl },
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
   openGraph: {
     type: 'article',
     url: pageUrl,

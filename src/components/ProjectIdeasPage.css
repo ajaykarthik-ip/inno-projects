@@ -1,0 +1,589 @@
+/* ─── ProjectIdeasPage.css ──────────────────────────────────────────────────
+   Shared styles for all "project ideas list" SEO landing pages.
+   Uses CSS variables defined in the global theme (same as DomainPage.css).
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* ── Container & Layout ─────────────────────────────────────────────────── */
+.pip-container {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  padding: 2rem 1.5rem 4rem;
+}
+
+.pip-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+.pip-hero {
+  text-align: center;
+  padding: 3.5rem 2rem 3rem;
+  background: linear-gradient(145deg, var(--bg-secondary), var(--bg-card));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.pip-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-secondary), transparent);
+}
+
+.pip-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(99, 102, 241, 0.15));
+  border: 1px solid rgba(147, 51, 234, 0.35);
+  color: #c084fc;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.45rem 1.1rem;
+  border-radius: 100px;
+  margin-bottom: 1.25rem;
+}
+
+.pip-h1 {
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.15;
+  background: linear-gradient(135deg, var(--text-primary) 40%, var(--accent-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pip-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 750px;
+  margin: 0 auto 2rem;
+}
+
+.pip-hero-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.pip-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: var(--accent-glow);
+  border: none;
+  cursor: pointer;
+}
+
+.pip-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--accent-glow-lg);
+  opacity: 0.95;
+}
+
+.pip-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.pip-btn-secondary:hover {
+  border-color: var(--accent-primary);
+  color: #c084fc;
+  background: rgba(147, 51, 234, 0.06);
+}
+
+/* ── Stats Strip ─────────────────────────────────────────────────────────── */
+.pip-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.pip-stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.pip-stat-card:hover {
+  border-color: rgba(147, 51, 234, 0.4);
+  box-shadow: var(--accent-glow);
+  transform: translateY(-3px);
+}
+
+.pip-stat-value {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 800;
+  color: var(--accent-primary);
+  display: block;
+  line-height: 1.2;
+}
+
+.pip-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Generic Section ─────────────────────────────────────────────────────── */
+.pip-section {
+  margin-bottom: 3rem;
+}
+
+.pip-section-title {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.pip-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 2px;
+}
+
+.pip-intro-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem;
+}
+
+/* ── Category Block ──────────────────────────────────────────────────────── */
+.pip-category {
+  margin-bottom: 3.5rem;
+}
+
+.pip-category-title {
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.pip-category-title::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+}
+
+/* ── Projects Grid ───────────────────────────────────────────────────────── */
+.pip-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── Project Card ────────────────────────────────────────────────────────── */
+.pip-project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem 1.25rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.pip-project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.pip-project-card:hover {
+  border-color: rgba(147, 51, 234, 0.35);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.pip-project-card:hover::before {
+  opacity: 1;
+}
+
+/* ── Project Title (h3) ──────────────────────────────────────────────────── */
+.pip-project-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ── Project Meta (domain tag + difficulty) ──────────────────────────────── */
+.pip-project-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pip-domain-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #a78bfa;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 100px;
+  padding: 0.2rem 0.65rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.pip-difficulty {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  border-radius: 100px;
+  padding: 0.2rem 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.pip-difficulty--beginner {
+  color: #16a34a;
+  background: rgba(22, 163, 74, 0.1);
+  border: 1px solid rgba(22, 163, 74, 0.25);
+}
+
+.pip-difficulty--intermediate {
+  color: #d97706;
+  background: rgba(217, 119, 6, 0.1);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+}
+
+.pip-difficulty--advanced {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.25);
+}
+
+/* ── Project Tech Stack ──────────────────────────────────────────────────── */
+.pip-project-tech {
+  font-size: 0.775rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.pip-project-tech strong {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* ── Project Description ─────────────────────────────────────────────────── */
+.pip-project-desc {
+  font-size: 0.855rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+/* ── Get This Project Link ───────────────────────────────────────────────── */
+.pip-project-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  text-decoration: none;
+  margin-top: auto;
+  padding-top: 0.4rem;
+  transition: var(--transition);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.pip-project-cta:hover {
+  color: #c084fc;
+  gap: 0.5rem;
+}
+
+/* ── Why Choose Inno Projects ────────────────────────────────────────────── */
+.pip-why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.pip-why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition);
+  line-height: 1.5;
+}
+
+.pip-why-item:hover {
+  border-color: rgba(147, 51, 234, 0.3);
+  color: var(--text-primary);
+}
+
+.pip-why-check {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 0.05rem;
+}
+
+/* ── FAQ Section ─────────────────────────────────────────────────────────── */
+.pip-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pip-faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  transition: var(--transition);
+}
+
+.pip-faq-item:hover {
+  border-color: rgba(147, 51, 234, 0.35);
+}
+
+.pip-faq-q {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.65rem;
+  line-height: 1.4;
+}
+
+.pip-faq-a {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── CTA Section ─────────────────────────────────────────────────────────── */
+.pip-cta {
+  background: linear-gradient(145deg, var(--bg-secondary), var(--bg-card));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pip-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-secondary), transparent);
+}
+
+.pip-cta-title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.pip-cta-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.pip-cta-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .pip-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pip-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pip-container {
+    padding: 1rem 1rem 3rem;
+  }
+
+  .pip-hero {
+    padding: 2.5rem 1.25rem 2rem;
+  }
+
+  .pip-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+  }
+
+  .pip-projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pip-why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pip-intro-text {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .pip-faq-item {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .pip-cta {
+    padding: 2.25rem 1.25rem;
+  }
+
+  .pip-btn-primary,
+  .pip-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .pip-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pip-h1 {
+    font-size: 1.75rem;
+  }
+
+  .pip-category-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* ── Light Theme Overrides ───────────────────────────────────────────────── */
+[data-theme="light"] .pip-badge {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.08), rgba(99, 102, 241, 0.08));
+  color: var(--accent-primary);
+}
+
+[data-theme="light"] .pip-hero,
+[data-theme="light"] .pip-cta {
+  box-shadow: var(--shadow);
+}
+
+[data-theme="light"] .pip-difficulty--beginner {
+  color: #15803d;
+  background: rgba(22, 163, 74, 0.08);
+}
+
+[data-theme="light"] .pip-difficulty--intermediate {
+  color: #b45309;
+  background: rgba(217, 119, 6, 0.08);
+}
+
+[data-theme="light"] .pip-difficulty--advanced {
+  color: #b91c1c;
+  background: rgba(220, 38, 38, 0.08);
+}
+
+[data-theme="light"] .pip-project-cta {
+  color: var(--accent-primary);
+}

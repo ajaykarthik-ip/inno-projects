@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'what is an IEEE project final year',
     'IEEE project for engineering students',
     'should I do IEEE project for final year',
-    'IEEE base paper project 2025',
+    'IEEE base paper project 2026',
     'non-IEEE final year project',
     'IEEE project marks evaluation',
     'IEEE Xplore final year project',
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'Anna University IEEE project',
   ],
   alternates: { canonical: pageUrl },
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
   openGraph: {
     type: 'article',
     url: pageUrl,

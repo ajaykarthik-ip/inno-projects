@@ -7,12 +7,12 @@ const pageUrl = `${siteUrl}/blog/top-machine-learning-project-ideas`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Top 10 Machine Learning Project Ideas for Final Year Students 2025 | Inno Projects',
+  title: 'Top 10 Machine Learning Project Ideas for Final Year Students 2026 | Inno Projects',
   description:
-    'Discover the top 10 machine learning project ideas for final year students in 2025. Each idea includes implementation details, dataset sources, and placement value. Delivered with source code in 12 hours by Inno Projects, Coimbatore.',
+    'Discover the top 10 machine learning project ideas for final year students in 2026. Each idea includes implementation details, dataset sources, and placement value. Delivered with source code in 12 hours by Inno Projects, Coimbatore.',
   keywords: [
     'machine learning project ideas for final year',
-    'ML project ideas 2025',
+    'ML project ideas 2026',
     'machine learning projects for CSE students',
     'best ML projects for placements',
     'final year ML project with source code',
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'Inno Projects ML projects',
   ],
   alternates: { canonical: pageUrl },
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
   openGraph: {
     type: 'article',
     url: pageUrl,

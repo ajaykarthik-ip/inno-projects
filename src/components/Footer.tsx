@@ -38,21 +38,40 @@ const Footer: React.FC = () => {
               <li><Link href="/">Home</Link></li>
               <li><Link href="/project-titles">Project Catalog</Link></li>
               <li><Link href="/request-project">Request a Project</Link></li>
+              <li><Link href="/project-center-in-coimbatore">Project Center</Link></li>
               <li><Link href="/ieee-journal">IEEE Journal</Link></li>
               <li><Link href="/blog">Tips &amp; Tricks</Link></li>
+              <li><Link href="/faq">FAQ</Link></li>
+              <li><Link href="/about">About Us</Link></li>
               <li><Link href="/contact">Contact Us</Link></li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* By Department */}
           <div className="footer-col">
-            <h4 className="footer-col-heading">Services</h4>
+            <h4 className="footer-col-heading">By Department</h4>
             <ul className="footer-nav">
-              <li><span>AI &amp; ML Projects</span></li>
-              <li><span>Web Development</span></li>
-              <li><span>IoT &amp; Blockchain</span></li>
-              <li><span>IEEE Paper Publication</span></li>
-              <li><span>Expert Consultation</span></li>
+              <li><Link href="/machine-learning-projects-coimbatore">ML Projects</Link></li>
+              <li><Link href="/cse-final-year-projects-coimbatore">CSE Projects</Link></li>
+              <li><Link href="/ece-final-year-projects-coimbatore">ECE Projects</Link></li>
+              <li><Link href="/mca-final-year-projects-coimbatore">MCA Projects</Link></li>
+              <li><Link href="/python-projects-coimbatore">Python Projects</Link></li>
+              <li><Link href="/web-development-projects-coimbatore">Web Dev Projects</Link></li>
+              <li><Link href="/ieee-projects-coimbatore-2026">IEEE Projects</Link></li>
+            </ul>
+          </div>
+
+          {/* Project Ideas */}
+          <div className="footer-col">
+            <h4 className="footer-col-heading">Project Ideas</h4>
+            <ul className="footer-nav">
+              <li><Link href="/machine-learning-project-ideas-2026">ML Ideas 2026</Link></li>
+              <li><Link href="/cse-project-titles-2026">CSE Titles 2026</Link></li>
+              <li><Link href="/ece-project-ideas-2026">ECE Ideas 2026</Link></li>
+              <li><Link href="/python-project-ideas-for-students">Python Ideas</Link></li>
+              <li><Link href="/ieee-2026-project-titles-list">IEEE 2026 List</Link></li>
+              <li><Link href="/final-year-project-with-source-code">With Source Code</Link></li>
+              <li><Link href="/ready-made-final-year-projects-coimbatore">Ready Made</Link></li>
             </ul>
           </div>
 
@@ -75,7 +94,10 @@ const Footer: React.FC = () => {
                     <circle cx="12" cy="10" r="3"/>
                   </svg>
                 </div>
-                <span>Coimbatore, Tamil Nadu</span>
+                <address style={{ fontStyle: 'normal' }}>
+                  28, Baba St, Janaki Nagar, Venkitapuram,<br />
+                  Coimbatore, Tamil Nadu 641025
+                </address>
               </div>
               <div className="footer-badge-row">
                 <span className="footer-badge">600+ Projects / Year</span>

@@ -7,14 +7,14 @@ const pageUrl = `${siteUrl}/blog/how-to-write-final-year-project-report`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'How to Write a Final Year Project Report – Complete Guide 2025 | Inno Projects',
+  title: 'How to Write a Final Year Project Report – Complete Guide 2026 | Inno Projects',
   description:
-    'Step-by-step guide to writing a final year project report in IEEE format. Covers structure, common mistakes, chapter breakdown, and tips for engineering students in 2025. Inno Projects provides complete reports for every project title.',
+    'Step-by-step guide to writing a final year project report in IEEE format. Covers structure, common mistakes, chapter breakdown, and tips for engineering students in 2026. Inno Projects provides complete reports for every project title.',
   keywords: [
     'how to write final year project report',
     'final year project report format',
     'IEEE format project report',
-    'project report writing guide 2025',
+    'project report writing guide 2026',
     'final year project abstract writing',
     'synopsis for final year project',
     'literature survey for project report',
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'project report Coimbatore',
   ],
   alternates: { canonical: pageUrl },
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
   openGraph: {
     type: 'article',
     url: pageUrl,

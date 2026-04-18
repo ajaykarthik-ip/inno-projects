@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/project-center-in-coimbatore`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Best Final Year Project Center in Coimbatore 2025 | Inno Projects',
+  title: 'Best Final Year Project Center in Coimbatore 2026 | Inno Projects',
   description:
     'Inno Projects – the best final year project center in Coimbatore, Tamil Nadu. 600+ IEEE & non-IEEE projects delivered every year in ML, AI, Web Development, IoT & Blockchain. Full source code, documentation, PPT and 12-hour delivery. Serving BE, BTech, MCA, MSc students across Coimbatore.',
   keywords: [
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     'project center in gandhipuram coimbatore',
     'IEEE project center coimbatore',
     'final year project coimbatore 2025',
+    'final year project coimbatore 2026',
     'best project center in coimbatore for engineering',
     'ML project coimbatore',
     'AI project center coimbatore',
@@ -37,14 +38,14 @@ export const metadata: Metadata = {
     type: 'website',
     url: pageUrl,
     siteName: 'Inno Projects',
-    title: 'Best Final Year Project Center in Coimbatore 2025 | Inno Projects',
+    title: 'Best Final Year Project Center in Coimbatore 2026 | Inno Projects',
     description:
       'Best final year project center in Coimbatore. 600+ projects delivered every year in ML, AI, Web Dev, IoT & Blockchain. Full source code, 12-hour delivery. Call +91 9600309140.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Inno Projects – Best Final Year Project Center in Coimbatore' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Final Year Project Center in Coimbatore 2025 | Inno Projects',
+    title: 'Best Final Year Project Center in Coimbatore 2026 | Inno Projects',
     description: 'Best project center in Coimbatore. 600+ final year projects delivered every year in ML, AI, Web Dev, IoT & Blockchain. 12-hour delivery. +91 9600309140.',
     images: ['/og-image.png'],
   },

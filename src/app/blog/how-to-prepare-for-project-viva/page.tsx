@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'how to prepare for project viva',
     'final year project viva questions and answers',
     'viva questions for engineering project',
-    'project viva tips 2025',
+    'project viva tips 2026',
     'how to answer viva questions',
     'final year project viva preparation',
     'common viva questions for CSE project',
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'Inno Projects viva guide',
   ],
   alternates: { canonical: pageUrl },
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
   openGraph: {
     type: 'article',
     url: pageUrl,

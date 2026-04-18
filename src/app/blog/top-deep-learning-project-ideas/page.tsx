@@ -7,12 +7,12 @@ const pageUrl = `${siteUrl}/blog/top-deep-learning-project-ideas`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Top Deep Learning Project Ideas for Final Year Students 2025 | Inno Projects',
+  title: 'Top Deep Learning Project Ideas for Final Year Students 2026 | Inno Projects',
   description:
-    'Explore the best deep learning project ideas for final year students in 2025 — CNN, LSTM, GAN, Transformer models with full Python source code from Inno Projects, Coimbatore.',
+    'Explore the best deep learning project ideas for final year students in 2026 — CNN, LSTM, GAN, Transformer models with full Python source code from Inno Projects, Coimbatore.',
   keywords: [
     'deep learning project ideas for final year students',
-    'CNN project ideas 2025',
+    'CNN project ideas 2026',
     'LSTM project ideas',
     'deep learning final year project',
     'Python deep learning project',
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'Inno Projects deep learning',
   ],
   alternates: { canonical: pageUrl },
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
   openGraph: {
     type: 'article',
     url: pageUrl,

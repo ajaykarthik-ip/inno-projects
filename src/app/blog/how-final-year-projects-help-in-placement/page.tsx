@@ -7,9 +7,9 @@ const pageUrl = `${siteUrl}/blog/how-final-year-projects-help-in-placement`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'How Final Year Projects Help in Campus Placements 2025 | Inno Projects',
+  title: 'How Final Year Projects Help in Campus Placements 2026 | Inno Projects',
   description:
-    'Learn how your final year project directly impacts your campus placement results in 2025. What interviewers check, which domains impress recruiters, and how to present your project in interviews.',
+    'Learn how your final year project directly impacts your campus placement results in 2026. What interviewers check, which domains impress recruiters, and how to present your project in interviews.',
   keywords: [
     'how final year project helps in placement',
     'final year project campus placement',
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'Inno Projects placement',
   ],
   alternates: { canonical: pageUrl },
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
   openGraph: {
     type: 'article',
     url: pageUrl,

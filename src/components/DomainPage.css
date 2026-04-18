@@ -1,0 +1,545 @@
+/* ─── DomainPage.css ───────────────────────────────────────────────────────
+   Shared styles for all domain/department landing pages.
+   Uses CSS variables defined in the global theme.
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* ── Container & Layout ─────────────────────────────────────────────────── */
+.dp-container {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  padding: 2rem 1.5rem 4rem;
+}
+
+.dp-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+.dp-hero {
+  text-align: center;
+  padding: 3.5rem 2rem 3rem;
+  background: linear-gradient(145deg, var(--bg-secondary), var(--bg-card));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.dp-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-secondary), transparent);
+}
+
+.dp-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(99, 102, 241, 0.15));
+  border: 1px solid rgba(147, 51, 234, 0.35);
+  color: #c084fc;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.45rem 1.1rem;
+  border-radius: 100px;
+  margin-bottom: 1.25rem;
+}
+
+.dp-h1 {
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.15;
+  background: linear-gradient(135deg, var(--text-primary) 40%, var(--accent-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dp-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 750px;
+  margin: 0 auto 2rem;
+}
+
+.dp-hero-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.dp-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: var(--accent-glow);
+  border: none;
+  cursor: pointer;
+}
+
+.dp-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--accent-glow-lg);
+  opacity: 0.95;
+}
+
+.dp-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.dp-btn-secondary:hover {
+  border-color: var(--accent-primary);
+  color: #c084fc;
+  background: rgba(147, 51, 234, 0.06);
+}
+
+/* ── Stats ───────────────────────────────────────────────────────────────── */
+.dp-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.dp-stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.dp-stat-card:hover {
+  border-color: rgba(147, 51, 234, 0.4);
+  box-shadow: var(--accent-glow);
+  transform: translateY(-3px);
+}
+
+.dp-stat-value {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 800;
+  color: var(--accent-primary);
+  display: block;
+  line-height: 1.2;
+}
+
+.dp-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Generic Section ─────────────────────────────────────────────────────── */
+.dp-section {
+  margin-bottom: 3rem;
+}
+
+.dp-section-title {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.dp-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 2px;
+}
+
+.dp-intro-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem;
+}
+
+/* ── Project Titles Grid ─────────────────────────────────────────────────── */
+.dp-titles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.25rem;
+}
+
+.dp-title-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.dp-title-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.dp-title-card:hover {
+  border-color: rgba(147, 51, 234, 0.35);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.dp-title-card:hover::before {
+  opacity: 1;
+}
+
+.dp-title-card h3 {
+  font-size: 0.975rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.dp-title-tech {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #a78bfa;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 100px;
+  padding: 0.2rem 0.7rem;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.02em;
+}
+
+.dp-title-card p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Technology Grid ─────────────────────────────────────────────────────── */
+.dp-tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.dp-tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: var(--transition);
+  cursor: default;
+}
+
+.dp-tech-chip:hover {
+  border-color: rgba(147, 51, 234, 0.4);
+  background: rgba(147, 51, 234, 0.06);
+  color: #c084fc;
+}
+
+.dp-tech-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ── What You Get Grid ───────────────────────────────────────────────────── */
+.dp-get-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.dp-get-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.dp-get-item:hover {
+  border-color: rgba(147, 51, 234, 0.3);
+  color: var(--text-primary);
+}
+
+.dp-get-check {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 0.05rem;
+}
+
+/* ── Degree Grid ─────────────────────────────────────────────────────────── */
+.dp-degree-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.dp-degree-chip {
+  padding: 0.55rem 1.1rem;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(99, 102, 241, 0.1));
+  border: 1px solid rgba(147, 51, 234, 0.25);
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #c084fc;
+  transition: var(--transition);
+}
+
+.dp-degree-chip:hover {
+  background: rgba(147, 51, 234, 0.2);
+  border-color: rgba(147, 51, 234, 0.5);
+}
+
+/* ── College Grid ────────────────────────────────────────────────────────── */
+.dp-college-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.dp-college-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.1rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.dp-college-item::before {
+  content: '🎓';
+  font-size: 0.9rem;
+}
+
+.dp-college-item:hover {
+  border-color: rgba(147, 51, 234, 0.3);
+  color: var(--text-primary);
+}
+
+/* ── FAQ ─────────────────────────────────────────────────────────────────── */
+.dp-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dp-faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  transition: var(--transition);
+}
+
+.dp-faq-item:hover {
+  border-color: rgba(147, 51, 234, 0.35);
+}
+
+.dp-faq-q {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.65rem;
+  line-height: 1.4;
+}
+
+.dp-faq-a {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ── CTA Section ─────────────────────────────────────────────────────────── */
+.dp-cta {
+  background: linear-gradient(145deg, var(--bg-secondary), var(--bg-card));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.dp-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-secondary), transparent);
+}
+
+.dp-cta-title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.dp-cta-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.dp-cta-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .dp-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dp-container {
+    padding: 1rem 1rem 3rem;
+  }
+
+  .dp-hero {
+    padding: 2.5rem 1.25rem 2rem;
+  }
+
+  .dp-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+  }
+
+  .dp-titles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dp-get-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dp-college-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .dp-intro-text {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .dp-faq-item {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .dp-cta {
+    padding: 2.25rem 1.25rem;
+  }
+
+  .dp-btn-primary,
+  .dp-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dp-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dp-h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* ── Light Theme ─────────────────────────────────────────────────────────── */
+[data-theme="light"] .dp-badge {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.08), rgba(99, 102, 241, 0.08));
+  color: var(--accent-primary);
+}
+
+[data-theme="light"] .dp-hero,
+[data-theme="light"] .dp-cta {
+  box-shadow: var(--shadow);
+}

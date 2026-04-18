@@ -78,6 +78,26 @@
   padding: 0.5rem 0.4rem;
 }
 
+.sidebar-section-label {
+  padding: 0.9rem 0.85rem 0.25rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  margin-top: 0.4rem;
+}
+
+.collapsed .sidebar-section-label {
+  display: none;
+}
+
+.sidebar-emoji {
+  font-size: 1rem;
+  line-height: 1;
+}
+
 .sidebar-category-item {
   margin: 0.15rem 0;
 }

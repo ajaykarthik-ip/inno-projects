@@ -1,27 +1,46 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import './SidebarMenu.css';
 
 const SidebarMenu: React.FC = () => {
-  const router = useRouter();
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  const categories = [
-    // { name: 'View My Project', icon: 'monitor', path: '/view-my-project' },
-    { name: 'Project list', icon: 'list', path: '/project-titles' },
-    { name: 'Request new Project', icon: 'code-plus', path: '/request-project' },
-    { name: 'Project Center', icon: 'map-pin', path: '/project-center-in-coimbatore' },
-    { name: 'IEEE Journal Paper', icon: 'file-text', path: '/ieee-journal' },
-    { name: 'Tips & Tricks', icon: 'book-open', path: '/blog' },
-    // { name: 'Dashboard', icon: 'layout', path: '/dashboard' },
-    { name: 'Contact Us', icon: 'whatsapp', path: '/contact' },
-    // { name: 'Project', icon: 'code', path: '/project-titles' }
+  type NavItem =
+    | { type: 'link'; name: string; icon: string; path: string; emoji?: never }
+    | { type: 'emoji'; name: string; emoji: string; path: string; icon?: never }
+    | { type: 'section'; name: string; path?: never; icon?: never; emoji?: never };
+
+  const navItems: NavItem[] = [
+    { type: 'link', name: 'Project List',      icon: 'list',      path: '/project-titles' },
+    { type: 'link', name: 'Project Videos',    icon: 'monitor',   path: '/projects' },
+    { type: 'link', name: 'Request a Project', icon: 'code-plus', path: '/request-project' },
+    { type: 'link', name: 'Project Center',    icon: 'map-pin',   path: '/project-center-in-coimbatore' },
+    { type: 'link', name: 'IEEE Journal',      icon: 'file-text', path: '/ieee-journal' },
+    { type: 'link', name: 'Tips & Tricks',     icon: 'book-open', path: '/blog' },
+    { type: 'link', name: 'FAQ',               icon: 'help',      path: '/faq' },
+    { type: 'link', name: 'About Us',          icon: 'info',      path: '/about' },
+    { type: 'link', name: 'Contact Us',        icon: 'whatsapp',  path: '/contact' },
+
+    { type: 'section', name: 'Departments' },
+    { type: 'emoji', name: 'Machine Learning', emoji: '🤖', path: '/machine-learning-projects-coimbatore' },
+    { type: 'emoji', name: 'CSE Projects',     emoji: '💻', path: '/cse-final-year-projects-coimbatore' },
+    { type: 'emoji', name: 'ECE Projects',     emoji: '📡', path: '/ece-final-year-projects-coimbatore' },
+    { type: 'emoji', name: 'MCA Projects',     emoji: '🎓', path: '/mca-final-year-projects-coimbatore' },
+    { type: 'emoji', name: 'Python',           emoji: '🐍', path: '/python-projects-coimbatore' },
+    { type: 'emoji', name: 'Web Development',  emoji: '🌐', path: '/web-development-projects-coimbatore' },
+    { type: 'emoji', name: 'IoT Projects',     emoji: '📶', path: '/ece-final-year-projects-coimbatore' },
+    { type: 'emoji', name: 'IEEE Projects',    emoji: '📄', path: '/ieee-projects-coimbatore-2026' },
+    { type: 'emoji', name: 'Blockchain',       emoji: '⛓️', path: '/cse-final-year-projects-coimbatore' },
+    { type: 'emoji', name: 'PHP Projects',     emoji: '🐘', path: '/web-development-projects-coimbatore' },
+    { type: 'emoji', name: 'Java Projects',    emoji: '☕', path: '/mca-final-year-projects-coimbatore' },
+    { type: 'emoji', name: 'Hardware',         emoji: '🔧', path: '/ece-final-year-projects-coimbatore' },
   ];
 
   // Set isMounted to true after component mounts
@@ -288,6 +307,22 @@ const SidebarMenu: React.FC = () => {
             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
           </svg>
         );
+      case 'help':
+        return (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        );
+      case 'info':
+        return (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        );
       default:
         return (
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -326,24 +361,41 @@ const SidebarMenu: React.FC = () => {
         </div>
         
         <ul className="sidebar-categories">
-          {categories.map((category, index) => (
-            <li key={index} className="sidebar-category-item">
-              <a
-                href={category.path}
-                className={`sidebar-category-link ${pathname === category.path ? 'active' : ''}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  router.push(category.path);
-                  if (isMobile) {
-                    setMobileOpen(false);
-                  }
-                }}
-              >
-                <span className="sidebar-icon">{renderIcon(category.icon)}</span>
-                <span className="sidebar-text">{category.name}</span>
-              </a>
-            </li>
-          ))}
+          {navItems.map((item, index) => {
+            if (item.type === 'section') {
+              return (
+                <li key={index} className="sidebar-section-label">
+                  <span className="sidebar-text">{item.name}</span>
+                </li>
+              );
+            }
+            if (item.type === 'emoji') {
+              return (
+                <li key={index} className="sidebar-category-item">
+                  <Link
+                    href={item.path}
+                    className={`sidebar-category-link ${pathname === item.path ? 'active' : ''}`}
+                    onClick={() => { if (isMobile) setMobileOpen(false); }}
+                  >
+                    <span className="sidebar-icon sidebar-emoji">{item.emoji}</span>
+                    <span className="sidebar-text">{item.name}</span>
+                  </Link>
+                </li>
+              );
+            }
+            return (
+              <li key={index} className="sidebar-category-item">
+                <Link
+                  href={item.path}
+                  className={`sidebar-category-link ${pathname === item.path ? 'active' : ''}`}
+                  onClick={() => { if (isMobile) setMobileOpen(false); }}
+                >
+                  <span className="sidebar-icon">{renderIcon(item.icon)}</span>
+                  <span className="sidebar-text">{item.name}</span>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>

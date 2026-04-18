@@ -7,15 +7,15 @@ const pageUrl = `${siteUrl}/blog/best-final-year-project-ideas-for-cse`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Best Final Year Project Ideas for CSE Students 2025 | Inno Projects',
+  title: 'Best Final Year Project Ideas for CSE Students 2026 | Inno Projects',
   description:
-    'Discover the best final year project ideas for CSE students in 2025 — ML, AI, Web Development, Blockchain, IoT, Data Science, Cyber Security, and NLP. 300+ titles with source code at Inno Projects, Coimbatore.',
+    'Discover the best final year project ideas for CSE students in 2026 — ML, AI, Web Development, Blockchain, IoT, Data Science, Cyber Security, and NLP. 300+ titles with source code at Inno Projects, Coimbatore.',
   keywords: [
-    'best final year project ideas for CSE 2025',
+    'best final year project ideas for CSE 2026',
     'CSE final year project topics',
     'computer science final year project ideas',
     'ML project ideas CSE students',
-    'web development final year project 2025',
+    'web development final year project 2026',
     'blockchain final year project CSE',
     'AI project ideas engineering students',
     'final year project ideas for placement',
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'Inno Projects CSE titles',
   ],
   alternates: { canonical: pageUrl },
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
   openGraph: {
     type: 'article',
     url: pageUrl,
