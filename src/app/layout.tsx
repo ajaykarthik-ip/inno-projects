@@ -106,6 +106,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  verification: {
+    google: 'tL4RkoEPsBs4-KR1WftnNMTcHO_yxn2h71GOO6m7BR4',
+  },
   other: {
     'geo.region': 'IN-TN',
     'geo.placename': 'Coimbatore, Tamil Nadu, India',
