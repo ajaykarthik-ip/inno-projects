@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'article',
     url: pageUrl,
     siteName: 'Inno Projects',
-    title: 'Best Final Year Project Ideas for CSE Students 2025',
+    title: 'Best Final Year Project Ideas for CSE Students 2026',
     description:
       'The best CSE final year project ideas across ML, AI, Web Dev, Blockchain, IoT, and more — with placement value explained.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best CSE Final Year Project Ideas 2025 – Inno Projects' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best CSE Final Year Project Ideas 2026 – Inno Projects' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Final Year Project Ideas for CSE Students 2025',
+    title: 'Best Final Year Project Ideas for CSE Students 2026',
     description: 'Best CSE final year project ideas across ML, AI, Web Dev, Blockchain, IoT, and more.',
     images: ['/og-image.png'],
   },
@@ -45,7 +45,7 @@ const cseDomains = [
   {
     icon: '🤖',
     title: 'Machine Learning',
-    desc: '120+ titles available — the highest placement value domain in 2025 for CSE students.',
+    desc: '120+ titles available — the highest placement value domain in 2026 for CSE students.',
   },
   {
     icon: '🧠',
@@ -105,7 +105,7 @@ const skillSteps = [
     n: '01',
     title: 'You Know Python',
     content:
-      'Go for Machine Learning, Artificial Intelligence, Deep Learning, Data Science, or NLP projects. Python is the language of choice across all these domains. Libraries like scikit-learn, TensorFlow, PyTorch, and NLTK are well-documented and have massive community support. These projects have the highest placement value for CSE students in 2025.',
+      'Go for Machine Learning, Artificial Intelligence, Deep Learning, Data Science, or NLP projects. Python is the language of choice across all these domains. Libraries like scikit-learn, TensorFlow, PyTorch, and NLTK are well-documented and have massive community support. These projects have the highest placement value for CSE students in 2026.',
   },
   {
     n: '02',
@@ -117,7 +117,7 @@ const skillSteps = [
     n: '03',
     title: 'You Know Both Python and JavaScript',
     content:
-      'Full Stack ML projects are your best bet — and the highest-value category for placements. Build an ML model in Python (Flask/FastAPI backend) and connect it to a React or Next.js frontend. This combination shows both data science ability and software engineering skill, which is exactly what product companies are looking for in 2025.',
+      'Full Stack ML projects are your best bet — and the highest-value category for placements. Build an ML model in Python (Flask/FastAPI backend) and connect it to a React or Next.js frontend. This combination shows both data science ability and software engineering skill, which is exactly what product companies are looking for in 2026.',
   },
 ];
 
@@ -125,7 +125,7 @@ const placementPoints = [
   'ML/AI projects shortlist you for product companies like Zoho, Freshworks, and Razorpay who test data thinking',
   'Full stack web projects impress service companies like TCS, Infosys, and Wipro who need full-cycle developers',
   'Blockchain projects attract attention from fintech startups and banks building Web3 products',
-  'NLP and chatbot projects are directly relevant to 2025 AI job roles across every industry vertical',
+  'NLP and chatbot projects are directly relevant to 2026 AI job roles across every industry vertical',
   'Having a live demo link on your resume gives recruiters instant proof — and sets you apart from the crowd',
 ];
 
@@ -136,7 +136,7 @@ export default function BlogBestCSEProjectIdeas() {
       {
         '@type': 'Article',
         '@id': `${pageUrl}/#article`,
-        headline: 'Best Final Year Project Ideas for CSE Students in 2025',
+        headline: 'Best Final Year Project Ideas for CSE Students in 2026',
         description:
           'The best CSE final year project ideas across ML, AI, Web Development, Blockchain, IoT, and more — with placement value and skill-matching guidance.',
         image: `${siteUrl}/og-image.png`,
@@ -152,7 +152,7 @@ export default function BlogBestCSEProjectIdeas() {
           logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.ico` },
         },
         datePublished: '2022-01-12',
-        dateModified: '2025-02-15',
+        dateModified: '2026-04-19',
         mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
       },
       {
@@ -188,7 +188,7 @@ export default function BlogBestCSEProjectIdeas() {
               <span aria-hidden="true"> › </span>
               <Link href="/blog">Blog</Link>
               <span aria-hidden="true"> › </span>
-              <span aria-current="page">Best CSE Project Ideas 2025</span>
+              <span aria-current="page">Best CSE Project Ideas 2026</span>
             </nav>
 
             <div className="blog-meta-row">
@@ -198,11 +198,11 @@ export default function BlogBestCSEProjectIdeas() {
 
             <h1 className="blog-h1">
               Best Final Year Project Ideas<br />
-              for CSE Students in 2025
+              for CSE Students in 2026
             </h1>
 
             <p className="blog-lead">
-              CSE students have the widest choice of project domains — Machine Learning, Web Development, Blockchain, IoT, Data Science, NLP, Deep Learning, and Cyber Security are all within reach. But that range makes choosing harder, not easier. This guide narrows it down to the best ideas for 2025, matched to your skills and placement goals.
+              CSE students have the widest choice of project domains — Machine Learning, Web Development, Blockchain, IoT, Data Science, NLP, Deep Learning, and Cyber Security are all within reach. But that range makes choosing harder, not easier. This guide narrows it down to the best ideas for 2026, matched to your skills and placement goals.
             </p>
 
             <div className="blog-author-row">
@@ -228,7 +228,7 @@ export default function BlogBestCSEProjectIdeas() {
             </div>
 
             {/* Domains */}
-            <h2 className="blog-h2">Best CSE Project Domains for 2025</h2>
+            <h2 className="blog-h2">Best CSE Project Domains for 2026</h2>
 
             <div className="blog-ideas-grid">
               {cseDomains.map(({ icon, title, desc }) => (
@@ -241,7 +241,7 @@ export default function BlogBestCSEProjectIdeas() {
             </div>
 
             {/* Top 10 titles */}
-            <h2 className="blog-h2">Top 10 CSE Project Titles for 2025</h2>
+            <h2 className="blog-h2">Top 10 CSE Project Titles for 2026</h2>
 
             <div className="blog-domain-grid">
               <div className="blog-domain-card">

@@ -28,15 +28,15 @@ export const metadata: Metadata = {
     type: 'article',
     url: pageUrl,
     siteName: 'Inno Projects',
-    title: 'Top IoT Project Ideas for Engineering Students in 2025',
+    title: 'Top IoT Project Ideas for Engineering Students in 2026',
     description:
-      'The best IoT project ideas for 2025 — Arduino, NodeMCU, Raspberry Pi with full circuit diagrams and source code from Inno Projects.',
+      'The best IoT project ideas for 2026 — Arduino, NodeMCU, Raspberry Pi with full circuit diagrams and source code from Inno Projects.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Top IoT Project Ideas – Inno Projects' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Top IoT Project Ideas for Engineering Students in 2025',
-    description: 'Best IoT project ideas for 2025 with hardware list, source code, and placement value.',
+    title: 'Top IoT Project Ideas for Engineering Students in 2026',
+    description: 'Best IoT project ideas for 2026 with hardware list, source code, and placement value.',
     images: ['/og-image.png'],
   },
 };
@@ -126,7 +126,7 @@ const placementPoints = [
   'Startup ecosystem has huge demand for IoT product developers',
   'AWS IoT and Azure IoT certifications pair well with IoT projects',
   'Combination of hardware + software = rare skill set',
-  'Industrial IoT is a growing sector with 2025 hiring surge',
+  'Industrial IoT is a growing sector with 2026 hiring surge',
 ];
 
 export default function BlogTopIoTProjectIdeas() {
@@ -136,7 +136,7 @@ export default function BlogTopIoTProjectIdeas() {
       {
         '@type': 'Article',
         '@id': `${pageUrl}/#article`,
-        headline: 'Top IoT Project Ideas for Engineering Students in 2025',
+        headline: 'Top IoT Project Ideas for Engineering Students in 2026',
         description:
           'Explore the best IoT project ideas for engineering students — smart home, agriculture, health monitor, GPS tracker with full circuit diagrams and source code.',
         image: `${siteUrl}/og-image.png`,
@@ -152,7 +152,7 @@ export default function BlogTopIoTProjectIdeas() {
           logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.ico` },
         },
         datePublished: '2022-07-14',
-        dateModified: '2025-02-10',
+        dateModified: '2026-04-19',
         mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
       },
       {
@@ -197,7 +197,7 @@ export default function BlogTopIoTProjectIdeas() {
             </div>
 
             <h1 className="blog-h1">
-              Top IoT Project Ideas for Engineering Students in 2025
+              Top IoT Project Ideas for Engineering Students in 2026
             </h1>
 
             <p className="blog-lead">
@@ -227,7 +227,7 @@ export default function BlogTopIoTProjectIdeas() {
             </div>
 
             {/* Ideas grid */}
-            <h2 className="blog-h2">Best IoT Project Ideas for 2025</h2>
+            <h2 className="blog-h2">Best IoT Project Ideas for 2026</h2>
             <div className="blog-ideas-grid">
               {iotIdeas.map(({ icon, title, desc }) => (
                 <div key={title} className="blog-idea-card">

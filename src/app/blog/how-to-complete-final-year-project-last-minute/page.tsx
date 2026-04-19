@@ -128,7 +128,7 @@ export default function BlogLastMinuteProject() {
           logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.ico` },
         },
         datePublished: '2022-10-03',
-        dateModified: '2025-03-15',
+        dateModified: '2026-04-19',
         mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
       },
       {

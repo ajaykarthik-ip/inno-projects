@@ -28,15 +28,15 @@ export const metadata: Metadata = {
     type: 'article',
     url: pageUrl,
     siteName: 'Inno Projects',
-    title: 'Top Deep Learning Project Ideas for Final Year Students in 2025',
+    title: 'Top Deep Learning Project Ideas for Final Year Students in 2026',
     description:
-      'The best deep learning project titles for 2025 placements — CNN, LSTM, GAN with full source code from Inno Projects.',
+      'The best deep learning project titles for 2026 placements — CNN, LSTM, GAN with full source code from Inno Projects.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Top Deep Learning Project Ideas – Inno Projects' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Top Deep Learning Project Ideas for Final Year Students in 2025',
-    description: 'Best deep learning project ideas for 2025 — CNN, LSTM, GAN, Transformers with source code.',
+    title: 'Top Deep Learning Project Ideas for Final Year Students in 2026',
+    description: 'Best deep learning project ideas for 2026 — CNN, LSTM, GAN, Transformers with source code.',
     images: ['/og-image.png'],
   },
 };
@@ -152,9 +152,9 @@ export default function BlogTopDeepLearningProjectIdeas() {
       {
         '@type': 'Article',
         '@id': `${pageUrl}/#article`,
-        headline: 'Top Deep Learning Project Ideas for Final Year Students in 2025',
+        headline: 'Top Deep Learning Project Ideas for Final Year Students in 2026',
         description:
-          'The best deep learning project ideas for 2025 — CNN, LSTM, GAN, Transformer models with datasets, implementation guidance, and full source code.',
+          'The best deep learning project ideas for 2026 — CNN, LSTM, GAN, Transformer models with datasets, implementation guidance, and full source code.',
         image: `${siteUrl}/og-image.png`,
         author: {
           '@type': 'Organization',
@@ -168,7 +168,7 @@ export default function BlogTopDeepLearningProjectIdeas() {
           logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.ico` },
         },
         datePublished: '2023-02-18',
-        dateModified: '2025-03-01',
+        dateModified: '2026-04-19',
         mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
       },
       {
@@ -213,11 +213,11 @@ export default function BlogTopDeepLearningProjectIdeas() {
             </div>
 
             <h1 className="blog-h1">
-              Top Deep Learning Project Ideas for Final Year Students in 2025
+              Top Deep Learning Project Ideas for Final Year Students in 2026
             </h1>
 
             <p className="blog-lead">
-              Deep Learning projects get the most attention in placements, viva, and research — here are the best titles for 2025.
+              Deep Learning projects get the most attention in placements, viva, and research — here are the best titles for 2026.
             </p>
 
             <div className="blog-author-row">

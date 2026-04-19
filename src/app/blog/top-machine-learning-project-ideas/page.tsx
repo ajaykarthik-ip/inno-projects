@@ -28,15 +28,15 @@ export const metadata: Metadata = {
     type: 'article',
     url: pageUrl,
     siteName: 'Inno Projects',
-    title: 'Top 10 Machine Learning Project Ideas for Final Year Students 2025',
+    title: 'Top 10 Machine Learning Project Ideas for Final Year Students 2026',
     description:
-      'The most in-demand ML project ideas for 2025 placements — with implementation details and source code support from Inno Projects.',
+      'The most in-demand ML project ideas for 2026 placements — with implementation details and source code support from Inno Projects.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Top ML Project Ideas – Inno Projects' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Top 10 Machine Learning Project Ideas for Final Year Students 2025',
-    description: 'The most in-demand ML project ideas for 2025 placements — with implementation details.',
+    title: 'Top 10 Machine Learning Project Ideas for Final Year Students 2026',
+    description: 'The most in-demand ML project ideas for 2026 placements — with implementation details.',
     images: ['/og-image.png'],
   },
 };
@@ -138,7 +138,7 @@ export default function BlogTopMLProjectIdeas() {
         '@id': `${pageUrl}/#article`,
         headline: 'Top 10 Machine Learning Project Ideas for Final Year Students',
         description:
-          'Discover the top 10 machine learning project ideas for final year students in 2025, with implementation details and placement value.',
+          'Discover the top 10 machine learning project ideas for final year students in 2026, with implementation details and placement value.',
         image: `${siteUrl}/og-image.png`,
         author: {
           '@type': 'Organization',
@@ -152,7 +152,7 @@ export default function BlogTopMLProjectIdeas() {
           logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.ico` },
         },
         datePublished: '2021-01-15',
-        dateModified: '2025-01-15',
+        dateModified: '2026-04-19',
         mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
       },
       {
@@ -202,7 +202,7 @@ export default function BlogTopMLProjectIdeas() {
             </h1>
 
             <p className="blog-lead">
-              Machine learning projects are the single most in-demand category for campus placements in 2025. Companies like TCS, Infosys, Wipro, and hundreds of startups actively look for candidates who have hands-on ML experience. If you are a final year student, an ML project is no longer optional — it is your strongest placement asset.
+              Machine learning projects are the single most in-demand category for campus placements in 2026. Companies like TCS, Infosys, Wipro, and hundreds of startups actively look for candidates who have hands-on ML experience. If you are a final year student, an ML project is no longer optional — it is your strongest placement asset.
             </p>
 
             <div className="blog-author-row">
@@ -230,7 +230,7 @@ export default function BlogTopMLProjectIdeas() {
             {/* Why ML */}
             <h2 className="blog-h2">Why Machine Learning Projects Are Best for Placements</h2>
             <p className="blog-body-p">
-              In 2025, ML skills are the single biggest differentiator in campus placements across India. TCS iON, Infosys Springboard, Wipro WILP, and nearly every product-based startup now include a technical round that tests your ability to explain data-driven thinking. Candidates who come in with a working ML project — not just theory — are shortlisted first. Python proficiency combined with scikit-learn, TensorFlow, or PyTorch on your resume triggers automatic interest from recruiters. More importantly, ML projects give you real talking points: the problem you solved, the dataset you chose, the algorithm you compared, and the accuracy you achieved. That narrative is exactly what interviewers want to hear.
+              In 2026, ML skills are the single biggest differentiator in campus placements across India. TCS iON, Infosys Springboard, Wipro WILP, and nearly every product-based startup now include a technical round that tests your ability to explain data-driven thinking. Candidates who come in with a working ML project — not just theory — are shortlisted first. Python proficiency combined with scikit-learn, TensorFlow, or PyTorch on your resume triggers automatic interest from recruiters. More importantly, ML projects give you real talking points: the problem you solved, the dataset you chose, the algorithm you compared, and the accuracy you achieved. That narrative is exactly what interviewers want to hear.
             </p>
 
             {/* Top 10 ideas */}

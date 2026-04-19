@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'article',
     url: pageUrl,
     siteName: 'Inno Projects',
-    title: 'How to Choose the Right Final Year Project Title in 2025',
+    title: 'How to Choose the Right Final Year Project Title in 2026',
     description:
       'Step-by-step guide for engineering students to pick the perfect final year project title in ML, AI, Web Dev, IoT & Blockchain.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to Choose Final Year Project Title – Inno Projects' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'How to Choose the Right Final Year Project Title in 2025',
+    title: 'How to Choose the Right Final Year Project Title in 2026',
     description: 'Step-by-step guide for engineering students to pick the perfect final year project title.',
     images: ['/og-image.png'],
   },
@@ -60,12 +60,12 @@ const steps = [
   {
     n: '04',
     title: 'Check for IEEE Paper Availability',
-    content: `An IEEE-based project gives your submission a strong base paper, a methodology to follow, and a result comparison table. When choosing a title, verify that an IEEE paper exists for that topic (IEEE Xplore, 2022–2025). A title with an IEEE paper is easier to document, creates a stronger project report, and is accepted without question by most college guides and evaluation panels.`,
+    content: `An IEEE-based project gives your submission a strong base paper, a methodology to follow, and a result comparison table. When choosing a title, verify that an IEEE paper exists for that topic (IEEE Xplore, 2022–2026). A title with an IEEE paper is easier to document, creates a stronger project report, and is accepted without question by most college guides and evaluation panels.`,
   },
   {
     n: '05',
     title: 'Avoid Overused and Outdated Titles',
-    content: `Titles like "Online Exam System", "Library Management System", "Student Database Management" are outdated — every evaluator has seen hundreds of them. Avoid pure CRUD applications with no intelligent component. In 2025, evaluators expect at least one modern element: a prediction model, an API integration, a real-time feature, or a data visualization dashboard. Adding "using Machine Learning" or "with AI-based Recommendations" to an otherwise basic project instantly modernises it.`,
+    content: `Titles like "Online Exam System", "Library Management System", "Student Database Management" are outdated — every evaluator has seen hundreds of them. Avoid pure CRUD applications with no intelligent component. In 2026, evaluators expect at least one modern element: a prediction model, an API integration, a real-time feature, or a data visualization dashboard. Adding "using Machine Learning" or "with AI-based Recommendations" to an otherwise basic project instantly modernises it.`,
   },
   {
     n: '06',
@@ -158,9 +158,9 @@ export default function BlogHowToChooseProjectTitle() {
       {
         '@type': 'Article',
         '@id': `${pageUrl}/#article`,
-        headline: 'How to Choose the Right Final Year Project Title in 2025',
+        headline: 'How to Choose the Right Final Year Project Title in 2026',
         description:
-          'Step-by-step guide for engineering students to pick the perfect final year project title in ML, AI, Web Development, IoT and Blockchain for 2025.',
+          'Step-by-step guide for engineering students to pick the perfect final year project title in ML, AI, Web Development, IoT and Blockchain for 2026.',
         image: `${siteUrl}/og-image.png`,
         author: {
           '@type': 'Organization',
@@ -174,7 +174,7 @@ export default function BlogHowToChooseProjectTitle() {
           logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.ico` },
         },
         datePublished: '2025-01-01',
-        dateModified: '2025-04-01',
+        dateModified: '2026-04-19',
         mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
       },
       {
@@ -216,12 +216,12 @@ export default function BlogHowToChooseProjectTitle() {
             <div className="blog-meta-row">
               <span className="blog-tag">Guide</span>
               <span className="blog-tag">Final Year Projects</span>
-              <span className="blog-date">April 2025 · 7 min read</span>
+              <span className="blog-date">April 2026 · 7 min read</span>
             </div>
 
             <h1 className="blog-h1">
               How to Choose the Right<br />
-              Final Year Project Title in 2025
+              Final Year Project Title in 2026
             </h1>
 
             <p className="blog-lead">
@@ -277,9 +277,9 @@ export default function BlogHowToChooseProjectTitle() {
             </div>
 
             {/* Domain titles */}
-            <h2 className="blog-h2">Popular Final Year Project Titles for 2025 — by Domain</h2>
+            <h2 className="blog-h2">Popular Final Year Project Titles for 2026 — by Domain</h2>
             <p className="blog-body-p">
-              Here are handpicked titles that are implementable, IEEE-supported, and trending in 2025. These are not randomly generated — every title below has a working implementation available at Inno Projects.
+              Here are handpicked titles that are implementable, IEEE-supported, and trending in 2026. These are not randomly generated — every title below has a working implementation available at Inno Projects.
             </p>
 
             <div className="blog-domain-grid">
@@ -309,7 +309,7 @@ export default function BlogHowToChooseProjectTitle() {
               {[
                 'Can I explain the problem this project solves in one sentence?',
                 'Does a dataset or data source exist for this project?',
-                'Is there an IEEE paper (2022–2025) covering this topic?',
+                'Is there an IEEE paper (2022–2026) covering this topic?',
                 'Can I implement this with the tech stack I know?',
                 'Can I complete this within my submission deadline?',
                 'Will my college guide/department accept this domain?',

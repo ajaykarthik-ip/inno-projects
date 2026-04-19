@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Python vs Java for Final Year Projects – Which Should You Choose? | Inno Projects',
   description:
-    'Python vs Java for final year projects — a full 2025 comparison covering domains, placement value, syntax, and which language gives you the best chance in campus interviews.',
+    'Python vs Java for final year projects — a full 2026 comparison covering domains, placement value, syntax, and which language gives you the best chance in campus interviews.',
   keywords: [
     'python vs java for final year project',
     'which language for final year project',
@@ -28,15 +28,15 @@ export const metadata: Metadata = {
     type: 'article',
     url: pageUrl,
     siteName: 'Inno Projects',
-    title: 'Python vs Java for Final Year Projects – Full Comparison 2025',
+    title: 'Python vs Java for Final Year Projects – Full Comparison 2026',
     description:
-      'Python or Java? A complete breakdown for final year students covering domains, placement value, and which to choose in 2025.',
+      'Python or Java? A complete breakdown for final year students covering domains, placement value, and which to choose in 2026.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Python vs Java – Inno Projects' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Python vs Java for Final Year Projects – Full Comparison 2025',
-    description: 'Python or Java for your final year project? Full 2025 comparison with placement insights.',
+    title: 'Python vs Java for Final Year Projects – Full Comparison 2026',
+    description: 'Python or Java for your final year project? Full 2026 comparison with placement insights.',
     images: ['/og-image.png'],
   },
 };
@@ -74,9 +74,9 @@ const choosePythonSteps = [
   },
   {
     n: '03',
-    title: 'You want maximum placement value in 2025',
+    title: 'You want maximum placement value in 2026',
     content:
-      'Python is the most in-demand language for technical roles in 2025. From data analyst to ML engineer to backend developer (Django/FastAPI), Python covers a wide spectrum of job titles. Having a Python project on your resume immediately signals relevance to modern tech stacks.',
+      'Python is the most in-demand language for technical roles in 2026. From data analyst to ML engineer to backend developer (Django/FastAPI), Python covers a wide spectrum of job titles. Having a Python project on your resume immediately signals relevance to modern tech stacks.',
   },
   {
     n: '04',
@@ -101,9 +101,9 @@ export default function BlogPythonVsJava() {
       {
         '@type': 'Article',
         '@id': `${pageUrl}/#article`,
-        headline: 'Python vs Java for Final Year Projects – Full Comparison 2025',
+        headline: 'Python vs Java for Final Year Projects – Full Comparison 2026',
         description:
-          'Python or Java for your final year project? A complete 2025 comparison covering domains, placement value, syntax difficulty, and community support.',
+          'Python or Java for your final year project? A complete 2026 comparison covering domains, placement value, syntax difficulty, and community support.',
         image: `${siteUrl}/og-image.png`,
         author: {
           '@type': 'Organization',
@@ -117,7 +117,7 @@ export default function BlogPythonVsJava() {
           logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.ico` },
         },
         datePublished: '2022-04-08',
-        dateModified: '2025-01-20',
+        dateModified: '2026-04-19',
         mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
       },
       {
@@ -162,7 +162,7 @@ export default function BlogPythonVsJava() {
             </div>
 
             <h1 className="blog-h1">
-              Python vs Java for Final Year Projects – Full Comparison 2025
+              Python vs Java for Final Year Projects – Full Comparison 2026
             </h1>
 
             <p className="blog-lead">
@@ -195,7 +195,7 @@ export default function BlogPythonVsJava() {
             <h2 className="blog-h2">Python vs Java — Side by Side</h2>
             <div className="blog-compare-grid">
               <div className="blog-compare-card">
-                <h3 className="blog-compare-title">Python ⭐ Recommended 2025</h3>
+                <h3 className="blog-compare-title">Python ⭐ Recommended 2026</h3>
                 <span className="blog-compare-badge">Most Popular</span>
                 <ul className="blog-compare-list">
                   {pythonList.map((item) => (
@@ -241,13 +241,13 @@ export default function BlogPythonVsJava() {
             {/* Choose Java */}
             <h2 className="blog-h2">Choose Java If...</h2>
             <p className="blog-body-p">
-              Java remains a solid choice for enterprise web applications and Android development projects. If your college specifically mandates Java as the implementation language, or if you are already proficient in Java and want to build a Spring Boot backend project, Java is perfectly valid. Enterprise projects like hospital management systems, inventory management, and banking applications are well-suited to Java. Service-based companies like TCS, Infosys, and Wipro still have Java-heavy codebases, so a Java project is relevant there. However, if you have a free choice, Python gives you more options in 2025.
+              Java remains a solid choice for enterprise web applications and Android development projects. If your college specifically mandates Java as the implementation language, or if you are already proficient in Java and want to build a Spring Boot backend project, Java is perfectly valid. Enterprise projects like hospital management systems, inventory management, and banking applications are well-suited to Java. Service-based companies like TCS, Infosys, and Wipro still have Java-heavy codebases, so a Java project is relevant there. However, if you have a free choice, Python gives you more options in 2026.
             </p>
 
             {/* JavaScript section */}
             <h2 className="blog-h2">What About JavaScript / React?</h2>
             <p className="blog-body-p">
-              For web development projects, React + Node.js is the best choice in 2025 — more modern than Java Spring, more interactive than Python Flask. If your project is web-first — a platform, a dashboard, an e-commerce tool, or a social application — JavaScript is the right language. React on the frontend and Node.js or Next.js on the backend gives you a full-stack project that looks genuinely modern. JavaScript projects also perform very well in interviews for frontend and full-stack roles, which are among the highest-volume openings in campus placements.
+              For web development projects, React + Node.js is the best choice in 2026 — more modern than Java Spring, more interactive than Python Flask. If your project is web-first — a platform, a dashboard, an e-commerce tool, or a social application — JavaScript is the right language. React on the frontend and Node.js or Next.js on the backend gives you a full-stack project that looks genuinely modern. JavaScript projects also perform very well in interviews for frontend and full-stack roles, which are among the highest-volume openings in campus placements.
             </p>
 
             {/* Placement box */}

@@ -70,7 +70,7 @@ const interviewerCheckSteps = [
     n: '05',
     title: 'Originality and Relevance',
     content:
-      'Does it solve a real problem? Is it relevant in 2025? Projects that address a genuine real-world problem — even a small one — stand out. Bonus points if you can connect your project domain to the company you are interviewing with. Relevance is more memorable than complexity.',
+      'Does it solve a real problem? Is it relevant in 2026? Projects that address a genuine real-world problem — even a small one — stand out. Bonus points if you can connect your project domain to the company you are interviewing with. Relevance is more memorable than complexity.',
   },
 ];
 
@@ -157,7 +157,7 @@ const placementPoints = [
   'Every project comes with clean, well-commented source code you can explain',
   'Full documentation so you understand every module',
   'Viva Q&A guide that doubles as interview prep',
-  'Modern tech stack (Python, React, Next.js) relevant to 2025 job market',
+  'Modern tech stack (Python, React, Next.js) relevant to 2026 job market',
   '500+ titles so you can pick what aligns with your career goal',
 ];
 
@@ -170,7 +170,7 @@ export default function BlogHowProjectsHelpPlacement() {
         '@id': `${pageUrl}/#article`,
         headline: 'How Your Final Year Project Directly Impacts Your Campus Placement',
         description:
-          'Learn what interviewers check in your final year project, which domains impress recruiters most in 2025, and how to present your project confidently in interviews.',
+          'Learn what interviewers check in your final year project, which domains impress recruiters most in 2026, and how to present your project confidently in interviews.',
         image: `${siteUrl}/og-image.png`,
         author: {
           '@type': 'Organization',
@@ -184,7 +184,7 @@ export default function BlogHowProjectsHelpPlacement() {
           logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.ico` },
         },
         datePublished: '2023-06-25',
-        dateModified: '2025-04-01',
+        dateModified: '2026-04-19',
         mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
       },
       {
@@ -279,7 +279,7 @@ export default function BlogHowProjectsHelpPlacement() {
             </div>
 
             {/* Domains */}
-            <h2 className="blog-h2">Domains That Impress Recruiters Most in 2025</h2>
+            <h2 className="blog-h2">Domains That Impress Recruiters Most in 2026</h2>
             <div className="blog-ideas-grid">
               {domainIdeas.map(({ icon, title, desc }) => (
                 <div key={title} className="blog-idea-card">

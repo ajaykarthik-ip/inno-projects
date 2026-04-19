@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 };
 
 const ieeePoints = [
-  'Has a base paper from IEEE Xplore (2022–2025)',
+  'Has a base paper from IEEE Xplore (2022–2026)',
   'Higher marks from external evaluation panels',
   'Accepted without question by all Anna University and Bharathiar University colleges',
   'Includes result comparison table to validate your implementation',
@@ -70,7 +70,7 @@ const whenIeeeSteps = [
     n: '02',
     title: 'Your Domain Has Good IEEE Papers',
     content:
-      'Domains like Machine Learning, Artificial Intelligence, IoT, Blockchain, Computer Vision, and NLP have thousands of IEEE papers from 2022–2025. If your project falls in these domains, there is almost certainly a strong base paper available. An IEEE project in these areas is always the better choice.',
+      'Domains like Machine Learning, Artificial Intelligence, IoT, Blockchain, Computer Vision, and NLP have thousands of IEEE papers from 2022–2026. If your project falls in these domains, there is almost certainly a strong base paper available. An IEEE project in these areas is always the better choice.',
   },
   {
     n: '03',
@@ -117,7 +117,7 @@ export default function BlogIeeeVsNonIeee() {
           logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.ico` },
         },
         datePublished: '2021-06-20',
-        dateModified: '2025-02-01',
+        dateModified: '2026-04-19',
         mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
       },
       {
@@ -195,7 +195,7 @@ export default function BlogIeeeVsNonIeee() {
             {/* What is IEEE */}
             <h2 className="blog-h2">What is an IEEE Project?</h2>
             <p className="blog-body-p">
-              IEEE stands for the Institute of Electrical and Electronics Engineers — the world&apos;s largest technical professional organisation. An IEEE project means your final year project is based on a research paper published in the IEEE Xplore digital library. These papers are peer-reviewed, technically rigorous, and published by researchers from universities and companies worldwide. For your project, you take a recent IEEE paper (2022–2025), understand the algorithm or system it proposes, implement it yourself, and optionally improve upon the results. The base paper gives your project a research foundation, a clear methodology, and a benchmark result to compare against. This structured approach is why IEEE projects consistently receive higher marks from evaluation panels.
+              IEEE stands for the Institute of Electrical and Electronics Engineers — the world&apos;s largest technical professional organisation. An IEEE project means your final year project is based on a research paper published in the IEEE Xplore digital library. These papers are peer-reviewed, technically rigorous, and published by researchers from universities and companies worldwide. For your project, you take a recent IEEE paper (2022–2026), understand the algorithm or system it proposes, implement it yourself, and optionally improve upon the results. The base paper gives your project a research foundation, a clear methodology, and a benchmark result to compare against. This structured approach is why IEEE projects consistently receive higher marks from evaluation panels.
             </p>
 
             {/* Comparison */}

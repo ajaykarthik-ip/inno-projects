@@ -124,7 +124,7 @@ export default function BlogHowToPrepareForViva() {
           logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.ico` },
         },
         datePublished: '2021-09-05',
-        dateModified: '2025-03-01',
+        dateModified: '2026-04-19',
         mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
       },
       {

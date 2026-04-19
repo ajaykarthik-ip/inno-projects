@@ -16,12 +16,12 @@ const posts = [
   {
     slug: 'how-final-year-projects-help-in-placement',
     title: 'How Your Final Year Project Directly Impacts Your Campus Placement',
-    excerpt: '73% of technical interview questions start with "Tell me about your project." Here is how to make yours count in 2025 placements.',
+    excerpt: '73% of technical interview questions start with "Tell me about your project." Here is how to make yours count in 2026 placements.',
     tag: 'Placements', readTime: '7 min read', date: 'June 2023', icon: '🏆',
   },
   {
     slug: 'top-deep-learning-project-ideas',
-    title: 'Top Deep Learning Project Ideas for Final Year Students in 2025',
+    title: 'Top Deep Learning Project Ideas for Final Year Students in 2026',
     excerpt: 'Deep Learning projects get the most attention in placements and viva. CNN, LSTM, GAN — here are the best titles with implementation guidance.',
     tag: 'Deep Learning', readTime: '8 min read', date: 'February 2023', icon: '🧠',
   },
@@ -33,19 +33,19 @@ const posts = [
   },
   {
     slug: 'top-iot-project-ideas-for-engineering-students',
-    title: 'Top IoT Project Ideas for Engineering Students in 2025',
+    title: 'Top IoT Project Ideas for Engineering Students in 2026',
     excerpt: 'IoT projects combine hardware and software — making them impressive to evaluators and interviewers. 10 best ideas with hardware requirements.',
     tag: 'IoT Projects', readTime: '7 min read', date: 'July 2022', icon: '📡',
   },
   {
     slug: 'python-vs-java-for-final-year-projects',
-    title: 'Python vs Java for Final Year Projects – Full Comparison 2025',
+    title: 'Python vs Java for Final Year Projects – Full Comparison 2026',
     excerpt: 'The language you choose affects your domain options, implementation ease, and placement value. Full side-by-side comparison.',
     tag: 'Tech Choice', readTime: '6 min read', date: 'April 2022', icon: '⚖️',
   },
   {
     slug: 'best-final-year-project-ideas-for-cse',
-    title: 'Best Final Year Project Ideas for CSE Students in 2025',
+    title: 'Best Final Year Project Ideas for CSE Students in 2026',
     excerpt: 'CSE students have the widest domain choice — but that makes picking harder. Top 10 CSE project titles with domain breakdown and placement value.',
     tag: 'CSE Projects', readTime: '9 min read', date: 'January 2022', icon: '💻',
   },
@@ -70,14 +70,14 @@ const posts = [
   {
     slug: 'top-machine-learning-project-ideas',
     title: 'Top 10 Machine Learning Project Ideas for Final Year Students',
-    excerpt: 'ML projects are the most in-demand for placements in 2025. Top 10 implementable ideas with dataset sources and placement value explained.',
+    excerpt: 'ML projects are the most in-demand for placements in 2026. Top 10 implementable ideas with dataset sources and placement value explained.',
     tag: 'ML Projects', readTime: '8 min read', date: 'January 2021', icon: '🤖',
   },
   {
     slug: 'how-to-choose-a-final-year-project-title',
-    title: 'How to Choose the Right Final Year Project Title in 2025',
+    title: 'How to Choose the Right Final Year Project Title in 2026',
     excerpt: 'Picking the wrong project title costs you months of wasted effort. 7-step guide to choose a title your guide approves and you can complete.',
-    tag: 'Guide', readTime: '7 min read', date: 'April 2025', icon: '🎯',
+    tag: 'Guide', readTime: '7 min read', date: 'April 2026', icon: '🎯',
   },
 ];
 

@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'article',
     url: pageUrl,
     siteName: 'Inno Projects',
-    title: 'How to Write a Final Year Project Report – Complete Guide 2025',
+    title: 'How to Write a Final Year Project Report – Complete Guide 2026',
     description:
       'Complete IEEE-format guide to writing your final year project report — abstract, literature survey, system design, results, and more.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Final Year Project Report Writing Guide – Inno Projects' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'How to Write a Final Year Project Report – Complete Guide 2025',
+    title: 'How to Write a Final Year Project Report – Complete Guide 2026',
     description: 'Complete guide to writing your final year project report in IEEE format.',
     images: ['/og-image.png'],
   },
@@ -112,7 +112,7 @@ export default function BlogHowToWriteProjectReport() {
         '@id': `${pageUrl}/#article`,
         headline: 'How to Write a Final Year Project Report – Complete Guide',
         description:
-          'Step-by-step guide to writing a final year project report in IEEE format for engineering students in 2025.',
+          'Step-by-step guide to writing a final year project report in IEEE format for engineering students in 2026.',
         image: `${siteUrl}/og-image.png`,
         author: {
           '@type': 'Organization',
@@ -126,7 +126,7 @@ export default function BlogHowToWriteProjectReport() {
           logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.ico` },
         },
         datePublished: '2021-03-10',
-        dateModified: '2025-01-10',
+        dateModified: '2026-04-19',
         mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
       },
       {
