@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import FAQContent, { faqSchemaData } from './FAQContent';
 import './page.css';
 
-const siteUrl = 'https://www.innoprojects.tech';
+const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/faq`;
 
 export const metadata: Metadata = {

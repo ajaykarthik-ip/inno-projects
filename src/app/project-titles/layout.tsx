@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: 'Final Year Project Titles – ML, AI, Web, IoT & Blockchain | Inno Projects',
     description:
       'Browse final year project titles in ML, AI, Web, IoT & Blockchain. 600+ projects delivered every year. Get expert implementation support instantly via WhatsApp.',
-    url: 'https://www.innoprojects.tech/project-titles',
+    url: 'https://www.innoprojects.in/project-titles',
     type: 'website',
   },
   twitter: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       'Browse final year project titles in ML, AI, Web, IoT & Blockchain. 600+ projects delivered every year with expert implementation support.',
   },
   alternates: {
-    canonical: 'https://www.innoprojects.tech/project-titles',
+    canonical: 'https://www.innoprojects.in/project-titles',
   },
 };
 
@@ -51,11 +51,11 @@ export default function ProjectTitlesLayout({ children }: { children: React.Reac
     name: 'Final Year Project Titles',
     description:
       'A comprehensive catalog of final year project titles in ML, AI, Web Development, IoT, and Blockchain. 600+ projects delivered every year.',
-    url: 'https://www.innoprojects.tech/project-titles',
+    url: 'https://www.innoprojects.in/project-titles',
     publisher: {
       '@type': 'Organization',
       name: 'Inno Projects',
-      url: 'https://www.innoprojects.tech',
+      url: 'https://www.innoprojects.in',
     },
     about: {
       '@type': 'Thing',

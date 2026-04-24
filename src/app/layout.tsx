@@ -15,7 +15,7 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const siteUrl = 'https://www.innoprojects.tech';
+const siteUrl = 'https://www.innoprojects.in';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

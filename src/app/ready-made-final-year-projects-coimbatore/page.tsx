@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import ProjectIdeasPage, { type ProjectIdeasPageData } from '@/components/ProjectIdeasPage';
 
-const siteUrl = 'https://www.innoprojects.tech';
+const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/ready-made-final-year-projects-coimbatore`;
 
 export const metadata: Metadata = {

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import DomainPage, { type DomainPageData } from '@/components/DomainPage';
 
-const siteUrl = 'https://www.innoprojects.tech';
+const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/ieee-projects-coimbatore-2026`;
 
 export const metadata: Metadata = {

@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     title: 'Featured Projects – Buy Final Year Projects with Source Code | Inno Projects',
     description:
       'Browse featured final year projects with full source code and implementation support for ML, AI, Web, IoT & Blockchain.',
-    url: 'https://www.innoprojects.tech/project',
+    url: 'https://www.innoprojects.in/project',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.innoprojects.tech/project',
+    canonical: 'https://www.innoprojects.in/project',
   },
 };
 

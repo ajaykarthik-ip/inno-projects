@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import '../post.css';
 
-const siteUrl = 'https://www.innoprojects.tech';
+const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/blog/best-final-year-project-ideas-for-cse`;
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     'Inno Projects CSE titles',
   ],
   alternates: { canonical: pageUrl },
-  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.in' }],
   openGraph: {
     type: 'article',
     url: pageUrl,

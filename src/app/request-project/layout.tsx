@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     title: 'Request a Custom Final Year Project | Inno Projects',
     description:
       'Request a custom final year project developed to your requirements. ML, AI, Web, IoT & Blockchain.',
-    url: 'https://www.innoprojects.tech/request-project',
+    url: 'https://www.innoprojects.in/request-project',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.innoprojects.tech/request-project',
+    canonical: 'https://www.innoprojects.in/request-project',
   },
 };
 

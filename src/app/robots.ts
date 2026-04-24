@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin/', '/api/'],
       },
     ],
-    sitemap: 'https://www.innoprojects.tech/sitemap.xml',
-    host: 'https://www.innoprojects.tech',
+    sitemap: 'https://www.innoprojects.in/sitemap.xml',
+    host: 'https://www.innoprojects.in',
   };
 }

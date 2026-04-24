@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import './page.css';
 
-const siteUrl = 'https://www.innoprojects.tech';
+const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/blog/how-to-choose-a-final-year-project-title`;
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     'ML project title ideas 2026',
   ],
   alternates: { canonical: pageUrl },
-  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.tech' }],
+  authors: [{ name: 'Inno Projects', url: 'https://www.innoprojects.in' }],
   openGraph: {
     type: 'article',
     url: pageUrl,
