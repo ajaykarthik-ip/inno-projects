@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/blog/top-machine-learning-project-ideas`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Top 10 Machine Learning Project Ideas for Final Year Students 2026 | Inno Projects',
+  title: 'Top 10 Machine Learning Project Ideas for Final Year Students 2026',
   description:
     'Discover the top 10 machine learning project ideas for final year students in 2026. Each idea includes implementation details, dataset sources, and placement value. Delivered with source code in 12 hours by Inno Projects, Coimbatore.',
   keywords: [

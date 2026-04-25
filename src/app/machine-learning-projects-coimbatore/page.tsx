@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/machine-learning-projects-coimbatore`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Machine Learning Final Year Projects in Coimbatore 2026 | Inno Projects',
+  title: 'Machine Learning Final Year Projects in Coimbatore 2026',
   description:
     'Get ready-to-submit machine learning final year projects in Coimbatore. 120+ ML project titles using Python, TensorFlow, Keras, PyTorch, scikit-learn. IEEE and non-IEEE. Full source code, dataset, report, PPT — delivered in 12 hours. Call +91 9600309140.',
   keywords: [

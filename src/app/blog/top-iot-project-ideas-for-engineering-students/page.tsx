@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/blog/top-iot-project-ideas-for-engineering-students`
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Top IoT Project Ideas for Engineering Students 2026 | Inno Projects',
+  title: 'Top IoT Project Ideas for Engineering Students 2026',
   description:
     'Explore the best IoT project ideas for engineering students in 2026. Smart home, health monitor, agriculture, GPS tracker, and more — with Arduino, NodeMCU, and Raspberry Pi. Full source code and circuit diagram from Inno Projects.',
   keywords: [

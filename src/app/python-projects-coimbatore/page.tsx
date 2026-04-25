@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/python-projects-coimbatore`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Python Final Year Projects in Coimbatore 2026 | Inno Projects',
+  title: 'Python Final Year Projects in Coimbatore 2026',
   description:
     'Python final year projects in Coimbatore 2026. Django, Flask, machine learning, data science, automation, and web scraping projects with full source code and documentation. 12-hour delivery. Call +91 9600309140.',
   keywords: [

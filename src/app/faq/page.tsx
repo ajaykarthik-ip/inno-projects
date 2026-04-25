@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/faq`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'FAQ | Inno Projects – Final Year Project Center Coimbatore',
+  title: 'FAQ | Final Year Project Center Coimbatore',
   description:
     'Answers to common questions about Inno Projects Coimbatore — final year project delivery, pricing, IEEE projects, viva support, and more. Get your project in 12 hours.',
   keywords: [

@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/blog/python-vs-java-for-final-year-projects`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Python vs Java for Final Year Projects – Which Should You Choose? | Inno Projects',
+  title: 'Python vs Java for Final Year Projects – Which Should You Choose?',
   description:
     'Python vs Java for final year projects — a full 2026 comparison covering domains, placement value, syntax, and which language gives you the best chance in campus interviews.',
   keywords: [

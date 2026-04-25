@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/ready-made-final-year-projects-coimbatore`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Ready Made Final Year Projects in Coimbatore | Same Day Delivery | Inno Projects',
+  title: 'Ready Made Final Year Projects in Coimbatore | Same Day Delivery',
   description:
     'Ready-made final year projects in Coimbatore delivered in 12 hours. Python, Java, web, and ML/AI projects with source code, report, and PPT. Call Inno Projects: +91 9600309140.',
   keywords: [

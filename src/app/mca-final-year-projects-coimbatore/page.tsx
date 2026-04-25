@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/mca-final-year-projects-coimbatore`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'MCA Final Year Projects in Coimbatore 2026 | Inno Projects',
+  title: 'MCA Final Year Projects in Coimbatore 2026',
   description:
     'MCA final year projects in Coimbatore 2026. 150+ project titles in web apps, Python, Java, databases, machine learning, and mobile apps. Full source code, documentation, and PPT delivered in 12 hours. Call +91 9600309140.',
   keywords: [

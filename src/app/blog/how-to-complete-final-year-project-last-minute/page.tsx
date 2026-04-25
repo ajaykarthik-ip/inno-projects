@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/blog/how-to-complete-final-year-project-last-minute`
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'How to Complete Your Final Year Project in the Last Week | Inno Projects',
+  title: 'How to Complete Your Final Year Project in the Last Week',
   description:
     'Running out of time for your final year project? A step-by-step emergency plan to complete your project in one week — or get a complete project delivered in 12 hours from Inno Projects, Coimbatore.',
   keywords: [

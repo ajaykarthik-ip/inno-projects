@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/blog/how-to-write-final-year-project-report`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'How to Write a Final Year Project Report – Complete Guide 2026 | Inno Projects',
+  title: 'How to Write a Final Year Project Report – Complete Guide 2026',
   description:
     'Step-by-step guide to writing a final year project report in IEEE format. Covers structure, common mistakes, chapter breakdown, and tips for engineering students in 2026. Inno Projects provides complete reports for every project title.',
   keywords: [

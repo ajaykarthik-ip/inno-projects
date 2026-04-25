@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/blog/how-final-year-projects-help-in-placement`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'How Final Year Projects Help in Campus Placements 2026 | Inno Projects',
+  title: 'How Final Year Projects Help in Campus Placements 2026',
   description:
     'Learn how your final year project directly impacts your campus placement results in 2026. What interviewers check, which domains impress recruiters, and how to present your project in interviews.',
   keywords: [

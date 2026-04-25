@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/ece-final-year-projects-coimbatore`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'ECE Final Year Projects in Coimbatore 2026 | Inno Projects',
+  title: 'ECE Final Year Projects in Coimbatore 2026',
   description:
     'ECE final year projects in Coimbatore 2026. 150+ project titles in embedded systems, IoT, VLSI, Arduino, Raspberry Pi, and signal processing. IEEE papers available. Full source code, circuit diagrams, report, and PPT in 12 hours. Call +91 9600309140.',
   keywords: [

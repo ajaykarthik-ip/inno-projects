@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/blog/best-final-year-project-ideas-for-cse`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Best Final Year Project Ideas for CSE Students 2026 | Inno Projects',
+  title: 'Best Final Year Project Ideas for CSE Students 2026',
   description:
     'Discover the best final year project ideas for CSE students in 2026 — ML, AI, Web Development, Blockchain, IoT, Data Science, Cyber Security, and NLP. 300+ titles with source code at Inno Projects, Coimbatore.',
   keywords: [

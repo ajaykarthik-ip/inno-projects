@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/blog/how-to-prepare-for-project-viva`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'How to Prepare for Final Year Project Viva – 20 Common Questions | Inno Projects',
+  title: 'How to Prepare for Final Year Project Viva – 20 Common Questions',
   description:
     'Crack your final year project viva with 20 common viva questions and model answers, day-of tips, and strategies used by top-scoring students. Every project from Inno Projects includes a viva Q&A guide.',
   keywords: [

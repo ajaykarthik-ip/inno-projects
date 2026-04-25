@@ -6,7 +6,7 @@ const siteUrl = 'https://www.innoprojects.in';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Tips & Tricks for Final Year Projects | Inno Projects',
+  title: 'Tips & Tricks for Final Year Projects',
   description:
     'Guides, tips and tricks for engineering students on choosing final year projects, IEEE papers, ML topics, and more. By Inno Projects, Coimbatore.',
   alternates: { canonical: `${siteUrl}/blog` },

@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/blog/how-to-choose-a-final-year-project-title`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'How to Choose the Right Final Year Project Title in 2026 | Inno Projects',
+  title: 'How to Choose the Right Final Year Project Title in 2026',
   description:
     'Confused about how to choose a final year project title? This guide covers step-by-step tips for BE, BTech, MCA & MSc students to pick the best project title in ML, AI, Web Development, IoT and Blockchain for 2026.',
   keywords: [

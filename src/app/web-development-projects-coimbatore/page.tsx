@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/web-development-projects-coimbatore`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Web Development Final Year Projects in Coimbatore 2026 | Inno Projects',
+  title: 'Web Development Final Year Projects in Coimbatore 2026',
   description:
     'Web development final year projects in Coimbatore 2026. React, Next.js, Node.js, MERN stack, PHP, and full-stack projects with complete source code and documentation. 12-hour delivery. Call +91 9600309140.',
   keywords: [

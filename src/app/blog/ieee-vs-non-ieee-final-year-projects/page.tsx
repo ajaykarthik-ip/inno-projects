@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/blog/ieee-vs-non-ieee-final-year-projects`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'IEEE Projects vs Non-IEEE Projects – Which is Better for Final Year? | Inno Projects',
+  title: 'IEEE Projects vs Non-IEEE Projects – Which is Better for Final Year?',
   description:
     'Confused about IEEE vs non-IEEE final year projects? This guide explains the real difference, which gets higher marks, and when to choose each. IEEE and non-IEEE titles available at Inno Projects, Coimbatore — 600+ delivered every year.',
   keywords: [

@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/final-year-project-with-source-code`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Final Year Projects with Source Code | Download Ready Projects | Inno Projects',
+  title: 'Final Year Projects with Source Code | Download Ready Projects',
   description:
     'Get final year projects with complete source code — Python, Java, MERN stack, PHP. Fully commented, runnable code with database, report, and PPT. 12-hr delivery in Coimbatore. +91 9600309140.',
   keywords: [

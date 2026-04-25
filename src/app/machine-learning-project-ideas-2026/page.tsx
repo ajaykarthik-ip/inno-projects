@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/machine-learning-project-ideas-2026`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Machine Learning Project Ideas 2026 | Final Year ML Projects | Inno Projects',
+  title: 'Machine Learning Project Ideas 2026 | Final Year ML Projects',
   description:
     'Explore 120+ machine learning project ideas for final year 2026. Computer vision, NLP, healthcare ML, and predictive analytics. Python, TensorFlow, BERT. 12-hr delivery in Coimbatore. Call +91 9600309140.',
   keywords: [

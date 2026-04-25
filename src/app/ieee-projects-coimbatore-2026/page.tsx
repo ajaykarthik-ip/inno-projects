@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/ieee-projects-coimbatore-2026`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'IEEE Projects in Coimbatore 2026 | Inno Projects',
+  title: 'IEEE Projects in Coimbatore 2026',
   description:
     'IEEE base paper projects in Coimbatore 2026. Implementation of 2024–2025 IEEE journal papers across CSE, ECE, ML, IoT, blockchain, and cloud computing. Full source code, paper, report, and PPT delivered in 12 hours. Call +91 9600309140.',
   keywords: [

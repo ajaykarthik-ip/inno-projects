@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/cse-project-titles-2026`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'CSE Project Titles 2026 | 200+ Final Year CSE Project Ideas | Inno Projects',
+  title: 'CSE Project Titles 2026 | 200+ Final Year CSE Project Ideas',
   description:
     'Browse 200+ CSE final year project titles for 2026. Web, ML/AI, cybersecurity, and cloud projects. MERN, Next.js, Python, Django, AWS. IEEE & non-IEEE. 12-hr delivery in Coimbatore. +91 9600309140.',
   keywords: [

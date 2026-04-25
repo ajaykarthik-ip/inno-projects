@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/blog/top-deep-learning-project-ideas`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Top Deep Learning Project Ideas for Final Year Students 2026 | Inno Projects',
+  title: 'Top Deep Learning Project Ideas for Final Year Students 2026',
   description:
     'Explore the best deep learning project ideas for final year students in 2026 — CNN, LSTM, GAN, Transformer models with full Python source code from Inno Projects, Coimbatore.',
   keywords: [

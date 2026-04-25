@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/ieee-2026-project-titles-list`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'IEEE 2026 Project Titles List | CSE ECE MCA IEEE Projects | Inno Projects',
+  title: 'IEEE 2026 Project Titles List | CSE ECE MCA IEEE Projects',
   description:
     'Browse 300+ IEEE 2026 project titles for CSE, ECE, and MCA final year students. Latest ML, IoT, cybersecurity, and healthcare IEEE papers implemented. 12-hr delivery in Coimbatore. +91 9600309140.',
   keywords: [

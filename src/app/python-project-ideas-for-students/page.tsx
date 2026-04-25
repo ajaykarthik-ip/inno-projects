@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/python-project-ideas-for-students`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Python Project Ideas for Students 2026 | Final Year Python Projects | Inno Projects',
+  title: 'Python Project Ideas for Students 2026 | Final Year Python Projects',
   description:
     'Explore 100+ Python project ideas for final year students in 2026. Django, Flask, ML, data science, and automation. Source code included. 12-hr delivery in Coimbatore. +91 9600309140.',
   keywords: [

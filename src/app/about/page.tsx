@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/about`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'About Us | Inno Projects – Final Year Project Center in Coimbatore',
+  title: 'About Us',
   description:
     'Learn about Inno Projects — Coimbatore\'s trusted final year project center. We deliver 600+ projects every year in ML, AI, Web Dev, IoT & Blockchain with full source code and 12-hour delivery to BTech, BE, MCA & MSc students.',
   keywords: [

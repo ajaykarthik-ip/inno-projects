@@ -6,7 +6,7 @@ const pageUrl = `${siteUrl}/cse-final-year-projects-coimbatore`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'CSE Final Year Projects in Coimbatore 2026 | Inno Projects',
+  title: 'CSE Final Year Projects in Coimbatore 2026',
   description:
     'Top CSE final year projects in Coimbatore 2026. 200+ project titles across web, ML, IoT, blockchain, cloud, and NLP. IEEE and non-IEEE. Full source code, documentation, and PPT delivered in 12 hours. Call +91 9600309140.',
   keywords: [

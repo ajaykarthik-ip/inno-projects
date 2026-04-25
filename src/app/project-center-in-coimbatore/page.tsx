@@ -7,7 +7,7 @@ const pageUrl = `${siteUrl}/project-center-in-coimbatore`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Best Final Year Project Center in Coimbatore 2026 | Inno Projects',
+  title: 'Best Final Year Project Center in Coimbatore 2026',
   description:
     'Inno Projects – the best final year project center in Coimbatore, Tamil Nadu. 600+ IEEE & non-IEEE projects delivered every year in ML, AI, Web Development, IoT & Blockchain. Full source code, documentation, PPT and 12-hour delivery. Serving BE, BTech, MCA, MSc students across Coimbatore.',
   keywords: [
