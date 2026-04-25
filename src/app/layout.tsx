@@ -116,7 +116,7 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   verification: {
-    google: 'tL4RkoEPsBs4-KR1WftnNMTcHO_yxn2h71GOO6m7BR4',
+    google: 'mPio88tUiWUBaVWd-qgsffxGetGB0T3f-QrvUiXNJps',
   },
   other: {
     'geo.region': 'IN-TN',
