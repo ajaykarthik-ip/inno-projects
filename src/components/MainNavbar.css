@@ -297,10 +297,6 @@
     margin: 0.5rem 0;
   }
 
-  .main-navbar-logo {
-    flex-grow: 1;
-  }
-
   .main-navbar-actions {
     order: 2;
   }
@@ -322,11 +318,24 @@
     align-items: center;
     justify-content: center;
     order: 1;
+    flex-shrink: 0;
   }
 
   .main-navbar-container {
     padding: 0.75rem 1rem;
     position: relative;
+  }
+
+  .main-navbar-logo {
+    order: 2;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: center;
+  }
+
+  .main-navbar-actions {
+    order: 3;
+    flex-shrink: 0;
   }
 
   .search-bar input {
