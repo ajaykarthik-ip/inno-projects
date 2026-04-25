@@ -585,15 +585,15 @@
   }
 
   .th-title {
-    width: 58%;
+    width: 52%;
   }
 
   .th-category {
-    width: 24%;
+    width: 22%;
   }
 
   .th-action {
-    width: 18%;
+    width: 26%;
     text-align: center;
   }
 
@@ -613,22 +613,22 @@
   }
 
   .projects-table .whatsapp-btn {
-    width: 32px;
-    height: 32px;
-    min-height: 32px;
-    min-width: 32px;
-    max-width: 32px;
-    max-height: 32px;
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    min-width: 44px;
+    max-width: 44px;
+    max-height: 44px;
     padding: 0;
-    border-radius: 8px;
+    border-radius: 10px;
     gap: 0;
     box-shadow: none;
     overflow: hidden;
   }
 
   .projects-table .whatsapp-icon {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
   }
 
@@ -648,22 +648,22 @@
   }
 
   .category-badge {
-    font-size: 0.58rem;
-    padding: 0.15rem 0.3rem;
+    font-size: 0.62rem;
+    padding: 0.2rem 0.4rem;
   }
 
   .projects-table .whatsapp-btn {
-    width: 30px;
-    height: 30px;
-    min-height: 30px;
-    min-width: 30px;
-    max-width: 30px;
-    max-height: 30px;
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    min-width: 44px;
+    max-width: 44px;
+    max-height: 44px;
   }
 
   .projects-table .whatsapp-icon {
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
   }
 }
 

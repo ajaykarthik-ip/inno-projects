@@ -429,7 +429,7 @@
   .indicator {
     width: 10px;
     height: 10px;
-    margin: 4px;
+    margin: 14px 10px;
   }
   
   /* Reduced animations for better performance on mobile */
