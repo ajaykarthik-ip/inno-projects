@@ -1,28 +1,14 @@
-"use client";
-
-import { useEffect } from 'react';
 import MainHero from '@/components/MainHero';
 import ReferEarnBanner from '@/components/ReferEarnBanner';
 import HowItWorks from '@/components/HowItWorks';
 import BrowseByDomain from '@/components/BrowseByDomain';
 import TrendingProjects from '@/components/TrendingProjects';
+import SidebarInitializer from '@/components/SidebarInitializer';
 
 export default function Home() {
-  // Initialize sidebar state on component mount
-  useEffect(() => {
-    // Set initial state - not collapsed
-    document.body.classList.remove('sidebar-collapsed');
-    document.body.classList.remove('sidebar-mobile-open');
-
-    // Clean up when component unmounts
-    return () => {
-      document.body.classList.remove('sidebar-collapsed');
-      document.body.classList.remove('sidebar-mobile-open');
-    };
-  }, []);
-
   return (
     <div className="main-content-wrapper">
+      <SidebarInitializer />
       <main className="main-content">
         <MainHero />
         <ReferEarnBanner />
