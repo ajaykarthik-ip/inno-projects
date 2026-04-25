@@ -188,11 +188,12 @@
   .sidebar {
     transform: translateX(-100%);
     width: 260px;
-    box-shadow: 8px 0 40px rgba(0, 0, 0, 0.6);
+    box-shadow: none;
   }
 
   .sidebar.mobile-open {
     transform: translateX(0);
+    box-shadow: 8px 0 40px rgba(0, 0, 0, 0.6);
   }
 
   .sidebar.collapsed {
@@ -244,6 +245,10 @@
     border-radius: 50%;
     width: 30px;
     height: 30px;
+    box-shadow: none;
+  }
+
+  .sidebar.mobile-open .sidebar-header .collapse-btn {
     box-shadow: 0 4px 12px rgba(147, 51, 234, 0.4);
   }
 
