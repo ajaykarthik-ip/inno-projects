@@ -172,8 +172,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           { '@type': 'State', name: 'Tamil Nadu' },
         ],
         sameAs: [
-          'https://www.facebook.com/innoprojects.tech',
-          'https://www.instagram.com/innoprojects.tech',
+          'https://www.facebook.com/innoprojects.in',
+          'https://www.instagram.com/innoprojects.in',
           'https://www.linkedin.com/company/innoprojects',
           'https://www.youtube.com/@innoprojects',
         ],
@@ -194,59 +194,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           },
           'query-input': 'required name=search_term_string',
         },
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'What is the best final year project center in Coimbatore?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Inno Projects is one of the best final year project centers in Coimbatore, Tamil Nadu. We deliver 600+ projects every year in ML, AI, Web Development, IoT, and Blockchain with full source code, documentation, and expert support for BTech, BE, MCA, and MSc students.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Which project center in Coimbatore provides projects with source code?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Inno Projects in Coimbatore provides complete final year projects with full source code, documentation, PPT, and IEEE paper support. Contact us on WhatsApp at +91 9600309140.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'What is the cost of final year projects in Coimbatore?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'At Inno Projects Coimbatore, final year project prices are affordable and student-friendly. We offer competitive pricing with full source code, documentation, and implementation support. Contact us at +91 9600309140 for the latest pricing.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Does Inno Projects in Coimbatore offer IEEE projects?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, Inno Projects Coimbatore offers IEEE-based final year projects in ML, AI, Deep Learning, IoT, Blockchain, and Web Development. We also assist with IEEE journal publication for less than ₹3,000.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How fast can I get my final year project in Coimbatore?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Inno Projects delivers final year projects in Coimbatore within 12 hours. We are available 24/7 on WhatsApp at +91 9600309140.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'What categories of final year projects are available at Inno Projects Coimbatore?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'We offer projects in Machine Learning (ML), Artificial Intelligence (AI), Deep Learning, Web Development, Internet of Things (IoT), Blockchain, Data Science, and Computer Vision — 600+ projects delivered every year in Coimbatore.',
-            },
-          },
-        ],
       },
     ],
   };

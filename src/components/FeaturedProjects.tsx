@@ -6,41 +6,42 @@ import './FeaturedProjects.css';
 import { projectsApi } from '@/utils/api';
 import { Project } from '../models/Projects';
 
-const FeaturedProjects: React.FC = () => {
+interface Props {
+  initialProjects?: Project[];
+}
+
+const FeaturedProjects: React.FC<Props> = ({ initialProjects }) => {
   const [activeFilter, setActiveFilter] = useState('all');
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [categories, setCategories] = useState<string[]>(['all']);
-  const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState<Project[]>(initialProjects ?? []);
+  const [categories, setCategories] = useState<string[]>(() => {
+    if (initialProjects && initialProjects.length > 0) {
+      const cats = initialProjects.map(p => p.category).filter(Boolean);
+      return ['all', ...new Set(cats)] as string[];
+    }
+    return ['all'];
+  });
+  const [loading, setLoading] = useState(!initialProjects);
   const [error, setError] = useState<string | null>(null);
-  
-  // Fetch projects on component mount
+
   useEffect(() => {
+    if (initialProjects) return;
     const fetchProjects = async () => {
       try {
         setLoading(true);
-        // Use the API client to fetch projects
         const data = await projectsApi.getProjects();
-        
-        // Clean and validate the data
         const cleanedProjects = data.map((project: Project) => ({
           ...project,
-          // Ensure all required fields have fallback values
           description: project.description || 'No description available',
           name: project.name || 'Untitled Project',
           price: project.price || 'Price not available',
           category: project.category || 'Uncategorized',
           youtube_url: project.youtube_url || null
         }));
-        
         setProjects(cleanedProjects);
-        
-        // Extract unique categories (filter out empty/null categories)
         const validCategories = cleanedProjects
           .map((project: Project) => project.category)
           .filter((category): category is string => Boolean(category));
-        
-        const uniqueCategories = ['all', ...new Set(validCategories)] as string[];
-        setCategories(uniqueCategories);
+        setCategories(['all', ...new Set(validCategories)] as string[]);
       } catch (err) {
         console.error('Error fetching projects:', err);
         setError(err instanceof Error ? err.message : 'Failed to load projects');
@@ -48,9 +49,8 @@ const FeaturedProjects: React.FC = () => {
         setLoading(false);
       }
     };
-    
     fetchProjects();
-  }, []);
+  }, [initialProjects]);
 
   // Filter projects based on selected category
   const filteredProjects = activeFilter === 'all' 
