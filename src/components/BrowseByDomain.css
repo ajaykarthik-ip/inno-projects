@@ -149,31 +149,23 @@
   border-top: 1px solid var(--border-color);
 }
 
-.bbd-card-count {
+.bbd-card-cta {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #a78bfa;
   background: rgba(99, 102, 241, 0.1);
   border: 1px solid rgba(99, 102, 241, 0.2);
   border-radius: 100px;
-  padding: 0.2rem 0.65rem;
-  letter-spacing: 0.02em;
-}
-
-.bbd-card-explore {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent-primary);
+  padding: 0.3rem 0.85rem;
+  white-space: nowrap;
   transition: var(--transition);
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
 }
 
-.bbd-card:hover .bbd-card-explore {
+.bbd-card:hover .bbd-card-cta {
+  background: rgba(147, 51, 234, 0.18);
+  border-color: rgba(147, 51, 234, 0.4);
   color: #c084fc;
-  transform: translateX(3px);
 }
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
@@ -205,11 +197,16 @@
   }
 
   .bbd-card {
-    padding: 1.25rem 1rem 1rem;
+    padding: 1.25rem 0.75rem 1rem;
   }
 
   .bbd-card-emoji {
     font-size: 2rem;
+  }
+
+  .bbd-card-cta {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.65rem;
   }
 }
 

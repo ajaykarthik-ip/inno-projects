@@ -96,8 +96,7 @@ const BrowseByDomain: React.FC = () => {
               <p className="bbd-card-name">{domain.name}</p>
               <p className="bbd-card-tagline">{domain.tagline}</p>
               <div className="bbd-card-footer">
-                <span className="bbd-card-count">{domain.count}</span>
-                <span className="bbd-card-explore">Explore →</span>
+                <span className="bbd-card-cta">Explore</span>
               </div>
             </Link>
           ))}
