@@ -343,7 +343,7 @@ const InnoProjectsForm: React.FC = () => {
                   className="checkbox"
                 />
                 <span className="checkbox-text">
-                  I want free IEEE documentation
+                  I want IEEE documentation
                   <span className="checkbox-hint"> (optional &mdash; leave unchecked if not needed)</span>
                 </span>
               </label>
