@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import DomainPage, { type DomainPageData } from '@/components/DomainPage';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 
 const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/ieee-projects-coimbatore-2026`;
@@ -176,5 +177,10 @@ const data: DomainPageData = {
 };
 
 export default function IEEEProjectsCoimbatore2026() {
-  return <DomainPage data={data} />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'IEEE Projects Coimbatore 2026', path: '/ieee-projects-coimbatore-2026' }]} />
+      <DomainPage data={data} />
+    </>
+  );
 }

@@ -79,6 +79,13 @@
   margin-left: 3px;
 }
 
+.label-hint {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
 /* Input Styles */
 .input,
 .select {
@@ -449,6 +456,86 @@
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, rgba(15, 255, 183, 0.15), transparent);
+}
+
+/* IEEE Docs Checkbox */
+.ieee-checkbox-group {
+  margin-top: 0.5rem;
+  background: rgba(15, 255, 183, 0.04);
+  border: 1px solid rgba(15, 255, 183, 0.2);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
+
+.checkbox-label {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #0fffb7;
+  border-radius: 4px;
+  background: var(--bg-card);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  margin: 0;
+  transition: all 0.15s ease;
+}
+
+.checkbox:checked {
+  background: #0fffb7;
+}
+
+.checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-text {
+  display: block;
+  min-width: 0;
+}
+
+.checkbox-hint {
+  display: inline;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .ieee-checkbox-group {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .checkbox-label {
+    font-size: 0.9rem;
+    gap: 0.55rem;
+  }
+
+  .checkbox-hint {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.78rem;
+  }
 }
 
 /* Submit Section */

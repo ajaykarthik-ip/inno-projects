@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import DomainPage, { type DomainPageData } from '@/components/DomainPage';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 
 const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/mca-final-year-projects-coimbatore`;
@@ -176,5 +177,10 @@ const data: DomainPageData = {
 };
 
 export default function MCAFinalYearProjectsCoimbatore() {
-  return <DomainPage data={data} />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'MCA Final Year Projects Coimbatore', path: '/mca-final-year-projects-coimbatore' }]} />
+      <DomainPage data={data} />
+    </>
+  );
 }

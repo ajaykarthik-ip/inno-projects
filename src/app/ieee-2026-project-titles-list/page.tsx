@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ProjectIdeasPage, { type ProjectIdeasPageData } from '@/components/ProjectIdeasPage';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 
 const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/ieee-2026-project-titles-list`;
@@ -279,5 +280,10 @@ const data: ProjectIdeasPageData = {
 };
 
 export default function Ieee2026ProjectTitlesList() {
-  return <ProjectIdeasPage data={data} />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'IEEE 2026 Project Titles List', path: '/ieee-2026-project-titles-list' }]} />
+      <ProjectIdeasPage data={data} />
+    </>
+  );
 }

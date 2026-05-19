@@ -1,4 +1,24 @@
+import type { Metadata } from 'next';
 import ProjectTitlesClient from './ProjectTitlesClient';
+
+const siteUrl = 'https://www.innoprojects.in';
+const pageUrl = `${siteUrl}/project-titles`;
+
+export const metadata: Metadata = {
+  title: 'Final Year Project Titles 2026 — IEEE, ML, AI, Web | Inno Projects',
+  description:
+    'Browse 600+ final year project titles for 2026 from Inno Projects Coimbatore — Machine Learning, AI, Deep Learning, Web Development, IoT and Blockchain projects with full source code and IEEE support.',
+  alternates: { canonical: pageUrl },
+  openGraph: {
+    type: 'website',
+    url: pageUrl,
+    siteName: 'Inno Projects',
+    title: 'Final Year Project Titles 2026 | Inno Projects Coimbatore',
+    description:
+      '600+ final year project titles for 2026 across ML, AI, Web, IoT and Blockchain — with source code, documentation and IEEE support.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Inno Projects — Project Titles 2026' }],
+  },
+};
 
 interface Project {
   id: string;

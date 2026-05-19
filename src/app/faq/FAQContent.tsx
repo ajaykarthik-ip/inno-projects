@@ -153,11 +153,9 @@ export default function FAQContent() {
                         <polyline points="6 9 12 15 18 9" />
                       </svg>
                     </button>
-                    {isOpen && (
-                      <div className="faq-answer">
-                        <p>{item.a}</p>
-                      </div>
-                    )}
+                    <div className="faq-answer" hidden={!isOpen}>
+                      <p>{item.a}</p>
+                    </div>
                   </div>
                 );
               })}

@@ -8,14 +8,17 @@ interface FormData {
   phoneNumber: string;
   collegeName: string;
   department: string;
+  yearOfStudy: string;
   domain: string;
-  bundles: string;
   collegeMailId: string;
   projectTitle: string;
-  referredBy: string;
-  referralCode: string;
-  referrerPhone: string;
+  source: string;
+  friendName: string;
+  friendPhone: string;
+  wantsIeeeDocs: boolean;
 }
+
+const SOURCE_OPTIONS = ['Google', 'YouTube', 'Instagram', 'Friends', 'Other'];
 
 const InnoProjectsForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -23,53 +26,26 @@ const InnoProjectsForm: React.FC = () => {
     phoneNumber: '',
     collegeName: '',
     department: '',
+    yearOfStudy: '',
     domain: '',
-    bundles: '',
     collegeMailId: '',
     projectTitle: '',
-    referredBy: '',
-    referralCode: '',
-    referrerPhone: ''
+    source: '',
+    friendName: '',
+    friendPhone: '',
+    wantsIeeeDocs: false
   });
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<string>('');
-  const [referralStatus, setReferralStatus] = useState<string>('');
-  const [isValidReferral, setIsValidReferral] = useState<boolean>(false);
-
-  // Hardcoded valid referral codes
-  const VALID_REFERRAL_CODES = ['P2026500', 'AA500'];
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    
-    // Update form data
+    const target = e.target as HTMLInputElement;
+    const { name, value, type } = target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? target.checked : value
     }));
-
-    // Clear referral status when typing (don't auto-validate)
-    if (name === 'referralCode' && referralStatus) {
-      setReferralStatus('');
-      setIsValidReferral(false);
-    }
-  };
-
-  const validateReferralCode = (code: string) => {
-    if (code === '') {
-      setReferralStatus('');
-      setIsValidReferral(false);
-      return;
-    }
-
-    if (VALID_REFERRAL_CODES.includes(code.toUpperCase())) {
-      setReferralStatus('✓ Offer applied! Get ₹500 discount');
-      setIsValidReferral(true);
-    } else {
-      setReferralStatus('✗ Invalid referral code');
-      setIsValidReferral(false);
-    }
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -77,14 +53,16 @@ const InnoProjectsForm: React.FC = () => {
     setIsSubmitting(true);
     setSubmitStatus('');
 
-    // Validate required fields
     const requiredFields: (keyof FormData)[] = [
-      'studentName', 'phoneNumber', 'collegeName', 'department', 
-      'domain', 'bundles', 'collegeMailId', 'projectTitle'
+      'studentName', 'phoneNumber', 'collegeName', 'department', 'yearOfStudy',
+      'domain', 'collegeMailId', 'projectTitle', 'source'
     ];
-    
+
+    if (formData.source === 'Friends') {
+      requiredFields.push('friendName', 'friendPhone');
+    }
+
     const missingFields = requiredFields.filter(field => !formData[field]);
-    
     if (missingFields.length > 0) {
       setSubmitStatus('Please fill all required fields');
       setIsSubmitting(false);
@@ -92,52 +70,46 @@ const InnoProjectsForm: React.FC = () => {
     }
 
     try {
-      // Create form data for Google Forms
       const googleFormData = new URLSearchParams();
-      
-      // Map to actual Google Form entry IDs
+
+      // NOTE: update these entry IDs after rebuilding the Google Form
       googleFormData.append('entry.1618759074', formData.studentName);
       googleFormData.append('entry.1148733084', formData.phoneNumber);
       googleFormData.append('entry.1210331088', formData.collegeName);
       googleFormData.append('entry.1676200664', formData.department);
+      googleFormData.append('entry.332141427', formData.yearOfStudy);
       googleFormData.append('entry.642961539', formData.domain);
-      googleFormData.append('entry.902127592', formData.bundles);
       googleFormData.append('entry.623169949', formData.collegeMailId);
       googleFormData.append('entry.340885761', formData.projectTitle);
-      googleFormData.append('entry.470659127', formData.referredBy || '');
-      googleFormData.append('entry.858114275', formData.referralCode || '');
-      googleFormData.append('entry.430367506', formData.referrerPhone || '');
+      googleFormData.append('entry.188295600', formData.source);
+      googleFormData.append('entry.470659127', formData.friendName);
+      googleFormData.append('entry.430367506', formData.friendPhone);
+      if (formData.wantsIeeeDocs) {
+        googleFormData.append('entry.440194592', 'Yes');
+      }
 
-      // Submit to Google Forms
-      await fetch('https://docs.google.com/forms/d/e/1FAIpQLSf2wvNSAEkbAQIowErGQ45leSs2nGIFLOsHnGj7-8YWgvWUBQ/formResponse', {
+      await fetch('https://docs.google.com/forms/d/e/1FAIpQLSeohUwjc0h7ldyRWwW9MJEcIxwGJse5sAo7ZZlwLQl0DTE-aA/formResponse', {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: googleFormData.toString()
       });
 
-      const discountMessage = isValidReferral ? ' (₹500 discount applied!)' : '';
-      setSubmitStatus(`Form submitted successfully! We will contact you shortly.${discountMessage}`);
-      
-      // Reset form
+      setSubmitStatus('Form submitted successfully! We will contact you shortly.');
+
       setFormData({
         studentName: '',
         phoneNumber: '',
         collegeName: '',
         department: '',
         domain: '',
-        bundles: '',
         collegeMailId: '',
         projectTitle: '',
-        referredBy: '',
-        referralCode: '',
-        referrerPhone: ''
+        source: '',
+        friendName: '',
+        friendPhone: '',
+        wantsIeeeDocs: false
       });
-      setReferralStatus('');
-      setIsValidReferral(false);
-
     } catch (error) {
       console.error('Submission error:', error);
       setSubmitStatus('Form submitted! (Google Forms doesn&apos;t return status)');
@@ -145,6 +117,8 @@ const InnoProjectsForm: React.FC = () => {
       setIsSubmitting(false);
     }
   };
+
+  const showFriendFields = formData.source === 'Friends';
 
   return (
     <div className="page-wrapper">
@@ -156,7 +130,6 @@ const InnoProjectsForm: React.FC = () => {
 
         <div className="form-card">
           <form onSubmit={handleSubmit} className="form">
-            {/* Main Fields */}
             <div className="form-row">
               <div className="form-group">
                 <label className="label">
@@ -191,7 +164,8 @@ const InnoProjectsForm: React.FC = () => {
 
             <div className="form-group">
               <label className="label">
-                College Mail ID <span className="required">*</span>
+                Email ID <span className="required">*</span>
+                <span className="label-hint"> (college mail preferred, personal mail also accepted)</span>
               </label>
               <input
                 type="email"
@@ -199,7 +173,7 @@ const InnoProjectsForm: React.FC = () => {
                 value={formData.collegeMailId}
                 onChange={handleChange}
                 className="input"
-                placeholder="your.email@college.edu"
+                placeholder="your.email@college.edu or personal email"
                 required
               />
             </div>
@@ -233,6 +207,30 @@ const InnoProjectsForm: React.FC = () => {
                   placeholder="Computer Science"
                   required
                 />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label className="label">
+                Year of Study <span className="required">*</span>
+              </label>
+              <div className="select-wrapper">
+                <select
+                  name="yearOfStudy"
+                  value={formData.yearOfStudy}
+                  onChange={handleChange}
+                  className="select"
+                  required
+                >
+                  <option value="">Select year</option>
+                  <option value="First Year">First Year</option>
+                  <option value="Second Year">Second Year</option>
+                  <option value="Third Year">Third Year</option>
+                  <option value="Final Year">Final Year</option>
+                  <option value="PG 1st Year">PG 1st Year</option>
+                  <option value="PG Final Year">PG Final Year</option>
+                  <option value="Others">Others</option>
+                </select>
               </div>
             </div>
 
@@ -277,81 +275,77 @@ const InnoProjectsForm: React.FC = () => {
 
               <div className="form-group">
                 <label className="label">
-                  Premium Packages <span className="required">*</span>
+                  How did you find us? <span className="required">*</span>
                 </label>
                 <div className="select-wrapper">
                   <select
-                    name="bundles"
-                    value={formData.bundles}
+                    name="source"
+                    value={formData.source}
                     onChange={handleChange}
                     className="select"
                     required
                   >
-                    <option value="">Select Package</option>
-                    <option value="Bundle 1">Project + Complete setup + Video Tutorial + IEEE Journal Publication (24/7 Support)</option>
-                    <option value="Bundle 2">Project + Setup + Detailed Video Tutorial (24/7 Support)</option>
-                    <option value="Bundle 3">Project + Detailed Video Tutorial </option>
+                    <option value="">Select an option</option>
+                    {SOURCE_OPTIONS.map(opt => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
                   </select>
                 </div>
               </div>
             </div>
 
-            {/* Optional Section */}
-            <div className="divider">
-              <span className="divider-text">Get upto 90% Discount (Referral Code)</span>
-            </div>
-
-            <div className="form-row">
-              <div className="form-group">
-                <label className="label">Referred by (Friend&apos;s Name)</label>
-                <input
-                  type="text"
-                  name="referredBy"
-                  value={formData.referredBy}
-                  onChange={handleChange}
-                  className="input"
-                  placeholder="Enter your friend's name"
-                />
-              </div>
-
-              <div className="form-group">
-                <label className="label">Referral Code </label>
-                <div className="referral-input-group">
-                  <input
-                    type="text"
-                    name="referralCode"
-                    value={formData.referralCode}
-                    onChange={handleChange}
-                    className={`input referral-input ${referralStatus ? (isValidReferral ? 'valid-referral' : 'invalid-referral') : ''}`}
-                    placeholder="Enter referral code"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => validateReferralCode(formData.referralCode)}
-                    className="apply-button"
-                    disabled={!formData.referralCode}
-                  >
-                    Apply
-                  </button>
+            {showFriendFields && (
+              <>
+                <div className="divider">
+                  <span className="divider-text">Friend&apos;s Details</span>
                 </div>
-                {referralStatus && (
-                  <div className={`referral-status ${isValidReferral ? 'valid' : 'invalid'}`}>
-                    {referralStatus}
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="label">
+                      Friend&apos;s Name <span className="required">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="friendName"
+                      value={formData.friendName}
+                      onChange={handleChange}
+                      className="input"
+                      placeholder="Enter your friend's name"
+                      required
+                    />
                   </div>
-                )}
-              </div>
-            </div>
+                  <div className="form-group">
+                    <label className="label">
+                      Friend&apos;s Phone Number <span className="required">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      name="friendPhone"
+                      value={formData.friendPhone}
+                      onChange={handleChange}
+                      className="input"
+                      placeholder="+91 9876543210"
+                      required
+                    />
+                  </div>
+                </div>
+              </>
+            )}
 
-            <div className="form-group">
-              <label className="label">Referrer&apos;s Phone Number</label>
-              <input
-                type="tel"
-                name="referrerPhone"
-                value={formData.referrerPhone}
-                onChange={handleChange}
-                className="input"
-                placeholder="+91 9876543210"
-              />
+            <div className="form-group ieee-checkbox-group">
+              <label className="checkbox-label">
+                <input
+                  type="checkbox"
+                  name="wantsIeeeDocs"
+                  checked={formData.wantsIeeeDocs}
+                  onChange={handleChange}
+                  className="checkbox"
+                />
+                <span className="checkbox-text">
+                  I want free IEEE documentation
+                  <span className="checkbox-hint"> (optional &mdash; leave unchecked if not needed)</span>
+                </span>
+              </label>
             </div>
 
             <div className="submit-section">
@@ -373,7 +367,7 @@ const InnoProjectsForm: React.FC = () => {
               {submitStatus && (
                 <div className={`status ${submitStatus.includes('success') ? 'success' : 'error'}`}>
                   <span className="status-icon">
-                    {submitStatus.includes('success') ? '✓' : '!'} 
+                    {submitStatus.includes('success') ? '✓' : '!'}
                   </span>
                   {submitStatus}
                 </div>

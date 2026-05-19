@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import FAQContent, { faqSchemaData } from './FAQContent';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import './page.css';
 
 const siteUrl = 'https://www.innoprojects.in';
@@ -39,6 +40,7 @@ const faqSchema = {
 export default function FAQPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: 'FAQ', path: '/faq' }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

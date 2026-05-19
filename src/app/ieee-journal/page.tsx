@@ -1,18 +1,35 @@
-"use client";
-
+import type { Metadata } from 'next';
 import React from 'react';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import './page.css';
 
+const siteUrl = 'https://www.innoprojects.in';
+const pageUrl = `${siteUrl}/ieee-journal`;
+
+export const metadata: Metadata = {
+  title: 'IEEE Journal Paper Writing & Formatting — Inno Projects Coimbatore',
+  description:
+    'IEEE journal paper writing, formatting, editing and publication support from Inno Projects Coimbatore. Plagiarism-free, IEEE-compliant manuscripts delivered in 12 hours.',
+  alternates: { canonical: pageUrl },
+  openGraph: {
+    type: 'website',
+    url: pageUrl,
+    siteName: 'Inno Projects',
+    title: 'IEEE Journal Services — Inno Projects Coimbatore',
+    description:
+      'Professional IEEE paper writing, formatting and publication support. Plagiarism-free, 12-hour delivery.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Inno Projects IEEE Journal Services' }],
+  },
+};
+
 export default function IEEEJournal() {
-  const phoneNumber = "9600309140";
+  const phoneNumber = '9600309140';
   const whatsappUrl = `https://wa.me/91${phoneNumber}?text=Hi!%20I%20need%20help%20with%20IEEE%20journal%20formatting.`;
 
-  const handleContactClick = () => {
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-  };
-
   return (
-    <div className="ieee-container">
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'IEEE Journal Services', path: '/ieee-journal' }]} />
+      <div className="ieee-container">
       <div className="ieee-content">
         <div className="ieee-header">
           <h1 className="ieee-title">IEEE Journal Services</h1>
@@ -141,12 +158,12 @@ export default function IEEEJournal() {
             Get professional help with your IEEE journal paper. We deliver plagiarism-free, unique content 
             within 3 hours. Contact us now for expert assistance in formatting, writing, and preparing your research for publication.
           </p>
-          <button className="contact-btn" onClick={handleContactClick}>
-            {/* <span>💬</span> */}
+          <a className="contact-btn" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
             <span>Get Started</span>
-          </button>
+          </a>
         </div>
       </div>
     </div>
+    </>
   );
 }

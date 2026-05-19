@@ -138,7 +138,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         url: siteUrl,
         logo: {
           '@type': 'ImageObject',
-          url: `${siteUrl}/favicon.ico`,
+          url: `${siteUrl}/logo.png`,
+          width: 512,
+          height: 512,
         },
         image: `${siteUrl}/og-image.png`,
         description:

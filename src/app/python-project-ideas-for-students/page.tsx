@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ProjectIdeasPage, { type ProjectIdeasPageData } from '@/components/ProjectIdeasPage';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 
 const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/python-project-ideas-for-students`;
@@ -279,5 +280,10 @@ const data: ProjectIdeasPageData = {
 };
 
 export default function PythonProjectIdeasForStudents() {
-  return <ProjectIdeasPage data={data} />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'Python Project Ideas for Students', path: '/python-project-ideas-for-students' }]} />
+      <ProjectIdeasPage data={data} />
+    </>
+  );
 }

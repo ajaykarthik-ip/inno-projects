@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ProjectIdeasPage, { type ProjectIdeasPageData } from '@/components/ProjectIdeasPage';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 
 const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/ece-project-ideas-2026`;
@@ -279,5 +280,10 @@ const data: ProjectIdeasPageData = {
 };
 
 export default function EceProjectIdeas2026() {
-  return <ProjectIdeasPage data={data} />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'ECE Project Ideas 2026', path: '/ece-project-ideas-2026' }]} />
+      <ProjectIdeasPage data={data} />
+    </>
+  );
 }

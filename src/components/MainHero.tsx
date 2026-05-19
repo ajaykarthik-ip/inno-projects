@@ -41,17 +41,18 @@ export default function MainHero() {
           </span>
 
           <h1 className="mh-headline">
-            Your Final Year<br />
-            Project,{' '}
-            <span className="mh-accent">Delivered</span>
+            Inno Projects — Final Year<br />
+            Project Center in{' '}
+            <span className="mh-accent">Coimbatore</span>,
             <br />
-            in&nbsp;
+            Delivered in&nbsp;
             <span className="mh-accent">12&nbsp;Hours.</span>
           </h1>
 
           <p className="mh-subtext">
-            600+ final year projects delivered every year across ML, AI, Web, IoT &amp; Blockchain —
-            with full source code, documentation, and expert support.
+            <strong>Inno Projects</strong> is the best final year project center in Coimbatore,
+            delivering 600+ projects every year across ML, AI, Web Development, IoT &amp; Blockchain —
+            with full source code, documentation, and expert implementation support for BTech, BE, MCA and MSc students.
           </p>
 
           {/* Tags */}

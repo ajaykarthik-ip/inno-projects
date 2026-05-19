@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import DomainPage, { type DomainPageData } from '@/components/DomainPage';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 
 const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/ece-final-year-projects-coimbatore`;
@@ -174,5 +175,10 @@ const data: DomainPageData = {
 };
 
 export default function ECEFinalYearProjectsCoimbatore() {
-  return <DomainPage data={data} />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'ECE Final Year Projects Coimbatore', path: '/ece-final-year-projects-coimbatore' }]} />
+      <DomainPage data={data} />
+    </>
+  );
 }

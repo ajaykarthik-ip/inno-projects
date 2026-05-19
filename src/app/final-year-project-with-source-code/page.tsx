@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ProjectIdeasPage, { type ProjectIdeasPageData } from '@/components/ProjectIdeasPage';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 
 const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/final-year-project-with-source-code`;
@@ -279,5 +280,10 @@ const data: ProjectIdeasPageData = {
 };
 
 export default function FinalYearProjectWithSourceCode() {
-  return <ProjectIdeasPage data={data} />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'Final Year Project with Source Code', path: '/final-year-project-with-source-code' }]} />
+      <ProjectIdeasPage data={data} />
+    </>
+  );
 }

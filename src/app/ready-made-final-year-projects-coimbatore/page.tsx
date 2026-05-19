@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ProjectIdeasPage, { type ProjectIdeasPageData } from '@/components/ProjectIdeasPage';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 
 const siteUrl = 'https://www.innoprojects.in';
 const pageUrl = `${siteUrl}/ready-made-final-year-projects-coimbatore`;
@@ -279,5 +280,10 @@ const data: ProjectIdeasPageData = {
 };
 
 export default function ReadyMadeFinalYearProjectsCoimbatore() {
-  return <ProjectIdeasPage data={data} />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'Ready Made Final Year Projects Coimbatore', path: '/ready-made-final-year-projects-coimbatore' }]} />
+      <ProjectIdeasPage data={data} />
+    </>
+  );
 }
