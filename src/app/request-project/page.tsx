@@ -102,6 +102,7 @@ const InnoProjectsForm: React.FC = () => {
         phoneNumber: '',
         collegeName: '',
         department: '',
+        yearOfStudy: '',
         domain: '',
         collegeMailId: '',
         projectTitle: '',
