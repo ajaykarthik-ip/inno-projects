@@ -19,7 +19,7 @@ const SidebarMenu: React.FC = () => {
 
   const navItems: NavItem[] = [
     { type: 'link', name: 'Project List',      icon: 'list',      path: '/project-titles' },
-    { type: 'link', name: 'Project Videos',    icon: 'monitor',   path: '/projects' },
+    // { type: 'link', name: 'Project Videos',    icon: 'monitor',   path: '/projects' },
     { type: 'link', name: 'Request a Project', icon: 'code-plus', path: '/request-project' },
     { type: 'link', name: 'Project Center',    icon: 'map-pin',   path: '/project-center-in-coimbatore' },
     { type: 'link', name: 'IEEE Journal',      icon: 'file-text', path: '/ieee-journal' },
