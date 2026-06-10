@@ -1,6 +1,24 @@
 import Link from 'next/link';
 import './DomainPage.css';
 
+const RELATED_LINKS: { href: string; label: string }[] = [
+  { href: '/project-center-in-coimbatore', label: 'Best Final Year Project Center in Coimbatore' },
+  { href: '/cse-final-year-projects-coimbatore', label: 'CSE Final Year Projects in Coimbatore' },
+  { href: '/ece-final-year-projects-coimbatore', label: 'ECE Final Year Projects in Coimbatore' },
+  { href: '/mca-final-year-projects-coimbatore', label: 'MCA Final Year Projects in Coimbatore' },
+  { href: '/machine-learning-projects-coimbatore', label: 'Machine Learning Projects in Coimbatore' },
+  { href: '/python-projects-coimbatore', label: 'Python Projects in Coimbatore' },
+  { href: '/web-development-projects-coimbatore', label: 'Web Development Projects in Coimbatore' },
+  { href: '/ieee-projects-coimbatore-2026', label: 'IEEE Projects in Coimbatore 2026' },
+  { href: '/ready-made-final-year-projects-coimbatore', label: 'Ready-Made Final Year Projects' },
+  { href: '/final-year-project-with-source-code', label: 'Final Year Project with Source Code' },
+  { href: '/ieee-2026-project-titles-list', label: 'IEEE 2026 Project Titles List' },
+  { href: '/cse-project-titles-2026', label: 'CSE Project Titles 2026' },
+  { href: '/machine-learning-project-ideas-2026', label: 'Machine Learning Project Ideas 2026' },
+  { href: '/python-project-ideas-for-students', label: 'Python Project Ideas for Students' },
+  { href: '/blog/top-10-final-year-project-centers-in-coimbatore', label: 'Top 10 Project Centers in Coimbatore' },
+];
+
 export interface ProjectTitle {
   title: string;
   tech: string;
@@ -158,6 +176,18 @@ export default function DomainPage({ data }: DomainPageProps) {
               </div>
             ))}
           </dl>
+        </section>
+
+        {/* ── Related Pages (internal linking for SEO) ─── */}
+        <section className="dp-section">
+          <h2 className="dp-section-title">Explore More Final Year Project Pages</h2>
+          <ul className="dp-related-grid" role="list">
+            {RELATED_LINKS.map((l) => (
+              <li key={l.href} className="dp-related-item">
+                <Link href={l.href} className="dp-related-link">{l.label}</Link>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* ── CTA ──────────────────────────────────────── */}

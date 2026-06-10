@@ -179,6 +179,96 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           'https://www.linkedin.com/company/innoprojects',
           'https://www.youtube.com/@innoprojects',
         ],
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '5.0',
+          bestRating: '5',
+          worstRating: '1',
+          ratingCount: '54',
+          reviewCount: '54',
+        },
+        review: [
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Keerthanaa Prabakaran' },
+            datePublished: '2026-06-09',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+            reviewBody:
+              'Excellent experience with Inno Project Centre. Developer Richard provided clear explanations, valuable guidance and complete project support.',
+          },
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Rakesh Roshan' },
+            datePublished: '2026-06-04',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+            reviewBody:
+              'Got a MERN stack project at the last minute — worth purchasing and good mentorship.',
+          },
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Vinotha T' },
+            datePublished: '2026-05-13',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+            reviewBody:
+              'Good project centre — got my machine learning project at a very low price and very good quality. Extremely professional team and they even gave me a cash back after referring my friends.',
+          },
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Hari Haran' },
+            datePublished: '2026-04-15',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+            reviewBody:
+              'I had a wonderful experience working with the developer and the project development. I got my project on time.',
+          },
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Dhiyanesh' },
+            datePublished: '2026-03-04',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+            reviewBody:
+              'Good project center with affordable, very good quality project. The trainer was excellent in teaching — explained terms like he was explaining to a kid. I really appreciate their patience and skill.',
+          },
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Atchu Shanmugam' },
+            datePublished: '2026-02-25',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+            reviewBody:
+              'If we explain about the Inno project, they will complete the full work even if we pay a part of the amount. For the remaining balance, they give us some time to pay — very student-friendly.',
+          },
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Janani Kannan' },
+            datePublished: '2026-02-18',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+            reviewBody:
+              'I had a wonderful experience working with this developer (Ajay). He is highly dedicated, responsible and clear in explanation. Strongly recommend Inno Projects.',
+          },
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Girish Fab' },
+            datePublished: '2026-01-21',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+            reviewBody:
+              'Well taught the concept and delivered on time. Free documentation without any issues and budget friendly for me as a final year student.',
+          },
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Muthuvel M' },
+            datePublished: '2025-12-17',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+            reviewBody:
+              'Best project center — very low price, experienced staff guided me through and they did not hesitate to explain the project even at midnight. Really worth the money. Best Project Center in Coimbatore.',
+          },
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Amlesh Mondol' },
+            datePublished: '2025-10-22',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+            reviewBody:
+              'We are from Bangalore — they helped us till the last moment in a tight deadline. Very nice and clearly explained, very helpful, very low price. Value for money.',
+          },
+        ],
       },
       {
         '@type': 'WebSite',

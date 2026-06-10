@@ -41,6 +41,8 @@ const Footer: React.FC = () => {
               <li><Link href="/project-center-in-coimbatore">Project Center</Link></li>
               <li><Link href="/ieee-journal">IEEE Journal</Link></li>
               <li><Link href="/blog">Tips &amp; Tricks</Link></li>
+              <li><Link href="/reviews">Reviews (5.0★)</Link></li>
+              <li><Link href="/site-map">Site Map</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
               <li><Link href="/about">About Us</Link></li>
               <li><Link href="/contact">Contact Us</Link></li>

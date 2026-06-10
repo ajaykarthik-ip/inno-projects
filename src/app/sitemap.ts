@@ -48,6 +48,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.80,
     },
     {
+      url: `${siteUrl}/reviews`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.90,
+    },
+    {
+      url: `${siteUrl}/site-map`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.70,
+    },
+    {
       url: `${siteUrl}/project`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -164,6 +176,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     // ── Blog posts ───────────────────────────────────────────
+    {
+      url: `${siteUrl}/blog/top-10-final-year-project-centers-in-coimbatore`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
     {
       url: `${siteUrl}/blog/how-to-choose-a-final-year-project-title`,
       lastModified: new Date(),

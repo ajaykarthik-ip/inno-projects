@@ -3,6 +3,7 @@ import ReferEarnBanner from '@/components/ReferEarnBanner';
 import HowItWorks from '@/components/HowItWorks';
 import BrowseByDomain from '@/components/BrowseByDomain';
 import TrendingProjects from '@/components/TrendingProjects';
+import ExploreAllPages from '@/components/ExploreAllPages';
 import SidebarInitializer from '@/components/SidebarInitializer';
 
 export default function Home() {
@@ -20,6 +21,9 @@ export default function Home() {
         </div>
         <div className="content-section">
           <TrendingProjects />
+        </div>
+        <div className="content-section">
+          <ExploreAllPages />
         </div>
       </main>
     </div>
