@@ -101,7 +101,10 @@ const TrendingProjects: React.FC = () => {
                 className="tp-card-btn"
                 aria-label={`Get the project: ${project.title}`}
               >
-                Get This Project →
+                Get This Project
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </a>
             </article>
           ))}
@@ -113,7 +116,10 @@ const TrendingProjects: React.FC = () => {
             href="/machine-learning-project-ideas-2026"
             className="tp-view-all"
           >
-            View All Project Ideas →
+            View All Project Ideas
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </Link>
         </div>
       </div>

@@ -13,12 +13,13 @@ export const metadata: Metadata = {
 };
 
 const posts = [
-  {
-    slug: 'top-10-final-year-project-centers-in-coimbatore',
-    title: 'Top 10 Final Year Project Centers in Coimbatore 2026',
-    excerpt: 'Honest 2026 ranking of project centers in Coimbatore — by Google reviews, domains covered, source code support and student outcomes. Updated June 2026.',
-    tag: 'Project Centers', readTime: '10 min read', date: 'June 2026', icon: '⭐',
-  },
+  // DISABLED — page kept as dead code in /blog/_top-10-... (decide later)
+  // {
+  //   slug: 'top-10-final-year-project-centers-in-coimbatore',
+  //   title: 'Top 10 Final Year Project Centers in Coimbatore 2026',
+  //   excerpt: 'Honest 2026 ranking of project centers in Coimbatore — by Google reviews, domains covered, source code support and student outcomes. Updated June 2026.',
+  //   tag: 'Project Centers', readTime: '10 min read', date: 'June 2026', icon: '⭐',
+  // },
   {
     slug: 'how-final-year-projects-help-in-placement',
     title: 'How Your Final Year Project Directly Impacts Your Campus Placement',

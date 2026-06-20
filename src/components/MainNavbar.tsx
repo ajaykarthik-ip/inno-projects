@@ -63,14 +63,26 @@ const MainNavbar: React.FC = () => {
           </svg>
         </button>
 
-        {/* Logo - conditionally rendered based on current path */}
+        {/* Brand lockup — refined mark + wordmark */}
         {pathname === '/' ? (
-          <span className="main-navbar-logo neon-text">
-            Inno Projects
+          <span className="brand-lockup" aria-label="Inno Projects">
+            <span className="brand-mark" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 17 L10 11 L14 15 L20 7" />
+                <circle cx="20" cy="7" r="1.6" fill="currentColor" stroke="none" />
+              </svg>
+            </span>
+            <span className="brand-word">Inno&nbsp;Projects</span>
           </span>
         ) : (
-          <Link href="/" className="main-navbar-logo neon-text" onClick={handleLogoClick}>
-            Inno Projects
+          <Link href="/" className="brand-lockup" onClick={handleLogoClick} aria-label="Inno Projects — home">
+            <span className="brand-mark" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 17 L10 11 L14 15 L20 7" />
+                <circle cx="20" cy="7" r="1.6" fill="currentColor" stroke="none" />
+              </svg>
+            </span>
+            <span className="brand-word">Inno&nbsp;Projects</span>
           </Link>
         )}
 

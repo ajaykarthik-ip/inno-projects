@@ -35,7 +35,8 @@ const groups: Group[] = [
   {
     heading: 'Guides & Articles',
     links: [
-      { href: '/blog/top-10-final-year-project-centers-in-coimbatore', label: 'Top 10 Project Centers in Coimbatore' },
+      // DISABLED — page kept as dead code in /blog/_top-10-... (decide later)
+      // { href: '/blog/top-10-final-year-project-centers-in-coimbatore', label: 'Top 10 Project Centers in Coimbatore' },
       { href: '/blog/top-machine-learning-project-ideas', label: 'Top 10 ML Project Ideas' },
       { href: '/blog/top-deep-learning-project-ideas', label: 'Top Deep Learning Project Ideas' },
       { href: '/blog/top-iot-project-ideas-for-engineering-students', label: 'Top IoT Project Ideas' },
@@ -47,7 +48,7 @@ const groups: Group[] = [
       { href: '/blog/how-final-year-projects-help-in-placement', label: 'How Projects Help in Placement' },
       { href: '/blog/ieee-vs-non-ieee-final-year-projects', label: 'IEEE vs Non-IEEE Projects' },
       { href: '/blog/python-vs-java-for-final-year-projects', label: 'Python vs Java for Projects' },
-      { href: '/blog', label: 'All Blog Articles →' },
+      { href: '/blog', label: 'All Blog Articles' },
     ],
   },
   {

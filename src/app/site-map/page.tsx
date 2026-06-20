@@ -75,7 +75,8 @@ const sections: Section[] = [
     description: 'Practical guides for engineering final year students.',
     links: [
       { href: '/blog', label: 'Blog — All Articles' },
-      { href: '/blog/top-10-final-year-project-centers-in-coimbatore', label: 'Top 10 Final Year Project Centers in Coimbatore' },
+      // DISABLED — page kept as dead code in /blog/_top-10-... (decide later)
+      // { href: '/blog/top-10-final-year-project-centers-in-coimbatore', label: 'Top 10 Final Year Project Centers in Coimbatore' },
       { href: '/blog/top-machine-learning-project-ideas', label: 'Top Machine Learning Project Ideas' },
       { href: '/blog/top-deep-learning-project-ideas', label: 'Top Deep Learning Project Ideas' },
       { href: '/blog/top-iot-project-ideas-for-engineering-students', label: 'Top IoT Project Ideas for Engineering Students' },

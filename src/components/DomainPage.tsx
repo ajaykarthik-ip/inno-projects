@@ -16,7 +16,8 @@ const RELATED_LINKS: { href: string; label: string }[] = [
   { href: '/cse-project-titles-2026', label: 'CSE Project Titles 2026' },
   { href: '/machine-learning-project-ideas-2026', label: 'Machine Learning Project Ideas 2026' },
   { href: '/python-project-ideas-for-students', label: 'Python Project Ideas for Students' },
-  { href: '/blog/top-10-final-year-project-centers-in-coimbatore', label: 'Top 10 Project Centers in Coimbatore' },
+  // DISABLED — page kept as dead code in /blog/_top-10-... (decide later)
+  // { href: '/blog/top-10-final-year-project-centers-in-coimbatore', label: 'Top 10 Project Centers in Coimbatore' },
 ];
 
 export interface ProjectTitle {
